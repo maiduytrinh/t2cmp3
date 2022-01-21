@@ -34,7 +34,7 @@ function callAPIAlbum(){
     redirect: 'follow'
     };
 
-    fetch("https://14.228.23.16:8080/api/albums/", requestOptions)
+    fetch("http://14.228.23.16:8080/api/albums/", requestOptions)
     .then(response => response.json())
     .then(
         function(results){
@@ -63,7 +63,7 @@ function callAPIBXH(){
         redirect: 'follow'
       };
       
-      fetch("https://14.228.23.16:8080/api/songs/top10", requestOptions)
+      fetch("http://14.228.23.16:8080/api/songs/top10", requestOptions)
         .then(response => response.json())
         .then(function(results){
                 
@@ -117,7 +117,7 @@ function callAPIArtist(){
     redirect: 'follow'
     };
 
-    fetch("https://14.228.23.16:8080/api/artist/", requestOptions)
+    fetch("http://14.228.23.16:8080/api/artist/", requestOptions)
     .then(response => response.json())
     .then(
         function(results){
