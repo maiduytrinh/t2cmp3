@@ -1,0 +1,189 @@
+section.introduction {
+    display: flex;
+    height: 500px;
+    padding: 0px 20px;
+    align-items: center;
+
+}
+
+.introduction .thumb img {
+    height: 450px;
+    width: 100%;
+}
+
+.introduction .text-intro {
+    width: calc(100% - 470px);
+    height: 400px;
+}
+
+.introduction .text-intro h1 {
+    font-size: 29px;
+}
+
+.introduction .text-intro p {
+    margin-top: 20px;
+    color: #777777;
+}
+
+.text-intro .btn-intro {
+    margin-top: 50px;
+    display: flex;
+}
+
+.text-intro .btn-intro a {
+    text-decoration: none;
+}
+
+.text-intro .btn-intro .btn-listen {
+    background-color: #3bc8e7;
+    color: #fff;
+    border-radius: 20px;
+    text-transform: capitalize;
+    text-align: center;
+    padding: 10px 10px;
+    height: 40px;
+    width: 100%;
+    margin-right: 25px;
+    margin-left: 0;
+    max-width: 150px;
+    font-weight: 600;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+}
+
+.rcnt_slider .view-all {
+    float: right;
+    position: relative;
+    top: 0px;
+    right: 0px;
+}
+
+.rcnt_slider .heading .view-all a {
+    color: #fff;
+}
+
+.rcnt_slider .album {
+    display: flex;
+    height: 350px;
+}
+
+.rcnt_slider .album a {
+    text-decoration: none;
+}
+
+.rcnt_slider .album .album-item {
+    padding: 5px;
+    width: 20%;
+    
+}
+
+.rcnt_slider .album .album-item img {
+    width: 100%;
+    height: 60%;
+    border-radius: 10px;
+}
+
+.rcnt_slider .album .album-item h2 {
+    margin-top: 20px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.rcnt_slider .album .album-item p {
+    color: #fff;
+    font-size: 14px;
+}
+
+.rcnt_slider .artist {
+    display: flex;
+    height: 350px;
+}
+
+.rcnt_slider .artist a {
+    text-decoration: none;
+}
+
+.rcnt_slider .artist .artist-item {
+    padding: 5px;
+    width: 20%;
+    
+}
+
+.rcnt_slider .artist .artist-item img {
+    width: 100%;
+    height: 60%;
+    border-radius: 10px;
+}
+
+.rcnt_slider .artist .artist-item h2 {
+    margin-top: 20px;
+    color: #3bc8e7;
+    font-size: 14px;
+}
+
+.rcnt_slider .artist .artist-item p {
+    color: #fff;
+    font-size: 14px;
+}
+
+.rcnt_slider .bxh .bxh-item .bxh-ranking {
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    margin: auto 0;
+}
+
+.rcnt_slider .bxh .bxh-item {
+    border-bottom: 1.5px solid #1b2039;
+}
+
+.rcnt_slider .bxh .bxh-item .info-player {
+    width: 20%;
+    text-align: left;
+    margin: auto 0;
+}
+
+.rcnt_slider .bxh .bxh-item .btn-add-to-playlist {
+    border: 0;
+    background-color: transparent;
+    margin: auto 0;
+    color: #fff;
+    font-size: 24px;
+}
+
+.rcnt_slider .row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+  
+/* Create four equal columns that sits next to each other */
+.rcnt_slider .row .column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+  
+.rcnt_slider .row .column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+  
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 800px) {
+    .rcnt_slider .row  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    .rcnt_slider .row  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
