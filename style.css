@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+:root {
+    --height-default: 65px;
+    --width-expand: 265px
+}
+
+.container {
+   
+}
+
+.aside {
+    background-color: #ffffff;
+    width: var(--width-expand);
+    padding: 10px;
+    box-shadow: 0 0 20px 0 rgb(82 63 105 / 5%);
+}
+
+.aside.collapse {
+    width: var(--height-default);
+    padding: 0px;
+    transition: transform 0.2s ease;
+}
+
+.aside .st-logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+    padding: 0 25px;
+    flex: none;
+}
+
+.btn-right {
+    background-color: transparent;
+    border: 0;
+}
+.btn:focus {
+    outline: 0;
+}
+
+.h-25px {
+    height: 25px !important;
+}
+
+.h-30px {
+    height: 30px !important;
+}
+
+.menu-item a {
+    text-decoration: none;
+}
+
+.header {
+    background: #ffffff;
+    width: 100% ;
+    height: var(--height-default);
+    display: flex;
+    padding: 10px 30px;
+}
+
+.header.active {
+   
+}
+
+.content {
+    padding: 30px;
+    background: light;
+    width: 100%;
+    height: 500px;
+}
+.toolbar {
+    background-color: #ffffff;
+    border-top: 1px solid #EFF2F5;
+    padding: 10px 30px;
+}
+
+.flex-stack {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-admin {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    height: max-content;
+}
+
+.st-menu {
+    height: 200px;
+    padding: 0 10px;
+    margin: 30px;
+}
+
+.aside .st-menu a {
+    text-decoration: none;
+    margin-left: 10px;
+    color: #000000;
+}
+
+.aside .menu-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #000000;
+    margin-top: 25px;
+}
+

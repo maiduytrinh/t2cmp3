@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Admin bài hát</title>
+</head>
+
+<body class="bg-light">
+    <div class="d-flex flex-column flex-root">
+        <div class="d-flex flex-column flex-root">
+            <div class="d-flex flex-row flex-column-fluid">
+                <div class="d-flex flex-column aside">
+                    <div class="st-logo">
+                        <img src="logo.png" class="h-30px" alt="">
+                        <button class="btn-right"><i class="fas fa-angle-double-right"></i></button>
+                    </div>
+                    <div class="st-menu">
+                        <div class="menu-item">
+                            <i class="fas fa-compact-disc menu-icon"></i>
+                            <a href="./admin-album.html">Album</a>
+                        </div>
+                        <div class="menu-item">
+                            <i class="fas fa-music"></i>
+                            <a href="./admin-bai-hat.html">Bài hát</a>
+                        </div>
+                        <div class="menu-item">
+                            <i class="fas fa-user"></i>
+                            <a href="./admin-nghe-si.html">Nghệ sĩ</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="d-flex flex-column" style="width: 100%;">
+                    <div class="d-flex header flex-row-reverse bg-dark">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <li><button class="dropdown-item" type="button">Action</button></li>
+                                <li><button class="dropdown-item" type="button">Another action</button></li>
+                                <li><button class="dropdown-item" type="button">Something else here</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="toolbar">
+                        <div id="toolbar_container" class="container-fluid d-md-flex flex-stack">
+                            <div class="py-1">
+                                <div class="d-flex align-items-center position-relative"><i
+                                        class="las la-search fs-2 position-absolute ms-6"></i> <input type="text"
+                                        placeholder="Nhập tên bài hát"
+                                        class="form-control form-control-sm form-control-solid w-100 w-md-250px ps-15">
+                                </div>
+                            </div>
+                            <a href="./admin-tao-bai-hat-moi.html" class="btn btn-sm btn-primary ms-3">
+                                Thêm mới
+                            </a>
+                        </div>
+                    </div>
+                    <div class="content d-flex flex-column flex-column-fluid">
+                        <div class="card-admin">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>#</th>
+                                            <th>ID</th>
+                                            <th>Tên bài hát</th>
+                                            <th>Thời gian</th>
+                                            <th>Lượt nghe</th>
+                                            <th>Nghệ sĩ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>John</td>
+                                            <td>Doe</td>
+                                            <td>john@example.com</td>
+                                            <td>john@example.com</td>
+                                            <td>john@example.com</td>
+                                            <td>john@example.com</td>
+                                            <td>john@example.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td>John</td>
+                                            <td>Doe</td>
+                                            <td>john@example.com</td>
+                                            <td>john@example.com</td>
+                                            <td>john@example.com</td>
+                                            <td>john@example.com</td>
+                                            <td>john@example.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td>John</td>
+                                            <td>Doe</td>
+                                            <td>john@example.com</td>
+                                            <td>john@example.com</td>
+                                            <td>john@example.com</td>
+                                            <td>john@example.com</td>
+                                            <td>john@example.com</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="d-flex justify-content-between mt-3">
+                                <div class="d-flex">
+                                    <div class="dataTables_length"><label><select
+                                                class="form-select form-select-sm form-select-solid">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select></label></div>
+                                    <div class="ms-2">Từ 1 đến 11 / Tổng 3</div>
+
+                                </div>
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
