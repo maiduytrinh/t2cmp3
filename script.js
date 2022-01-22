@@ -159,7 +159,6 @@ queue_expand.addEventListener('click', () => {
     queue_wrapper.style.display
 })
 
-<<<<<<< HEAD
 const panels = document.querySelectorAll('.panel')
 
 panels.forEach (panel => {
@@ -175,7 +174,3 @@ function removeActiveClass() {
         panel.classList.remove('active')
     })
 }
-=======
-
-
->>>>>>> 4e71d5c64f01b0f43c39186e294efca3f16e1550
