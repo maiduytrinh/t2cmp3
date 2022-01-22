@@ -11,13 +11,9 @@ body {
     --width-expand: 265px
 }
 
-<<<<<<< HEAD
-
-=======
 .main_wrapper {
    
 }
->>>>>>> 4e71d5c64f01b0f43c39186e294efca3f16e1550
 
 .main-aside {
     width: 80px;
@@ -142,10 +138,7 @@ body {
     transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
     display: flex;
-<<<<<<< HEAD
-=======
     visibility: hidden;
->>>>>>> 4e71d5c64f01b0f43c39186e294efca3f16e1550
 }
 
 

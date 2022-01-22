@@ -99,11 +99,7 @@ section.introduction {
 
 .rcnt_slider .artist {
     display: flex;
-<<<<<<< HEAD
     height: 280px;
-=======
-    height: 350px;
->>>>>>> 4e71d5c64f01b0f43c39186e294efca3f16e1550
 }
 
 .rcnt_slider .artist a {
@@ -190,7 +186,6 @@ section.introduction {
     flex: 100%;
     max-width: 100%;
   }
-<<<<<<< HEAD
 }
 
 .container-the-loai {
@@ -258,6 +253,4 @@ section.introduction {
     height: 80px;
     width: 100%;
     background-color: #1b2039;
-=======
->>>>>>> 4e71d5c64f01b0f43c39186e294efca3f16e1550
 }
