@@ -12,7 +12,7 @@ const img = $('.flex-shrink-0')
 const artist = $('.art')
 const audio = $('#player2')
 const btnplay = $('.btn-toggle-play')
-// const range = $('#progress')
+const range = $('#progress')
 const btnnext = $('.fa-step-forward')
 const btnprev = $('.fa-step-backward')
 const btnRandom = $('.fa-random')
@@ -20,6 +20,8 @@ const btnRepeat = $('.fa-redo')
 let isPlaying = false
 let isRandom = false
 let isRepeat = false
+let currentIndex = 0
+let songsPlayed = []
 
 function start() {
     callAPIAlbum();
@@ -31,12 +33,9 @@ function start() {
 start()
 
 function handlePlaySong(listSong){
-    let currentIndex = 0
-    
-    let songsPlayed = []
     rendePlayList(listSong)
     loadCurrentSong(listSong, currentIndex)
-    handleEvent()
+    handleEvent(listSong)
      
 }
 
@@ -44,8 +43,7 @@ function rendePlayList(listSong) {
     let htmls = listSong.map(function(song, index){
         return `
             <li class="jp-playlist-current" data-index="${index}">
-                <div>
-                    <a href="" class="jp-playlist-item jp-playlist-current">
+                    <div class="jp-playlist-item jp-playlist-current">
                         <span class="ava-player" style="background-image: url(${song.image});">
                         </span>
                         <div class="name-song">
@@ -53,8 +51,7 @@ function rendePlayList(listSong) {
                             <p class="art">${song.singer}</p>
                         </div>
                         <i class="fas fa-times btn-delete"></i>
-                    </a>
-                </div>
+                    </div>
             </li>
         `
     })
@@ -62,10 +59,9 @@ function rendePlayList(listSong) {
 }
 
 //xu ly su kien
-function handleEvent(){
+function handleEvent(listSong){
 
     btnplay.onclick = function(){
-        console.log("click")
         if(isPlaying){
           audio.pause()
         }else{
@@ -84,7 +80,45 @@ function handleEvent(){
         // play.classList.remove('playing')
         // cdThumb.pause()
       }
-}
+
+      //xu ly thanh chay
+        audio.ontimeupdate = function() {
+        if(audio.duration) {
+          const rangeTime = Math.floor(audio.currentTime / audio.duration * 100)
+          range.value = rangeTime
+        }
+      }
+      //xu ly tua
+      range.oninput = function () {
+        audio.currentTime = Math.floor(this.value * audio.duration / 100)
+      }
+      range.onmousedown = function(){
+          audio.pause()
+      }
+      range.onmouseup = function(){
+        audio.play()
+      }
+      
+      //click playlist
+      playlist.onclick = function(e) {
+        const songNode = e.target.closest('li.jp-playlist-current:not(.active)')
+        if(songNode && !e.target.closest('.option')) {
+            if(songNode) {
+              currentIndex = songNode.dataset.index
+              loadCurrentSong(listSong, currentIndex)
+              audio.play()
+            }
+          }
+          if(e.target.closest('.option')){
+            console.log(e.target.closest('.option'))
+          }
+      }
+
+
+
+
+
+    }
 
 function loadCurrentSong(listSong, currentIndex){
     heading.textContent = listSong[currentIndex].name
@@ -92,12 +126,24 @@ function loadCurrentSong(listSong, currentIndex){
     artist.textContent = listSong[currentIndex].singer
     audio.src = listSong[currentIndex].path
     //load playlist
-    const isActive = $('.jp-playlist-current.active')
+    const isActive = $('li.jp-playlist-current.active')
     if (isActive) {
       isActive.classList.remove('active')
     }
-    const listElement = $$('.jp-playlist-current')
+    const listElement = $$('li.jp-playlist-current')
     listElement[currentIndex].classList.add('active')
+}
+
+function handleEventClickBXH(listSong){
+    bxh.onclick = function(e){
+        const songNode = e.target.closest('.bxh-item')
+        if(songNode){
+            playerWrapper.style.display = 'flex'
+            currentIndex = songNode.dataset.index
+            loadCurrentSong(listSong, currentIndex)
+            audio.play()
+        }
+    }
 }
 
 function handleListSong(success){
@@ -115,9 +161,7 @@ function handleListSong(success){
 
         }
     })
-    console.log(data)
-    handlePlaySong(data)
-    
+    return data
 }
 
 
@@ -169,7 +213,6 @@ function callAPIBXH(){
       fetch("http://14.228.23.16:8080/api/songs/top10", requestOptions)
         .then(response => response.json())
         .then(function(results){
-                
                 let htmls = results.map(function(song, index){
                     //get name artist
                     let listArtists = song.artistSongs.map(function(artist){
@@ -197,9 +240,12 @@ function callAPIBXH(){
                     `
                 })
                 //get bxh
-                let html = htmls.join("");
-                bxh.innerHTML = html;
-                handleListSong(results);
+                let html = htmls.join("")
+                bxh.innerHTML = html
+                let listSong = handleListSong(results)
+                console.log(listSong)
+                handlePlaySong(listSong)
+                handleEventClickBXH(listSong)
         })
         .catch(error => console.log('error', error));
 }
