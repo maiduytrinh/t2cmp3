@@ -6,24 +6,20 @@ const artistElement = $('.artist')
 const playerWrapper = $('.main-player-wrapper')
 const genres = $('.container-the-loai')
 const playlist = $('.list-ul')
-const cd = $('.flex-shrink-0')
+// const cd = $('.flex-shrink-0')
 const heading = $('.name-song-player')
-// const img = $('.cd-thumb')
+const img = $('.flex-shrink-0')
+const artist = $('.art')
 const audio = $('#player2')
-// const play = $('.player')
 const btnplay = $('.btn-toggle-play')
 // const range = $('#progress')
 const btnnext = $('.fa-step-forward')
 const btnprev = $('.fa-step-backward')
 const btnRandom = $('.fa-random')
 const btnRepeat = $('.fa-redo')
-
 let isPlaying = false
-let currentIndex = 0
 let isRandom = false
 let isRepeat = false
-let songsPlayed = []
-
 
 function start() {
     callAPIAlbum();
@@ -35,10 +31,13 @@ function start() {
 start()
 
 function handlePlaySong(listSong){
-    rendePlayList(listSong)
+    let currentIndex = 0
     
-
-       
+    let songsPlayed = []
+    rendePlayList(listSong)
+    loadCurrentSong(listSong, currentIndex)
+    handleEvent()
+     
 }
 
 function rendePlayList(listSong) {
@@ -66,12 +65,39 @@ function rendePlayList(listSong) {
 function handleEvent(){
 
     btnplay.onclick = function(){
-        if(app.isPlaying){
+        console.log("click")
+        if(isPlaying){
           audio.pause()
         }else{
           audio.play()
         }
       }
+      audio.onplay = function () {
+        isPlaying = true
+        playerWrapper.classList.add('playing')
+        // play.classList.add('playing')
+        // cdThumb.play()
+      }
+      audio.onpause = function () {
+        isPlaying = false
+        playerWrapper.classList.remove('playing')
+        // play.classList.remove('playing')
+        // cdThumb.pause()
+      }
+}
+
+function loadCurrentSong(listSong, currentIndex){
+    heading.textContent = listSong[currentIndex].name
+    img.style.backgroundImage = `url(${listSong[currentIndex].image})`
+    artist.textContent = listSong[currentIndex].singer
+    audio.src = listSong[currentIndex].path
+    //load playlist
+    const isActive = $('.jp-playlist-current.active')
+    if (isActive) {
+      isActive.classList.remove('active')
+    }
+    const listElement = $$('.jp-playlist-current')
+    listElement[currentIndex].classList.add('active')
 }
 
 function handleListSong(success){
@@ -89,7 +115,9 @@ function handleListSong(success){
 
         }
     })
+    console.log(data)
     handlePlaySong(data)
+    
 }
 
 

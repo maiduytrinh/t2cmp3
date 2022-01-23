@@ -1,7 +1,7 @@
 var player1,onplayhead,playerId,timeline,playhead,timelineWidth;
 jQuery(window).on("load", function () {
     // audioPlay();
-    ballSeek();
+    // ballSeek();
 
 });
 

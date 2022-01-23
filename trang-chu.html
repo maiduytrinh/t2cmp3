@@ -184,16 +184,26 @@
                 <div class="playlist-interface">
                     <div class="playlist-control">
                         <button><i class="fas fa-step-backward"></i></button>
-                        <button class="btn-toggle-play"><i class="fas fa-play-circle play-pause"></i></button>
+                        <button class="btn-toggle-play">
+                            <i class="fas fa-play icon-play"></i>
+                            <i class="fas fa-pause icon-pause"></i>
+                        </button>
                         <button><i class="fas fa-step-forward"></i></button>
                     </div>
                 </div>
                 <div class="progress-container">
-                    <div id="seekObjContainer">
-                        <div id="timeline1" class="progresss">
+                        <!-- <div id="timeline1" class="progresss">
                             <div id="seekObj1" class="seek-bar" style="margin-left: 0px;"></div>
-                        </div>
-                    </div>
+                        </div> -->
+                    <input
+                        id="progress"
+                        class="progress"
+                        type="range"
+                        value="0"
+                        step="1"
+                        min="0"
+                        max="100"
+                    />
                     <div class="player-controls scrubber">
                         <small class="start-time"></small>
                         <small class="end-time"></small>
