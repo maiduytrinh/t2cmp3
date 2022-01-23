@@ -171,11 +171,10 @@
         <div class="main-player-wrapper">
             <div class="audio-play">
                 <div class="d-flex align-items-center info-player">
-                    <div class="flex-shrink-0">
-                        <img src="./assets/img/rock.jpg" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                    <div class="flex-shrink-0" style="background-image: url(http://14.228.23.16:8080/image/hay_trao_cho_anh.jpg);">
                     </div>
                     <div class="flex-grow-1 ms-3 name-song">
-                        <p class="name">Âm thầm bên em</p>
+                        <p class="name name-song-player">Âm thầm bên em</p>
                         <p class="art">Sơn Tùng MTP</p>
                     </div>
                 </div>
@@ -185,7 +184,7 @@
                 <div class="playlist-interface">
                     <div class="playlist-control">
                         <button><i class="fas fa-step-backward"></i></button>
-                        <button><i class="fas fa-play-circle play-pause"></i></button>
+                        <button class="btn-toggle-play"><i class="fas fa-play-circle play-pause"></i></button>
                         <button><i class="fas fa-step-forward"></i></button>
                     </div>
                 </div>
@@ -220,59 +219,13 @@
                 </div>
 
             </div>
-            <div class="queue-expand" role="button" style="display: none;">
+            <div class="queue-expand" role="button" >
                 <i class="fas fa-times btn-close"></i>
                 <h3>Danh sách phát</h3>
                 <div class="list-player">
                     <div class="mCustomScrollBox">
-                        <ul>
-                            <li class="jp-playlist-current">
-                                <div>
-                                    <a href="" class="jp-playlist-item jp-playlist-current">
-                                        <span class="ava-player">
-                                            <img src="./assets/img/rock.jpg"
-                                                style="height: 50px; width: 50px; border-radius: 5px;" alt="">
-                                        </span>
-                                        <div class="name-song">
-                                            <p class="name">Âm thầm bên em</p>
-                                            <p class="art">Sơn Tùng MTP</p>
-                                        </div>
-                                        <i class="fas fa-times btn-delete"></i>
-                                    </a>
-                                </div>
-                            </li>
-                            <li style="cursor: pointer;">
-                                <div>
-                                    <a href="" class="jp-playlist-item jp-playlist-current">
-                                        <span class="ava-player">
-                                            <img src="./assets/img/rock.jpg"
-                                                style="height: 50px; width: 50px; border-radius: 5px;" alt="">
-                                        </span>
-                                        <div class="name-song">
-                                            <p class="name">Âm thầm bên em</p>
-                                            <p class="art">Sơn Tùng MTP</p>
-                                        </div>
-                                        <i class="fas fa-times btn-delete"></i>
-                                    </a>
-                                </div>
-                            </li>
-                            <li style="cursor: pointer;">
-                                <div>
-                                    <a href="" class="jp-playlist-item jp-playlist-current">
-                                        <span class="ava-player">
-                                            <img src="./assets/img/rock.jpg"
-                                                style="height: 50px; width: 50px; border-radius: 5px;" alt="">
-                                        </span>
-                                        <div class="name-song">
-                                            <p class="name">Âm thầm bên em</p>
-                                            <p class="art">Sơn Tùng MTP</p>
-                                        </div>
-                                        <i class="fas fa-times btn-delete"></i>
-                                    </a>
-                                </div>
-                            </li>
-                            <li></li>
-                            <li></li>
+                        <ul class="list-ul">
+                            
                         </ul>
                     </div>
 

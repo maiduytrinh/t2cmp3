@@ -1,18 +1,18 @@
 var player1,onplayhead,playerId,timeline,playhead,timelineWidth;
 jQuery(window).on("load", function () {
-    audioPlay();
+    // audioPlay();
     ballSeek();
 
 });
 
-function audioPlay() {
-    /*var player = document.getElementById("player2");*/
-  var player = $("#player2")[0];
-  //alert(player);
-    player.play();
-    initProgressBar();
-    isPlaying = true;
-}
+// function audioPlay() {
+//     /*var player = document.getElementById("player2");*/
+//   var player = $("#player2")[0];
+//   //alert(player);
+//     player.play();
+//     initProgressBar();
+//     isPlaying = true;
+// }
 
 function initProgressBar() {
   jQuery(".play-pause").empty().text("");

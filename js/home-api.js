@@ -3,19 +3,95 @@ const $ = document.querySelector.bind(document)
 const album = $('.album')
 const bxh = $('.bxh')
 const artistElement = $('.artist')
-let data = [];
+const playerWrapper = $('.main-player-wrapper')
+const genres = $('.container-the-loai')
+const playlist = $('.list-ul')
+const cd = $('.flex-shrink-0')
+const heading = $('.name-song-player')
+// const img = $('.cd-thumb')
+const audio = $('#player2')
+// const play = $('.player')
+const btnplay = $('.btn-toggle-play')
+// const range = $('#progress')
+const btnnext = $('.fa-step-forward')
+const btnprev = $('.fa-step-backward')
+const btnRandom = $('.fa-random')
+const btnRepeat = $('.fa-redo')
+
+let isPlaying = false
+let currentIndex = 0
+let isRandom = false
+let isRepeat = false
+let songsPlayed = []
+
+
 function start() {
     callAPIAlbum();
     callAPIBXH();
     callAPIArtist();
-
+    callAPIGenres();
 }
 
-console.log(data)
+start()
 
-function getListSong(success){
-    data.push(success.albums);
+function handlePlaySong(listSong){
+    rendePlayList(listSong)
+    
+
+       
 }
+
+function rendePlayList(listSong) {
+    let htmls = listSong.map(function(song, index){
+        return `
+            <li class="jp-playlist-current" data-index="${index}">
+                <div>
+                    <a href="" class="jp-playlist-item jp-playlist-current">
+                        <span class="ava-player" style="background-image: url(${song.image});">
+                        </span>
+                        <div class="name-song">
+                            <p class="name">${song.name}</p>
+                            <p class="art">${song.singer}</p>
+                        </div>
+                        <i class="fas fa-times btn-delete"></i>
+                    </a>
+                </div>
+            </li>
+        `
+    })
+    playlist.innerHTML = htmls.join('')
+}
+
+//xu ly su kien
+function handleEvent(){
+
+    btnplay.onclick = function(){
+        if(app.isPlaying){
+          audio.pause()
+        }else{
+          audio.play()
+        }
+      }
+}
+
+function handleListSong(success){
+    let data = success.map(function(song){
+        //get name artist
+        let listArtists = song.artistSongs.map(function(artist){
+            return artist.artists.fullName
+        })
+        let artists = listArtists.join(", ")
+        return {
+            name: song.title,
+            singer: artists,
+            path: song.mediaUrl,
+            image: song.image
+
+        }
+    })
+    handlePlaySong(data)
+}
+
 
 function callAPIAlbum(){
     let myHeaders = new Headers();
@@ -52,8 +128,7 @@ function callAPIAlbum(){
             //get list album
             let html = htmls.join("");
             album.innerHTML = html;
-            getListSong(results)
-        })
+    })
     .catch(error => console.log('error', error));
 }
 
@@ -75,7 +150,7 @@ function callAPIBXH(){
                     let artists = listArtists.join(", ")
                     // console.log(song.artistSongs[0].artists.fullName)
                     return `
-                        <div class="d-flex bd-highlight mb-2 bxh-item" data-index="${song.id}">
+                        <div class="d-flex bd-highlight mb-2 bxh-item" data-index="${index}">
                         <p class="bd-highlight bxh-ranking p-2">${String("0" + (index + 1)).slice(-2)}</p>
                         <div class="info-player p-2 bd-highlight ms-3">
                             <span class="ava-player">
@@ -96,6 +171,7 @@ function callAPIBXH(){
                 //get bxh
                 let html = htmls.join("");
                 bxh.innerHTML = html;
+                handleListSong(results);
         })
         .catch(error => console.log('error', error));
 }
@@ -139,4 +215,36 @@ function callAPIArtist(){
     
 }
 
-start()
+function callAPIGenres(){
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+    "page": 1,
+    "size": 5,
+    "order": ""
+    });
+
+    var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+    };
+
+    fetch("http://14.228.23.16:8080/api/genres/", requestOptions)
+    .then(response => response.json())
+    .then(function(results){
+        let htmls = results.genres.map(genre =>
+            `<div class="panel active"
+                                style="background-image: url(${genre.image})">
+                                <h3>${genre.genresName}</h3>
+            </div>`
+        )
+        genres.innerHTML = htmls.join('')
+
+    })
+    .catch(error => console.log('error', error));
+}
+
+
