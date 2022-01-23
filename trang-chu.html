@@ -168,10 +168,11 @@
             </div>
         </div>
 
-        <div class="main-player-wrapper">
+        <div class="main-player-wrapper d-flex justify-content-between">
             <div class="audio-play">
                 <div class="d-flex align-items-center info-player">
-                    <div class="flex-shrink-0" style="background-image: url(http://14.228.23.16:8080/image/hay_trao_cho_anh.jpg);">
+                    <div class="flex-shrink-0"
+                        style="background-image: url(http://14.228.23.16:8080/image/hay_trao_cho_anh.jpg);">
                     </div>
                     <div class="flex-grow-1 ms-3 name-song">
                         <p class="name name-song-player">Âm thầm bên em</p>
@@ -192,18 +193,10 @@
                     </div>
                 </div>
                 <div class="progress-container">
-                        <!-- <div id="timeline1" class="progresss">
+                    <!-- <div id="timeline1" class="progresss">
                             <div id="seekObj1" class="seek-bar" style="margin-left: 0px;"></div>
                         </div> -->
-                    <input
-                        id="progress"
-                        class="progress"
-                        type="range"
-                        value="0"
-                        step="1"
-                        min="0"
-                        max="100"
-                    />
+                    <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100" />
                     <div class="player-controls scrubber">
                         <small class="start-time"></small>
                         <small class="end-time"></small>
@@ -221,21 +214,21 @@
                         <button><i class="fas fa-redo"></i></button>
                     </div>
                 </div>
-                <div class="queue-wrapper" role="button">
-                    <span class="que-text">
-                        <i class="fa fa-angle-up me-2"></i>
-                        Danh sách phát
-                    </span>
-                </div>
-
             </div>
-            <div class="queue-expand" role="button" >
-                <i class="fas fa-times btn-close"></i>
+
+            <div class="queue-wrapper" role="button">
+                <span class="que-text">
+                    <i class="fa fa-angle-up me-2"></i>
+                    Danh sách phát
+                </span>
+            </div>
+            <div class="queue-expand" role="button">
+                <i class="fas fa-times btn-closee"></i>
                 <h3>Danh sách phát</h3>
                 <div class="list-player">
                     <div class="mCustomScrollBox">
                         <ul class="list-ul">
-                            
+
                         </ul>
                     </div>
 

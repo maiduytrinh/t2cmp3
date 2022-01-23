@@ -45,7 +45,7 @@ function rendePlayList(listSong) {
     let htmls = listSong.map(function(song, index){
         return `
             <li class="jp-playlist-current" data-index="${index}">
-                    <div class="jp-playlist-item jp-playlist-current">
+                    <div class="jp-playlist-item jp-playlist-current d-flex justify-content-between">
                         <span class="ava-player" style="background-image: url(${song.image});">
                         </span>
                         <div class="name-song">
