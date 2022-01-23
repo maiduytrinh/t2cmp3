@@ -310,6 +310,14 @@ body {
     font-size: 25px;
 }
 
+.fa-random.active {
+    color: #36c2e1;
+}
+
+.fa-redo.active {
+    color: #36c2e1;
+}
+
 /* div#timeline1 {
     width: 100%;
     display: block;

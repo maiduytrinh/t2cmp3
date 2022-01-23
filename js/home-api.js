@@ -17,6 +17,8 @@ const btnnext = $('.fa-step-forward')
 const btnprev = $('.fa-step-backward')
 const btnRandom = $('.fa-random')
 const btnRepeat = $('.fa-redo')
+const btnPlayList = $('.queue-wrapper')
+const btnClosePlayList = $('.btn-close')
 let isPlaying = false
 let isRandom = false
 let isRepeat = false
@@ -68,59 +70,155 @@ function handleEvent(listSong){
           audio.play()
         }
       }
-      audio.onplay = function () {
-        isPlaying = true
-        playerWrapper.classList.add('playing')
-        // play.classList.add('playing')
-        // cdThumb.play()
-      }
-      audio.onpause = function () {
-        isPlaying = false
-        playerWrapper.classList.remove('playing')
-        // play.classList.remove('playing')
-        // cdThumb.pause()
-      }
+    audio.onplay = function () {
+    isPlaying = true
+    playerWrapper.classList.add('playing')
+    // play.classList.add('playing')
+    cdThumb.play()
+    }
+    audio.onpause = function () {
+    isPlaying = false
+    playerWrapper.classList.remove('playing')
+    // play.classList.remove('playing')
+    cdThumb.pause()
+    }
 
-      //xu ly thanh chay
-        audio.ontimeupdate = function() {
-        if(audio.duration) {
-          const rangeTime = Math.floor(audio.currentTime / audio.duration * 100)
-          range.value = rangeTime
-        }
-      }
-      //xu ly tua
-      range.oninput = function () {
-        audio.currentTime = Math.floor(this.value * audio.duration / 100)
-      }
-      range.onmousedown = function(){
-          audio.pause()
-      }
-      range.onmouseup = function(){
-        audio.play()
-      }
+    //xu ly thanh chay
+    audio.ontimeupdate = function() {
+    if(audio.duration) {
+        const rangeTime = Math.floor(audio.currentTime / audio.duration * 100)
+        range.value = rangeTime
+    }
+    }
+    //xu ly tua
+    range.oninput = function () {
+    audio.currentTime = Math.floor(this.value * audio.duration / 100)
+    }
+    range.onmousedown = function(){
+        audio.pause()
+    }
+    range.onmouseup = function(){
+    audio.play()
+    }
       
-      //click playlist
-      playlist.onclick = function(e) {
-        const songNode = e.target.closest('li.jp-playlist-current:not(.active)')
-        if(songNode && !e.target.closest('.option')) {
-            if(songNode) {
-              currentIndex = songNode.dataset.index
-              loadCurrentSong(listSong, currentIndex)
-              audio.play()
-            }
-          }
-          if(e.target.closest('.option')){
+    //click playlist
+    playlist.onclick = function(e) {
+    const songNode = e.target.closest('li.jp-playlist-current:not(.active)')
+    if(songNode && !e.target.closest('.option')) {
+        if(songNode) {
+            currentIndex = songNode.dataset.index
+            loadCurrentSong(listSong, currentIndex)
+            audio.play()
+        }
+        }
+        if(e.target.closest('.option')){
             console.log(e.target.closest('.option'))
-          }
-      }
+        }
+    }
 
+    //click btn playlist
+    btnPlayList.onclick = function(){
+        $('.queue-expand').style.display = 'block'
+    }
+    //close
+    btnClosePlayList.onclick = function(){
+        $('.queue-expand').style.display = 'none'
+    }
 
+    //anh quay
+    const cdThumb = img.animate({
+        transform: 'rotate(360deg)'
+      },{
+        duration: 10000,
+        iterations: Infinity,
+      })
+      cdThumb.pause()
 
+    //xu ly next
+    btnnext.onclick = function() {
+        if(isRandom) {
+          loadRandomSong(listSong)
+        }else {
+          nextSong(listSong)
+        }
+        audio.play()
+        // scrollActiveSong()
+    }
 
+    //xu ly prev
+    btnprev.onclick = function() {
+        if(isRandom) {
+          loadRandomSong(listSong)
+        }else {
+          prevSong(listSong)
+        }
+        audio.play()
+        // scrollActiveSong()
+    }
+
+    //xu ly random
+    btnRandom.onclick = function() {
+        isRandom = !isRandom
+        if(isRandom) {
+          this.classList.add("active")
+        }else {
+          this.classList.remove("active")
+          songsPlayed = []
+        }
+    }
+
+    //xu ly repeat
+    btnRepeat.onclick = function() {
+        isRepeat = !isRepeat
+        if(isRepeat) {
+            this.classList.add("active")
+        }else {
+            this.classList.remove("active")
+        }
 
     }
 
-function loadCurrentSong(listSong, currentIndex){
+    //xu ly ended
+    audio.onended = function() {
+        if (isRepeat) {
+          audio.play()
+        }else {
+          btnnext.click()
+        }
+    }
+}
+
+function nextSong(listSong){
+    currentIndex++
+    if(currentIndex >= listSong.length) {
+        currentIndex = 0
+    }
+    loadCurrentSong(listSong)
+}
+
+function prevSong(listSong){
+    currentIndex--
+    if(currentIndex < 0) {
+        currentIndex = listSong.length - 1
+    }
+    loadCurrentSong(listSong)
+}
+
+function loadRandomSong(listSong) {
+    let newIndex 
+    const lenghtList = listSong.length
+    const newLength = songsPlayed.push(currentIndex)
+    if (newLength == lenghtList) {
+      songsPlayed = []
+    }
+    do {
+      newIndex = Math.floor(Math.random() * lenghtList)
+    }while(songsPlayed.includes(newIndex))
+    currentIndex = newIndex
+    loadCurrentSong(listSong)
+}
+
+function loadCurrentSong(listSong){
     heading.textContent = listSong[currentIndex].name
     img.style.backgroundImage = `url(${listSong[currentIndex].image})`
     artist.textContent = listSong[currentIndex].singer
@@ -243,7 +341,6 @@ function callAPIBXH(){
                 let html = htmls.join("")
                 bxh.innerHTML = html
                 let listSong = handleListSong(results)
-                console.log(listSong)
                 handlePlaySong(listSong)
                 handleEventClickBXH(listSong)
         })
