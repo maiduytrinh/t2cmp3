@@ -205,9 +205,9 @@ body {
 }
 
 .queue-wrapper {
-    position: absolute;
-    right: 0;
-    padding-right: 15px;
+    /* position: absolute;
+    right: 0; */
+    padding-right: 70px; 
     margin: auto 0;
 }
 
@@ -228,7 +228,7 @@ body {
 
 .type-playlist {
     display: flex;
-    padding-left: 40px;
+    /* padding-left: 60px; */
     align-items: center;
     justify-content: center;
 }
@@ -259,7 +259,7 @@ body {
 
 .progress-container {
     width: 250px;
-    margin-left: 40px;
+    margin-left: 30px;
     justify-content: center;
     align-items: center;
 }
@@ -299,7 +299,7 @@ body {
 
 .playlist-toggles {
     display: flex;
-    margin-left: 40px;
+    margin-left: 30px; 
 }
 
 .toggles button {
@@ -359,7 +359,7 @@ div#seekObj1 {
     height: 75%;
     position: fixed;
     right: 0;
-    bottom: 0px;
+    bottom: 70px;
     z-index: 100000;
     background-color: #1b2039;
     padding: 10px 0px;
@@ -367,7 +367,7 @@ div#seekObj1 {
    
 }
 
-.queue-expand i.btn-close {
+.queue-expand i.btn-closee {
     color: #fff;
     font-weight: bold;
     float: right;
