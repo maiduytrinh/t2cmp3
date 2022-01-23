@@ -44,17 +44,18 @@ function handlePlaySong(listSong){
 function rendePlayList(listSong) {
     let htmls = listSong.map(function(song, index){
         return `
-            <li class="jp-playlist-current" data-index="${index}">
-                    <div class="jp-playlist-item jp-playlist-current d-flex justify-content-between">
-                        <span class="ava-player" style="background-image: url(${song.image});">
-                        </span>
-                        <div class="name-song">
-                            <p class="name">${song.name}</p>
-                            <p class="art">${song.singer}</p>
-                        </div>
-                        <i class="fas fa-times btn-delete"></i>
-                    </div>
-            </li>
+        <li class="jp-playlist-current" data-index="${index}">
+            <div class="d-flex align-items-center ">
+                <div class="flex-shrink-0">
+                    <img class="img-fluid rounded" src="./ava.png" alt="...">
+                </div>
+                <div class="flex-grow-1 ms-3 name-song">
+                    <p class="name">${song.name}</p>
+                    <p class="art">${song.singer}</p>
+                </div>
+                <i class="fas fa-times btn-delete"></i>
+            </div>
+        </li>
         `
     })
     playlist.innerHTML = htmls.join('')
