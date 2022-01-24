@@ -221,7 +221,12 @@ body {
 .name-song p.name {
     font-weight: bold;
     margin: 0;
-} 
+}
+
+.name-song marquee {
+    font-weight: bold;
+    margin: 0;
+}
 
 .name-song p.art {
     margin: 0px;
@@ -388,7 +393,7 @@ div#seekObj1 {
     background-color: #1b2039;
     padding: 10px 0px;
     border-radius: 10px 10px 0 0;
-   
+    display: none;
 }
 
 .queue-expand i.btn-closee {
@@ -465,7 +470,15 @@ div#seekObj1 {
 .list-player .mCustomScrollBox .name-song {
     color: #fff;
     text-decoration: none;
-    margin-left: 15px;
+    margin-left: 15px;  
+}
+
+.list-player .mCustomScrollBox .name-song .name {
+    overflow: hidden;
+    height: 24px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 
 

@@ -129,6 +129,16 @@ section.introduction {
     font-size: 14px;
 }
 
+.info-bxh{
+    color: #fff;
+    font-size: 16px;
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: flex;
+}
+
 .rcnt_slider .bxh .bxh-item .bxh-ranking {
     color: #fff;
     font-size: 50px;
@@ -144,6 +154,7 @@ section.introduction {
     width: 20%;
     text-align: left;
     margin: auto 0;
+    display: flex;
 }
 
 .rcnt_slider .bxh .bxh-item .btn-add-to-playlist {
@@ -254,3 +265,4 @@ section.introduction {
     width: 100%;
     background-color: #1b2039;
 }
+

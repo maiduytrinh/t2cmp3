@@ -17,8 +17,8 @@ const btnnext = $('.fa-step-forward')
 const btnprev = $('.fa-step-backward')
 const btnRandom = $('.fa-random')
 const btnRepeat = $('.fa-redo')
-const btnPlayList = $('.queue-wrapper')
-const btnClosePlayList = $('.btn-close')
+const btnPlayList = $('.que-text')
+const btnClosePlayList = $('.btn-closee')
 let isPlaying = false
 let isRandom = false
 let isRepeat = false
@@ -47,13 +47,12 @@ function rendePlayList(listSong) {
         <li class="jp-playlist-current" data-index="${index}">
             <div class="d-flex align-items-center ">
                 <div class="flex-shrink-0">
-                    <img class="img-fluid rounded" src="./ava.png" alt="...">
+                    <img class="img-fluid rounded" src="${song.image}">
                 </div>
                 <div class="flex-grow-1 ms-3 name-song">
                     <p class="name">${song.name}</p>
                     <p class="art">${song.singer}</p>
                 </div>
-                <i class="fas fa-times btn-delete"></i>
             </div>
         </li>
         `
@@ -143,7 +142,7 @@ function handleEvent(listSong){
           nextSong(listSong)
         }
         audio.play()
-        // scrollActiveSong()
+        scrollActiveSong()
     }
 
     //xu ly prev
@@ -154,7 +153,7 @@ function handleEvent(listSong){
           prevSong(listSong)
         }
         audio.play()
-        // scrollActiveSong()
+        scrollActiveSong()
     }
 
     //xu ly random
@@ -188,6 +187,23 @@ function handleEvent(listSong){
         }
     }
 }
+
+function scrollActiveSong(){
+    setTimeout(() => {
+      if (currentIndex <= 3) {
+        $('li.jp-playlist-current.active').scrollIntoView({
+          behavior: 'smooth',
+          block: 'end',
+        })
+      }else {
+        $('li.jp-playlist-current.active').scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+        })
+      }
+      
+    }, 300)
+  }
 
 function nextSong(listSong){
     currentIndex++
@@ -322,7 +338,7 @@ function callAPIBXH(){
                     return `
                         <div class="d-flex bd-highlight mb-2 bxh-item" data-index="${index}">
                         <p class="bd-highlight bxh-ranking p-2">${String("0" + (index + 1)).slice(-2)}</p>
-                        <div class="info-player p-2 bd-highlight ms-3">
+                        <div class="info-bxh p-2 bd-highlight ms-3">
                             <span class="ava-player">
                                 <img src="${song.image}" style="height: 50px; width: 50px; border-radius: 5px;"
                                     alt="">
