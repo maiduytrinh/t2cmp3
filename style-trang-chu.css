@@ -144,6 +144,7 @@ section.introduction {
     width: 20%;
     text-align: left;
     margin: auto 0;
+    display: flex;
 }
 
 .rcnt_slider .bxh .bxh-item .btn-add-to-playlist {
