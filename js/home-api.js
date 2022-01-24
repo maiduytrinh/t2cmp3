@@ -338,7 +338,7 @@ function callAPIBXH(){
                     return `
                         <div class="d-flex bd-highlight mb-2 bxh-item" data-index="${index}">
                         <p class="bd-highlight bxh-ranking p-2">${String("0" + (index + 1)).slice(-2)}</p>
-                        <div class="info-player p-2 bd-highlight ms-3">
+                        <div class="info-bxh p-2 bd-highlight ms-3">
                             <span class="ava-player">
                                 <img src="${song.image}" style="height: 50px; width: 50px; border-radius: 5px;"
                                     alt="">
