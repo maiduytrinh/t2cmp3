@@ -221,7 +221,12 @@ body {
 .name-song p.name {
     font-weight: bold;
     margin: 0;
-} 
+}
+
+.name-song marquee {
+    font-weight: bold;
+    margin: 0;
+}
 
 .name-song p.art {
     margin: 0px;
