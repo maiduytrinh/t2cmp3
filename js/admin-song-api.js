@@ -3,19 +3,65 @@ const $ = document.querySelector.bind(document)
 const tableSong = $('.table-striped tbody')
 const numPage = $('.number-page')
 const numSong = $('.number-song')
+const formSelect = $('.form-select')
+const btnNext = $('.next-page')
+const btnPrev = $('.prev-page')
+let page = 1
+let size = 10
 
 function start() {
-    callGetAPI();
+    callGetAPI(page, size);
 }
 start()
 
-function callGetAPI(){
+function handlePagination(totalPages){
+    formSelect.onchange = function(){
+        page = 1
+        callGetAPI(page, formSelect.value)
+
+    }
+
+    numPage.onclick = function(e){
+        let pageNode = e.target.closest('.page-item:not(.active)')
+        if(pageNode) {
+            page = pageNode.dataset.index
+            callGetAPI(page, size)
+        }
+    }
+
+    btnNext.onclick = function(){
+        if(page < totalPages){
+            page++
+            callGetAPI(page, size)
+        }
+    }
+
+    btnPrev.onclick = function(){
+        if(page > 1){
+            page--
+            callGetAPI(page, size)
+        }
+    }
+
+}
+
+function loadCurrentPage(){
+    console.log(page)
+    const isActive = $('.number-page .page-item.active')
+    if (isActive) {
+      isActive.classList.remove('active')
+    }
+    const listElement = $$('.number-page .page-item')
+    listElement[page - 1].classList.add('active')
+}
+
+function callGetAPI(page, size){
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
-    "page": 1,
-    "size": 10,
+    "page": page,
+    "size": size,
     "order": ""
     });
 
@@ -57,9 +103,11 @@ function callGetAPI(){
         numSong.innerHTML = `Tổng ${result.totalElements} bài hát`
         let htmlPage = ''
         for(let i = 1; i <= result.totalPages; i++){
-            htmlPage += `<li class="page-item"><a class="page-link" href="#">${i}</a></li>`
+            htmlPage += `<li class="page-item" data-index="${i}"><a class="page-link" href="#">${i}</a></li>`
         }
         numPage.innerHTML = htmlPage
+        handlePagination(result.totalPages)
+        loadCurrentPage()
     })
     .catch(error => console.log('error', error));
 }
