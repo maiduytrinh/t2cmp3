@@ -129,16 +129,6 @@ section.introduction {
     font-size: 14px;
 }
 
-.info-bxh{
-    color: #fff;
-    font-size: 16px;
-    white-space: nowrap;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    max-width: 100%;
-    display: flex;
-}
-
 .rcnt_slider .bxh .bxh-item .bxh-ranking {
     color: #fff;
     font-size: 50px;
@@ -150,11 +140,23 @@ section.introduction {
     border-bottom: 1.5px solid #1b2039;
 }
 
-.rcnt_slider .bxh .bxh-item .info-player {
+.rcnt_slider .bxh .bxh-item .info-bxh {
     width: 20%;
     text-align: left;
     margin: auto 0;
     display: flex;
+    color: #fff;
+    font-size: 16px;
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: flex;
+}
+
+.rcnt_slider .bxh .bxh-item .info-bxh:hover{
+    cursor: pointer;
+    text-decoration: underline
 }
 
 .rcnt_slider .bxh .bxh-item .btn-add-to-playlist {

@@ -87,6 +87,7 @@ function handleEvent(listSong){
     audio.ontimeupdate = function() {
     if(audio.duration) {
         const rangeTime = Math.floor(audio.currentTime / audio.duration * 100)
+        $(".start-time").innerHTML = covertTime(audio.currentTime)
         range.value = rangeTime
     }
     }
@@ -100,19 +101,24 @@ function handleEvent(listSong){
     range.onmouseup = function(){
     audio.play()
     }
+
+    audio.addEventListener('timeupdate',function (){
+
+        var duration = audio.duration;
+        if(audio.duration){
+            $(".end-time").innerHTML = covertTime(duration)
+        }
+    });
       
     //click playlist
     playlist.onclick = function(e) {
-    const songNode = e.target.closest('li.jp-playlist-current:not(.active)')
-    if(songNode && !e.target.closest('.option')) {
-        if(songNode) {
-            currentIndex = songNode.dataset.index
-            loadCurrentSong(listSong, currentIndex)
-            audio.play()
-        }
-        }
-        if(e.target.closest('.option')){
-            console.log(e.target.closest('.option'))
+        const songNode = e.target.closest('li.jp-playlist-current:not(.active)')
+        if(songNode && !e.target.closest('.option')) {
+            if(songNode) {
+                currentIndex = songNode.dataset.index
+                loadCurrentSong(listSong, currentIndex)
+                audio.play()
+            }
         }
     }
 
@@ -188,6 +194,17 @@ function handleEvent(listSong){
     }
 }
 
+function covertTime(time){
+    var sec= new Number();
+    var min= new Number();
+     sec = Math.floor( time );    
+     min = Math.floor( sec / 60 );
+    min = min >= 10 ? min : '0' + min;    
+    sec = Math.floor( sec % 60 );
+    sec = sec >= 10 ? sec : '0' + sec;
+    return min+":"+sec
+}
+
 function scrollActiveSong(){
     setTimeout(() => {
       if (currentIndex <= 3) {
@@ -251,12 +268,13 @@ function loadCurrentSong(listSong){
 
 function handleEventClickBXH(listSong){
     bxh.onclick = function(e){
-        const songNode = e.target.closest('.bxh-item')
+        const songNode = e.target.closest('.info-bxh')
         if(songNode){
             playerWrapper.style.display = 'flex'
-            currentIndex = songNode.dataset.index
+            currentIndex = songNode.parentElement.dataset.index
             loadCurrentSong(listSong, currentIndex)
             audio.play()
+            scrollActiveSong()
         }
     }
 }
@@ -279,6 +297,18 @@ function handleListSong(success){
     return data
 }
 
+function handleClickGenres(){
+    genres.onclick = function(e){
+        const isActive = $('.panel.active')
+        const genresNode = e.target.closest('.panel:not(.active)')
+        if(genresNode) {
+            if(isActive){
+                isActive.classList.remove("active")
+            }
+            genresNode.classList.add("active")
+        }
+    }
+}
 
 function callAPIAlbum(){
     let myHeaders = new Headers();
@@ -423,14 +453,13 @@ function callAPIGenres(){
     fetch("http://14.228.23.16:8080/api/genres/", requestOptions)
     .then(response => response.json())
     .then(function(results){
-        let htmls = results.genres.map(genre =>
-            `<div class="panel active"
-                                style="background-image: url(${genre.image})">
-                                <h3>${genre.genresName}</h3>
-            </div>`
-        )
+        let htmls = results.genres.map(function(genre, index){
+                return `<div class="panel" style="background-image: url(${genre.image})">
+                            <h3>${genre.genresName}</h3>
+                        </div>`
+            })
         genres.innerHTML = htmls.join('')
-
+        handleClickGenres()
     })
     .catch(error => console.log('error', error));
 }

@@ -161,7 +161,8 @@ body {
     box-shadow: 0px 0px 24px 6px rgb(4 4 4 / 20%);
     transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
-    display: flex;
+    justify-content: space-between;
+    display: none;
 }
 
 .main-player-wrapper .icon-pause {
@@ -223,11 +224,6 @@ body {
     margin: 0;
 }
 
-.name-song marquee {
-    font-weight: bold;
-    margin: 0;
-}
-
 .name-song p.art {
     margin: 0px;
     font-size: 14px;
@@ -257,13 +253,13 @@ body {
 
 .type-playlist {
     display: flex;
-    /* padding-left: 60px; */
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .playlist-interface {
     margin: 10px 0;
+    margin-right: 30px;
 }
 
 .playlist-control {
@@ -287,17 +283,16 @@ body {
 }
 
 .progress-container {
-    width: 250px;
-    margin-left: 30px;
+    width: 500px;
     justify-content: center;
     align-items: center;
 }
 
 .player-controls {
     position: relative;
-    top: 0;
+    top: -4px;
     color: #979797;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .player-controls .start-time {

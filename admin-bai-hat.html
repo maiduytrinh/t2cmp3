@@ -74,13 +74,15 @@
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th></th>
+                                            <th><input class="form-check-input" type="checkbox" value=""
+                                                id="flexCheckDefault"></th>
                                             <th>#</th>
                                             <th>ID</th>
                                             <th>Tên bài hát</th>
                                             <th>Thời gian</th>
                                             <th>Lượt nghe</th>
                                             <th>Nghệ sĩ</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -124,14 +126,16 @@
                                                 <option value="50">50</option>
                                                 <option value="100">100</option>
                                             </select></label></div>
-                                    <div class="ms-2">Từ 1 đến 11 / Tổng 3</div>
+                                    <div class="ms-2 number-song">Tổng 3 bài hát</div>
 
                                 </div>
                                 <ul class="pagination">
                                     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <div class="pagination number-page">
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    </div>
                                     <li class="page-item"><a class="page-link" href="#">Next</a></li>
                                 </ul>
                             </div>
@@ -142,6 +146,7 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="./js/admin-song-api.js"></script>
 </body>
 
 </html>
