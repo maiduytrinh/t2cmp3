@@ -24,11 +24,11 @@ function saveData(){
         data.description = inputDec.value
         // console.log(data)
         // console.log(inputImage.files[0])
-        var formdata = new FormData();
+        let formdata = new FormData();
         formdata.append("file", inputImage.files[0]);
         formdata.append("artist", JSON.stringify(data))
 
-        var requestOptions = {
+        let requestOptions = {
             method: 'POST',
             body: formdata,
             redirect: 'follow'
@@ -37,12 +37,15 @@ function saveData(){
         fetch("http://14.228.23.16:8080/api/artist/save", requestOptions)
         .then(response => response.json())
         .then(function(result){
+            console.log(result)
             if(result.id){
                 alert('Đã lưu thành công')
+                location.reload()
+            }else{
+                alert('Lưu thất bại')
             }
         })
         .catch(error => console.log('error', error));
-        location.reload()
     }
 }
 

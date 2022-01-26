@@ -59,43 +59,40 @@
                     </div>
                     <div class="content d-flex flex-column flex-column-fluid">
                         <div class="card-admin">
-                            <form class="row g-3">
+                            <div class="row g-3">
                                 <div class="col-12">
                                     <label for="inputEmail4" class="form-label">Tên bài hát</label>
-                                    <input type="email" class="form-control" id="inputEmail4">
+                                    <input type="text" class="form-control input-name">
                                 </div>
                                 <div class="col-12">
                                     <label for="inputEmail4" class="form-label">Lyrics</label>
-                                    <textarea type="email" class="form-control"></textarea>
+                                    <textarea type="text" class="form-control input-lyric"></textarea>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputState" class="form-label">Nghệ sĩ</label>
-                                    <select id="inputState" class="form-select">
+                                    <select id="inputState" class="form-select input-artist" multiple size = 3>
                                         <option selected>Choose...</option>
                                         <option>...</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputState" class="form-label">Thể loại</label>
-                                    <select id="inputState" class="form-select">
+                                    <select id="inputState" class="form-select input-genres">
                                         <option selected>Choose...</option>
                                         <option>...</option>
                                     </select>
                                 </div>
-
-
-
-
-
                                 <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-primary">Tải lên</button>
+                                    <input type="file" class="btn btn-primary"
+                                        id="files" name="files"
+                                        accept="image/png, image/jpeg, audio/mp3" multiple>
                                 </div>
                                 <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-primary">Lưu nghệ sĩ</button>
-                                    <button type="submit" class="btn btn-primary">Clear</button>
+                                    <button class="btn btn-primary btn-save">Lưu bài hát</button>
+                                    <button class="btn btn-primary" onclick="location.reload()">Clear</button>
                                 </div>
 
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -103,6 +100,7 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="./js/admin-creat-song.js"></script>
 </body>
 
 </html>
