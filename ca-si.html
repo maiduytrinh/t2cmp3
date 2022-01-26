@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Trang chủ</title>
+    <title>Nghệ Sĩ Nổi Bật</title>
 </head>
 
 <body style="background-color: #14182a;">
@@ -86,112 +86,158 @@
 
         </div>
         <div class="main">
-            <section class="introduction">
-                <div class="thumb">
-                    <img src="./assets/img/banner.d40c4ec4.png" alt="">
-                </div>
-                <div class="text-intro">
-                    <h1>Âm nhạc<br>Nơi xoa dịu tâm hồn!</h1>
-                    <p>Thêm chút đường cà phê có ngọt?<br>Thêm chút tình mình có thuộc về nhau?</p>
-                    <div class="btn-intro">
-                        <a href="#" role="button" class="btn-listen">Listen now</a>
-                        <a href="#" role="button" class="btn-listen">Add to Queue</a>
-                    </div>
-                </div>
-            </section>
-            <div class="rcnt_slider">
-                <div class="heading">
-                    <h1> Album Nổi Bật </h1>
-                    <span class="view-all">
-                        <a href="./album.html">Xem Thêm</a>
-                    </span>
-                </div>
-                <div class="album">
 
-
-                </div>
-            </div>
-            <div class="rcnt_slider">
-                <div class="heading mb-0">
-                    <h1> Bảng xếp hạng </h1>
-                    <span class="view-all">
-                        <a href="./bang-xep-hang.html">Xem Thêm</a>
-                    </span>
-                </div>
-                <div class="bxh">
-                    <div class="d-flex bd-highlight mb-2 bxh-item" data-index="${index}">
-                        <p class="bd-highlight bxh-ranking p-2">01</p>
-                        <div class="info-bxh p-2 bd-highlight ms-3">
-                            <span class="ava-player">
-                                <img src="${song.image}" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
-                            </span>
-                            <div class="name-song">
-                                <p class="name">KJJSNDJS</p>
-                                <p class="art">afdsfdsfsdf</p>
-                            </div>
-                        </div>
-                        <button class="ms-auto bd-highlight btn-add-to-playlist" type="button" onclick="changeStyle()">
-                            ...
-                        </button>
-                        <ul class="more_option open-option ">
-                            <li><a href="#"><i class="far fa-heart me-2"></i>Add To
-                                    Favourites</a></li>
-                            <li><a href="#"> <i class="fas fa-plus-circle me-2"></i>Add To Queue</a>
-                            </li>
-                            <li><a
-                                    href="https://res.cloudinary.com/daotq1/video/upload/v1639644398/f5a3jwhikogykkm9qiwg.mp3"><span
-                                        class="opt_icon"><i class="fas fa-arrow-circle-down me-2"></i>Download Now</a>
-                            </li>
-                            <li><a href="#"><i class="fas fa-folder-plus me-2"></i>Add To
-                                    Playlist</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
             <div class="rcnt_slider mt-5">
                 <div class="heading">
                     <h1> Nghệ Sĩ Nổi Bật </h1>
-                    <span class="view-all">
-                        <a href="./ca-si.html">Xem Thêm</a>
-                    </span>
-                </div>
-                <div class="artist">
 
                 </div>
-            </div>
-            <div class="rcnt_slider mt-5">
-                <div class="heading">
-                    <h1> Thể loại Nổi Bật </h1>
-                    <span class="view-all">
-                        <a href="">Xem Thêm</a>
-                    </span>
+                <div class="artist d-flex flex-wrap">
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
+                    <a href="#" class="artist-item" data-index="${artist.id}">
+                        <div>
+                            <img src="${artist.image}" alt="">
+                            <h2>${artist.fullName}</h2>
+                        </div>
+                    </a>
                 </div>
-                <div class="ss">
-                    <div class="container-the-loai">
-                        <div class="panel active"
-                            style="background-image: url(https://images.unsplash.com/photo-1465225314224-587cd83d322b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
-                            <h3>Acoustic</h3>
-                        </div>
-                        <div class="panel"
-                            style="background-image: url(https://images.unsplash.com/photo-1513883049090-d0b7439799bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
-                            <h3>Ballad</h3>
-                        </div>
-                        <div class="panel"
-                            style="background-image: url(https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
-                            <h3>Bolero</h3>
-                        </div>
-                        <div class="panel"
-                            style="background-image: url(https://images.unsplash.com/photo-1581974944026-5d6ed762f617?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)">
-                            <h3>EDM</h3>
-                        </div>
-                        <div class="panel"
-                            style="background-image: url(https://images.unsplash.com/photo-1510809393-728d340e4eb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80)">
-                            <h3>Pop</h3>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
             <div class="main-player-wrapper">

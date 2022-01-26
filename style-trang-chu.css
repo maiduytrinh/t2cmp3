@@ -63,6 +63,12 @@ section.introduction {
 
 .rcnt_slider .heading .view-all a {
     color: #fff;
+    text-decoration: none;
+}
+
+.rcnt_slider .heading .view-all a:hover {
+    color: #2ec8e6;
+    text-decoration: none;
 }
 
 .rcnt_slider .album {
@@ -160,6 +166,44 @@ section.introduction {
 }
 
 .rcnt_slider .bxh .bxh-item .btn-add-to-playlist {
+    border: 0;
+    background-color: transparent;
+    margin: auto 0;
+    color: #fff;
+    font-size: 24px;
+}
+
+.album-item .album-ranking {
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    margin: auto 0;
+}
+
+.album-item {
+    border-bottom: 1.5px solid #1b2039;
+}
+
+.album-item .info-album {
+    width: 20%;
+    text-align: left;
+    margin: auto 0;
+    display: flex;
+    color: #fff;
+    font-size: 16px;
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: flex;
+}
+
+.album-item .info-album:hover{
+    cursor: pointer;
+    text-decoration: underline
+}
+
+.album-item .btn-add-to-playlist {
     border: 0;
     background-color: transparent;
     margin: auto 0;
@@ -297,7 +341,7 @@ section.introduction {
    cursor: pointer;
 }
 
-ul.more-option {
+ul.more_option {
     padding: 0px;
     margin: 0px;
     position: absolute;
@@ -311,8 +355,6 @@ ul.more-option {
     text-align: left;
     border-radius: 10px;
     z-index: 100;
-    visibility: hidden;
-    opacity: 0;
     transform: translateX(-15px);
     transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
@@ -320,22 +362,22 @@ ul.more-option {
     -ms-transition: all 0.4s ease-in-out;
 }
 
-ul.more-option {
-    opacity: 0;
-}
-
-ul.more-option a {
+ul.more_option a {
     text-decoration: none;
     color: #3bc8e7;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
 }
 
-.btn-more-option {
+.btn-more_option {
     font-weight: bold; 
     font-size: 20px;
 }
 
 .open-option {
     opacity: 1;
+}
+
+.close-option {
+    opacity: 0;
 }

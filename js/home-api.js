@@ -60,6 +60,8 @@ function rendePlayList(listSong) {
     playlist.innerHTML = htmls.join('')
 }
 
+
+
 //xu ly su kien
 function handleEvent(listSong){
 
