@@ -59,48 +59,45 @@
                     </div>
                     <div class="content d-flex flex-column flex-column-fluid">
                         <div class="card-admin">
-                            <form class="row g-3">
+                            <div class="row g-3 form-input">
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Tên Nghệ sĩ</label>
-                                    <input type="email" class="form-control" id="inputEmail4">
+                                    <input type="text" class="form-control" id="inputName">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="inputState" class="form-label">Giới tính</label>
-                                    <select id="inputState" class="form-select">
-                                        <option selected>Choose...</option>
-                                        <option>...</option>
+                                    <label for="inputState" class="form-label ">Giới tính</label>
+                                    <select id="inputState" class="form-select input-sex">
+                                        <option value= "0">Nam</option>
+                                        <option value= "1">Nữ</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="inputState" class="form-label">Sinh nhật</label>
-                                    <select id="inputState" class="form-select">
-                                        <option selected>Choose...</option>
-                                        <option>...</option>
-                                    </select>
+                                    <label for="inputState" class="form-label ">Sinh nhật</label>
+                                    <input type="date" id="inputState" class="form-select input-birthday">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputState" class="form-label">Quốc gia hoạt động</label>
-                                    <select id="inputState" class="form-select">
-                                        <option selected>Choose...</option>
-                                        <option>...</option>
+                                    <select id="inputState" class="form-select input-country">
+                                        
                                     </select>
                                 </div>
                                 <div class="col-12">
-                                    <label for="inputEmail4" class="form-label">Mô tả</label>
-                                    <textarea type="email" class="form-control"></textarea>
-                                </div>
-
-
-
-                                <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-primary">Tải lên</button>
+                                    <label for="inputEmail4" class="form-label ">Mô tả</label>
+                                    <textarea type="email" class="form-control input-dec"></textarea>
                                 </div>
                                 <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-primary">Lưu nghệ sĩ</button>
-                                    <button type="submit" class="btn btn-primary">Clear</button>
+                                    <input type="file" class="btn btn-primary"
+                                        id="image" name="image"
+                                        accept="image/png, image/jpeg"
+                                        buttonText="Your label here.">
+                                    <!-- <button type="submit" class="btn btn-primary">Tải lên</button> -->
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button class="btn btn-primary btn-save">Lưu nghệ sĩ</button>
+                                    <button class="btn btn-primary" onclick="location.reload()">Clear</button>
                                 </div>
 
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -108,6 +105,7 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="./js/admin-creat-artist.js"></script>
 </body>
 
 </html>
