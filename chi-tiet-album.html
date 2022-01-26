@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href=".\style-main.css">
+    <link rel="stylesheet" href=".\assets\css\style.css">
+    <link rel="stylesheet" href=".\style-trang-chu.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Tìm kiếm</title>
+</head>
+
+<body style="background-color: #14182a;">
+    <div class="main-aside">
+        <div class="main-logo-inner">
+            <div class="main-logo">
+                <a href="trang-chu.html"><img src="logo.png" alt=""></a>
+            </div>
+
+        </div>
+
+        <div class="main-nav-wrapper">
+            <ul>
+                <li>
+                    <a href="#"><i class="fas fa-home"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-compact-disc menu-icon"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-user"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-music"></i></a>
+                </li>
+
+                <li>
+                    <a href="#"><i class="far fa-gem"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="main-header">
+            <div class="main-top-left">
+                <input type="text" class="form-control" placeholder="Tìm kiếm bài hát">
+            </div>
+            <div class="main-top-right">
+                <div class="ms_top_btn">
+                    <a class="ms_btn reg_btn" data-toggle="modal" href="./login.html"
+                        style="color: white; font-size: small; font-weight: bold;"><span>Đăng ký</span></a>
+                    <a class="ms_btn login_btn" data-toggle="modal" href="./login.html"
+                        style="color: white; font-size: small; font-weight: bold;"><span>Đăng nhập</span></a>
+
+                </div>
+            </div>
+            <div class="btn-group dropstart">
+
+                <!-- <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Dropstart
+                </button>
+                <ul class="dropdown-menu">
+                 Dropdown menu links 
+                </ul> -->
+                <button type="button" class="btn-profile" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-circle-user"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>asdads</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="main">
+            <div class="infor-album d-flex align-items-center ">
+                <div class="flex-shrink-6">
+                    <img class="rounded" src="./ava.png" alt="...">
+                </div>
+                <div class="flex-grow-2 ms-3 name-album">
+                    <p class="name">Mang tiền về cho mẹ</p>
+                    <p class="art">Nghệ sĩ: Đen Vâu</p>
+                    <p class="total">4 bài hát</p>
+                    <Phát href="#" class="btn-playall"><span><i class="fas fa-play me-2"></i></span>Phát toàn bộ</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-player-wrapper d-flex justify-content-between">
+            <div class="audio-play">
+                <div class="d-flex align-items-center info-player">
+                    <div class="flex-shrink-0"
+                        style="background-image: url(http://14.228.23.16:8080/image/hay_trao_cho_anh.jpg);">
+                    </div>
+                    <div class="flex-grow-1 ms-3 name-song">
+                        <marquee class="name name-song-player">Âm thâm bên em </marquee>
+                        <p class="art">Sơn Tùng MTP</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="type-playlist">
+                <div class="playlist-interface">
+                    <div class="playlist-control">
+                        <button><i class="fas fa-step-backward"></i></button>
+                        <button class="btn-toggle-play">
+                            <i class="fas fa-play icon-play"></i>
+                            <i class="fas fa-pause icon-pause"></i>
+                        </button>
+                        <button><i class="fas fa-step-forward"></i></button>
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <!-- <div id="timeline1" class="progresss">
+                            <div id="seekObj1" class="seek-bar" style="margin-left: 0px;"></div>
+                        </div> -->
+                    <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100" />
+                    <div class="player-controls scrubber">
+                        <small class="start-time"></small>
+                        <small class="end-time"></small>
+                    </div>
+                    <div class="audio-wrapper">
+                        <audio id="player2" preload="auto">
+                            <source src="http://d2cstorage-a.akamaihd.net/wbr/gotnext/8578.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+
+                </div>
+                <div class="playlist-toggles">
+                    <div class="toggles">
+                        <button><i class="fas fa-random"></i></button>
+                        <button><i class="fas fa-redo"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="queue-wrapper" role="button">
+                <span class="que-text">
+                    <i class="fa fa-angle-up me-2"></i>
+                    Danh sách phát
+                </span>
+            </div>
+            <div class="queue-expand" role="button">
+                <i class="fas fa-times btn-closee"></i>
+                <h3>Danh sách phát</h3>
+                <div class="list-player overflow-auto">
+                    <div class="mCustomScrollBox">
+                        <ul class="list-ul">
+                            <li class="jp-playlist-current active" data-index="0">
+                                <div class="d-flex align-items-center ">
+                                    <div class="flex-shrink-0">
+                                        <img class="img-fluid rounded" src="./ava.png" alt="...">
+                                    </div>
+                                    <div class="flex-grow-1 ms-3 name-song">
+                                        <p class="name">Mang tiền về cho mẹ</p>
+                                        <p class="art">Đen Vâu</p>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li class="jp-playlist-current" data-index="1">
+                                <div class="d-flex align-items-center ">
+                                    <div class="flex-shrink-0">
+                                        <img class="img-fluid rounded" src="./ava.png" alt="...">
+                                    </div>
+                                    <div class="flex-grow-1 ms-3 name-song">
+                                        <p class="name">Big City Boi</p>
+                                        <p class="art">Binz</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="jp-playlist-current" data-index="2">
+                                <div class="d-flex align-items-center ">
+                                    <div class="flex-shrink-0">
+                                        <img class="img-fluid rounded" src="./ava.png" alt="...">
+                                    </div>
+                                    <div class="flex-grow-1 ms-3 name-song">
+                                        <p class="name">Chạm khẽ tim anh một chút thôi mai xa rồi</p>
+                                        <p class="art">Noo Phước Thịnh</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="jp-playlist-current" data-index="2">
+                                <div class="d-flex align-items-center ">
+                                    <div class="flex-shrink-0">
+                                        <img class="img-fluid rounded" src="./ava.png" alt="...">
+                                    </div>
+                                    <div class="flex-grow-1 ms-3 name-song">
+                                        <p class="name">Chạm khẽ tim anh một chút thôi mai xa rồi</p>
+                                        <p class="art">Noo Phước Thịnh</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="jp-playlist-current" data-index="2">
+                                <div class="d-flex align-items-center ">
+                                    <div class="flex-shrink-0">
+                                        <img class="img-fluid rounded" src="./ava.png" alt="...">
+                                    </div>
+                                    <div class="flex-grow-1 ms-3 name-song">
+                                        <p class="name">Chạm khẽ tim anh một chút thôi mai xa rồi</p>
+                                        <p class="art">Noo Phước Thịnh</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="jp-playlist-current" data-index="2">
+                                <div class="d-flex align-items-center ">
+                                    <div class="flex-shrink-0">
+                                        <img class="img-fluid rounded" src="./ava.png" alt="...">
+                                    </div>
+                                    <div class="flex-grow-1 ms-3 name-song">
+                                        <p class="name">Chạm khẽ tim anh một chút thôi mai xa rồi</p>
+                                        <p class="art">Noo Phước Thịnh</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="jp-playlist-current" data-index="2">
+                                <div class="d-flex align-items-center ">
+                                    <div class="flex-shrink-0">
+                                        <img class="img-fluid rounded" src="./ava.png" alt="...">
+                                    </div>
+                                    <div class="flex-grow-1 ms-3 name-song">
+                                        <p class="name">Chạm khẽ tim anh một chút thôi mai xa rồi</p>
+                                        <p class="art">Noo Phước Thịnh</p>
+                                    </div>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+        <script src="js/home-api.js"></script>
+        <script src="js/tim-kiem.js"></script>
+
+
+</body>
+
+</html>

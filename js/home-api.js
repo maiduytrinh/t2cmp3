@@ -394,6 +394,11 @@ function callAPIBXH(){
         .catch(error => console.log('error', error));
 }
 
+function changeStyle(){
+    var element = document.querySelector(".more-option");
+    element.style.opacity = "1";
+}
+
 function callAPIArtist(){
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
