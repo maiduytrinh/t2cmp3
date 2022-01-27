@@ -396,10 +396,28 @@ function callAPIBXH(){
         .catch(error => console.log('error', error));
 }
 
-function changeStyle(){
-    var element = document.querySelector(".more-option");
-    element.style.opacity = "1";
-}
+// function changeStyle(){
+//     var element = document.querySelector(".more_option");
+//     element.style.opacity = "1";
+//     var moreoptions = document.getElementById("moreoption");
+
+// window.onclick = function(event) {
+//     if (event.target == moreoptions) {
+//         moreoptions.style.opacity = "0";
+//     }
+// }
+// }
+
+// const btnmores = document.getElementById("btnmore");
+// const moreoptions = document.getElementById("moreoption");
+// btnmores.onclick = function() {
+//     moreoptions.style.display = "block";
+//   }
+//   window.onclick = function(event) {
+//     if (event.target == moreoptions) {
+//         moreoptions.style.display = "none";
+//     }
+//   }
 
 function callAPIArtist(){
     let myHeaders = new Headers();
