@@ -60,6 +60,8 @@ function rendePlayList(listSong) {
     playlist.innerHTML = htmls.join('')
 }
 
+
+
 //xu ly su kien
 function handleEvent(listSong){
 
@@ -392,6 +394,11 @@ function callAPIBXH(){
                 handleEventClickBXH(listSong)
         })
         .catch(error => console.log('error', error));
+}
+
+function changeStyle(){
+    var element = document.querySelector(".more-option");
+    element.style.opacity = "1";
 }
 
 function callAPIArtist(){
