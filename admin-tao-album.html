@@ -59,44 +59,43 @@
                     </div>
                     <div class="content d-flex flex-column flex-column-fluid">
                         <div class="card-admin">
-                            <form class="row g-3">
+                            <div class="row g-3">
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Tên Album</label>
-                                    <input type="email" class="form-control" id="inputEmail4">
+                                    <input type="text" class="form-control input-name" id="inputEmail4">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="inputState" class="form-label">Nghệ sĩ</label>
-                                    <select id="inputState" class="form-select">
+                                    <label for="inputState" class="form-label">Thể loại</label>
+                                    <select id="inputState" class="form-select input-genres">
                                         <option selected>Choose...</option>
                                         <option>...</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="inputState" class="form-label">Thể loại</label>
-                                    <select id="inputState" class="form-select">
+                                    <label for="inputState" class="form-label">Nghệ sĩ</label>
+                                    <select id="inputState" class="form-select input-artist" multiple size = 5>
                                         <option selected>Choose...</option>
                                         <option>...</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputState" class="form-label">Bài hát</label>
-                                    <select id="inputState" class="form-select">
+                                    <select id="inputState" class="form-select input-song" multiple size = 5>
                                         <option selected>Choose...</option>
                                         <option>...</option>
                                     </select>
                                 </div>
-                                <div class="col-3"></div>
-                                <div class="col-md-6">
-                                    <button type="submit" class="btn btn-primary" style="width: 100%;"><i
-                                            class="fas fa-cloud-upload-alt"></i></button>
+                                <div class="col-12 text-center">
+                                    <input type="file" class="btn btn-primary"
+                                        id="file" name="file"
+                                        accept="image/png, image/jpeg">
                                 </div>
-                                <div class="col-3"></div>
 
                                 <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-primary me-3">Lưu Album</button>
-                                    <button type="submit" class="btn btn-danger">Clear</button>
+                                    <button class="btn btn-primary me-3 btn-save">Lưu Album</button>
+                                    <button class="btn btn-danger" onclick="location.reload()">Clear</button>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -104,6 +103,7 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="./js/admin-creat-album.js"></script>
 </body>
 
 </html>

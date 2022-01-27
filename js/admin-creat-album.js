@@ -2,12 +2,13 @@ const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
 const btnSave = $('.btn-save')
 const inputName = $('.input-name')
-const inputLyric = $('.input-lyric') 
 const inputArtist = $('.input-artist')
 const inputGenres = $('.input-genres')
-const inputFile = $('#files')
+const inputSong = $('.input-song')
+const inputFile = $('#file')
 let listArtists = []
 let listGenres = []
+let listSong = []
 let data = {}
 
 function start(){
@@ -73,38 +74,75 @@ function callGetAPIGenres(){
             })
         inputGenres.innerHTML = html.join('')
         listGenres = results.genres
-        handleSave()
+        callGetAPISong()
     })
     .catch(error => console.log('error', error));
+}
+
+function callGetAPISong(){
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+    "page": 1,
+    "size": 100,
+    "order": ""
+    });
+
+    var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+    };
+
+    fetch("http://14.228.23.16:8080/api/songs/", requestOptions)
+    .then(response => response.json())
+    .then(function(result){
+        let html = result.songs.map(function(song, index){
+            return `<option value="${index}">${song.title}</option>`
+        })
+        inputSong.innerHTML = html.join('')
+        listSong = result.songs
+        handleSave()
+    })
 }
 
 function handleSave(){
     btnSave.onclick = function(){
         let artistSelected = [...inputArtist.options].filter(option => option.selected)
                                 .map(function(option){
-                                    return listArtists[Number(option.value)]
+                                    return listArtists[Number(option.value)]})
+        let songSelected = [...inputSong.options].filter(option => option.selected)
+                                .map(function(option){
+                                    return listSong[Number(option.value)]
                                 })
-        data.title = inputName.value
-        data.lyrics = inputLyric.value
+        data.albumName = inputName.value
         data.genres = listGenres[Number(inputGenres.value)]
-        data.artistSongs = [];
+        data.artistAlbums = []
         for(let i = 0; i < artistSelected.length; i++){
             let artistArray = {}
             artistArray.artists = artistSelected[i]
-            data.artistSongs[i] = artistArray
+            data.artistAlbums[i] = artistArray
         }
-
+        data.albumSongs = []
+        for(let i = 0; i < songSelected.length; i++){
+            let songArray = {}
+            songArray.songs = songSelected[i]
+            data.albumSongs[i] = songArray
+        }
+        // console.log(data)        
+        
         let formdata = new FormData();
-        formdata.append("song", JSON.stringify(data))
-        formdata.append("files", inputFile.files[0])
-        formdata.append("files", inputFile.files[1])
+        formdata.append("album", JSON.stringify(data))
+        formdata.append("file", inputFile.files[0])
         var requestOptions = {
             method: 'POST',
             body: formdata,
             redirect: 'follow'
           };
           
-          fetch("http://14.228.23.16:8080/api/songs/save", requestOptions)
+          fetch("http://14.228.23.16:8080/api/albums/save", requestOptions)
             .then(response => response.json())
             .then(function(result){
                 console.log(result)

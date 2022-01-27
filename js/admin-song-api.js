@@ -6,18 +6,21 @@ const numSong = $('.number-song')
 const formSelect = $('.form-select')
 const btnNext = $('.next-page')
 const btnPrev = $('.prev-page')
+const inputSearch = $('.input-search')
 let page = 1
 let size = 10
+let search =''
 
 function start() {
-    callGetAPI(page, size);
+    callGetAPI(page, size)
+    handleSearch()
 }
 start()
 
 function handlePagination(totalPages){
     formSelect.onchange = function(){
         page = 1
-        callGetAPI(page, formSelect.value)
+        callGetAPI(page, formSelect.value, search)
 
     }
 
@@ -46,7 +49,6 @@ function handlePagination(totalPages){
 }
 
 function loadCurrentPage(){
-    console.log(page)
     const isActive = $('.number-page .page-item.active')
     if (isActive) {
       isActive.classList.remove('active')
@@ -55,14 +57,15 @@ function loadCurrentPage(){
     listElement[page - 1].classList.add('active')
 }
 
-function callGetAPI(page, size){
+function callGetAPI(page, size, search){
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
     "page": page,
     "size": size,
-    "order": ""
+    "order": "",
+    "search": search
     });
 
     var requestOptions = {
@@ -89,11 +92,11 @@ function callGetAPI(page, size){
                         <td>${song.timePlay}</td>
                         <td>${song.countListen}</td>
                         <td>${artists}</td>
-                        <td class="text-end">
+                        <td class="text-end" data-index="${song.id}">
                                 <a href="#" class="btn btn-active-light-primary">
                                     <i class="far fa-edit"></i>
                                 </a>
-                                <button type="submit" class="btn" style="color: red;">
+                                <button class="btn btn-del" style="color: red;">
                                     <i class="far fa-trash-alt"></i>
                                 </button>
                         </td>
@@ -108,7 +111,42 @@ function callGetAPI(page, size){
         numPage.innerHTML = htmlPage
         handlePagination(result.totalPages)
         loadCurrentPage()
+        callDelAPI()
     })
     .catch(error => console.log('error', error));
+}
+
+function callDelAPI(){
+    const btnDels = $$('.btn-del')
+    for(let i=0; i<btnDels.length; i++){
+        btnDels[i].onclick = function(){
+            if(confirm("Bạn chắc chắn muốn xóa bài hát") == true){
+                let id = btnDels[i].parentElement.dataset.index
+                var requestOptions = {
+                    method: 'DELETE',
+                    redirect: 'follow'
+                  };
+                  
+                  fetch("http://14.228.23.16:8080/api/songs/" + id, requestOptions)
+                    .then(response => response.text())
+                    .then(function(result){
+                        if(result)
+                            alert('Xóa không thành công')
+                        else{
+                            alert('Xóa thành công')
+                            callGetAPI(page, size)
+                        }
+                    })
+                    .catch(error => console.log('error', error));
+            }
+        }
+    }
+}
+
+function handleSearch(){
+    inputSearch.onchange = function(){
+        search = inputSearch.value
+        callGetAPI(page, size, search)
+    }
 }
 
