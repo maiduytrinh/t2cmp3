@@ -867,8 +867,7 @@
     text-align: left;
     border-radius: 10px;
     z-index: 100;
-    visibility: hidden;
-    opacity: 0;
+    
     transform: translateX(-15px);
     transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
