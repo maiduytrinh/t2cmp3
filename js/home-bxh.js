@@ -1,10 +1,10 @@
-import { callAPIArtist } from "./home-api.js"
+import { callAPIBXH } from "./home-api.js";
 
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
-const artist = $('.artist')
+const bxh = $('.bxh')
 
 function start() {
-    callAPIArtist(1, 10)
+    callAPIBXH(30);
 }
 start()

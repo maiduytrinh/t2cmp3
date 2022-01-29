@@ -2,6 +2,7 @@ import { urlAPI } from "./config.js"
 import { handlePlaySong } from "./home-player.js"
 import { handleListSong } from "./home-player.js"
 import { handleEventClickBXH } from "./home-player.js"
+import { handleClickBtnPlayAll } from "./home-player.js"
 
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
@@ -11,9 +12,9 @@ const artistElement = $('.artist')
 const genres = $('.container-the-loai')
 
 function start() {
-    callAPIAlbum();
-    callAPIBXH();
-    callAPIArtist();
+    callAPIAlbum(1, 5);
+    callAPIBXH(10);
+    callAPIArtist(1, 5);
     callAPIGenres();
 }
 
@@ -32,13 +33,13 @@ function handleClickGenres(){
     }
 }
 
-function callAPIAlbum(){
+export function callAPIAlbum(page, size){
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     let raw = JSON.stringify({
-    "page": 1,
-    "size": 5,
+    "page": page,
+    "size": size,
     "order": ""
     });
 
@@ -71,13 +72,13 @@ function callAPIAlbum(){
     .catch(error => console.log('error', error));
 }
 
-function callAPIBXH(){
+export function callAPIBXH(size){
     let requestOptions = {
         method: 'GET',
         redirect: 'follow'
       };
       
-      fetch(urlAPI + "api/songs/top10", requestOptions)
+      fetch(urlAPI + "api/songs/top"+size, requestOptions)
         .then(response => response.json())
         .then(function(results){
                 let htmls = results.map(function(song, index){
@@ -122,9 +123,11 @@ function callAPIBXH(){
                 let html = htmls.join("")
                 bxh.innerHTML = html
                 let listSong = handleListSong(results)
-                console.log(listSong)
                 handlePlaySong(listSong)
                 handleEventClickBXH(listSong)
+                if(size == 30){
+                    handleClickBtnPlayAll(listSong)
+                }
         })
         .catch(error => console.log('error', error));
 }
@@ -152,13 +155,13 @@ function callAPIBXH(){
 //     }
 //   }
 
-function callAPIArtist(){
+export function callAPIArtist(page, size){
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     let raw = JSON.stringify({
-    "page": 1,
-    "size": 5,
+    "page": page,
+    "size": size,
     "order": ""
     });
 
@@ -213,7 +216,7 @@ function callAPIGenres(){
     .then(function(results){
         let htmls = results.genres.map(function(genre, index){
                 return `<div class="panel" style="background-image: url(${genre.image})">
-                            <h3>${genre.genresName}</h3>
+                            <a href="./chi-tiet-the-loai.html?id=${genre.id}">${genre.genresName}</a>
                         </div>`
             })
         genres.innerHTML = htmls.join('')
