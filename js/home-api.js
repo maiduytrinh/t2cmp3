@@ -197,7 +197,7 @@ function callAPIGenres(){
 
     var raw = JSON.stringify({
     "page": 1,
-    "size": 5,
+    "size": 10,
     "order": ""
     });
 

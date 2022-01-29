@@ -162,7 +162,7 @@ body {
     transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
     justify-content: space-between;
-    display: flex;
+    display: none;
 }
 
 .main-player-wrapper .icon-pause {
