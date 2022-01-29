@@ -93,7 +93,7 @@ function callGetAPI(page, size, search){
                         <td>${song.countListen}</td>
                         <td>${artists}</td>
                         <td class="text-end" data-index="${song.id}">
-                                <a href="#" class="btn btn-active-light-primary">
+                                <a href="./admin-update-song.html?id=${song.id}" class="btn btn-active-light-primary">
                                     <i class="far fa-edit"></i>
                                 </a>
                                 <button class="btn btn-del" style="color: red;">

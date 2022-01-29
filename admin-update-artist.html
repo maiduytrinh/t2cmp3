@@ -55,40 +55,45 @@
                         </div>
                     </div>
                     <div class="toolbar">
-                        <h3 class="text-center text-uppercase">Tạo bài hát mới</h3>
+                        <h3 class="text-center text-uppercase">Cập nhật thông tin nghệ sĩ</h3>
                     </div>
                     <div class="content d-flex flex-column flex-column-fluid">
                         <div class="card-admin">
-                            <div class="row g-3">
-                                <div class="col-12">
-                                    <label for="inputEmail4" class="form-label">Tên bài hát</label>
-                                    <input type="text" class="form-control input-name">
-                                </div>
-                                <div class="col-12">
-                                    <label for="inputEmail4" class="form-label">Lyrics</label>
-                                    <textarea type="text" class="form-control input-lyric"></textarea>
+                            <div class="row g-3 form-input">
+                                <div class="col-md-6">
+                                    <label for="inputEmail4" class="form-label">Tên Nghệ sĩ</label>
+                                    <input type="text" class="form-control" id="inputName">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="inputState" class="form-label">Nghệ sĩ</label>
-                                    <select id="inputState" class="form-select input-artist" multiple size = 3>
-                                        <option selected>Choose...</option>
-                                        <option>...</option>
+                                    <label for="inputState" class="form-label ">Giới tính</label>
+                                    <select id="inputState" class="form-select input-sex">
+                                        <option value= "0">Nam</option>
+                                        <option value= "1">Nữ</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="inputState" class="form-label">Thể loại</label>
-                                    <select id="inputState" class="form-select input-genres">
-                                        <option selected>Choose...</option>
-                                        <option>...</option>
+                                    <label for="inputState" class="form-label ">Sinh nhật</label>
+                                    <input type="date" id="inputState" class="form-select input-birthday">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputState" class="form-label">Quốc gia hoạt động</label>
+                                    <select id="inputState" class="form-select input-country">
+                                        
                                     </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="inputEmail4" class="form-label ">Mô tả</label>
+                                    <textarea type="email" class="form-control input-dec" rows= "4"></textarea>
                                 </div>
                                 <div class="col-12 text-center">
                                     <input type="file" class="btn btn-primary"
-                                        id="files" name="files"
-                                        accept="image/png, image/jpeg, audio/mp3" multiple>
+                                        id="image" name="image"
+                                        accept="image/png, image/jpeg"
+                                        buttonText="Your label here.">
+                                    <!-- <button type="submit" class="btn btn-primary">Tải lên</button> -->
                                 </div>
                                 <div class="col-12 text-center">
-                                    <button class="btn btn-primary btn-save">Lưu bài hát</button>
+                                    <button class="btn btn-primary btn-save">Lưu cập nhật</button>
                                     <button class="btn btn-primary" onclick="location.reload()">Reset</button>
                                 </div>
 
@@ -100,7 +105,7 @@
         </div>
     </div>
     <script src="script.js"></script>
-    <script src="./js/admin-creat-song.js"></script>
+    <script src="./js/admin-update-artist.js"></script>
 </body>
 
 </html>

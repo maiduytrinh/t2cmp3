@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Admin Tạo bài hát</title>
+    <title>Admin Tạo Album</title>
 </head>
 
 <body class="bg-light">
@@ -55,25 +55,14 @@
                         </div>
                     </div>
                     <div class="toolbar">
-                        <h3 class="text-center text-uppercase">Tạo bài hát mới</h3>
+                        <h3 class="text-center">CẬP NHẬT THÔNG TIN ALBUM</h3>
                     </div>
                     <div class="content d-flex flex-column flex-column-fluid">
                         <div class="card-admin">
                             <div class="row g-3">
-                                <div class="col-12">
-                                    <label for="inputEmail4" class="form-label">Tên bài hát</label>
-                                    <input type="text" class="form-control input-name">
-                                </div>
-                                <div class="col-12">
-                                    <label for="inputEmail4" class="form-label">Lyrics</label>
-                                    <textarea type="text" class="form-control input-lyric"></textarea>
-                                </div>
                                 <div class="col-md-6">
-                                    <label for="inputState" class="form-label">Nghệ sĩ</label>
-                                    <select id="inputState" class="form-select input-artist" multiple size = 3>
-                                        <option selected>Choose...</option>
-                                        <option>...</option>
-                                    </select>
+                                    <label for="inputEmail4" class="form-label">Tên Album</label>
+                                    <input type="text" class="form-control input-name" id="inputEmail4">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputState" class="form-label">Thể loại</label>
@@ -82,16 +71,30 @@
                                         <option>...</option>
                                     </select>
                                 </div>
+                                <div class="col-md-6">
+                                    <label for="inputState" class="form-label">Nghệ sĩ</label>
+                                    <select id="inputState" class="form-select input-artist" multiple size = 5>
+                                        <option selected>Choose...</option>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputState" class="form-label">Bài hát</label>
+                                    <select id="inputState" class="form-select input-song" multiple size = 5>
+                                        <option selected>Choose...</option>
+                                        <option>...</option>
+                                    </select>
+                                </div>
                                 <div class="col-12 text-center">
                                     <input type="file" class="btn btn-primary"
-                                        id="files" name="files"
-                                        accept="image/png, image/jpeg, audio/mp3" multiple>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <button class="btn btn-primary btn-save">Lưu bài hát</button>
-                                    <button class="btn btn-primary" onclick="location.reload()">Reset</button>
+                                        id="file" name="file"
+                                        accept="image/png, image/jpeg">
                                 </div>
 
+                                <div class="col-12 text-center">
+                                    <button class="btn btn-primary me-3 btn-save">Cập nhật Album</button>
+                                    <button class="btn btn-danger" onclick="location.reload()">Reset</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -100,7 +103,7 @@
         </div>
     </div>
     <script src="script.js"></script>
-    <script src="./js/admin-creat-song.js"></script>
+    <script src="./js/admin-update-album.js"></script>
 </body>
 
 </html>
