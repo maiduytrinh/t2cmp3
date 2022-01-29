@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href=".\style-main.css">
-    <link rel="stylesheet" href=".\assets\css\style.css">
-    <link rel="stylesheet" href=".\style-trang-chu.css">
+    <link rel="stylesheet" href="style-main.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="style-trang-chu.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Tìm kiếm</title>
+    <title>Trang chủ</title>
 </head>
 
 <body style="background-color: #14182a;">
@@ -85,45 +85,23 @@
             </div>
 
         </div>
-        <div class="main">
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
-                        data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
-                        aria-selected="true">Home</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
-                        data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
-                        aria-selected="false">Profile</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
-                        data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
-                        aria-selected="false">Contact</button>
-                </li>
-            </ul>
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum sit ullam quia maiores libero et eaque
-                    sunt beatae. Sint soluta culpa similique quasi porro quam, accusantium rerum labore nobis ipsum.
+        <div class="main row container">
+            <div class="template-song mt-4 col-7">
+                <div class="d-flex justify-content-between">
+                    <h2 class="name-song">Bước qua nhau - Vũ</h2>
+                    <span>2.000.000</span>
                 </div>
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    dfadasdasdasdasd
-                </div>
-                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...
-                </div>
+
             </div>
         </div>
-
-        <div class="main-player-wrapper d-flex justify-content-between">
+        <div class="main-player-wrapper">
             <div class="audio-play">
                 <div class="d-flex align-items-center info-player">
                     <div class="flex-shrink-0"
                         style="background-image: url(http://14.228.23.16:8080/image/hay_trao_cho_anh.jpg);">
                     </div>
                     <div class="flex-grow-1 ms-3 name-song">
-                        <marquee class="name name-song-player">Âm thâm bên em </marquee>
+                        <p class="name name-song-player">Âm thâm bên em </p>
                         <p class="art">Sơn Tùng MTP</p>
                     </div>
                 </div>
@@ -146,8 +124,8 @@
                         </div> -->
                     <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100" />
                     <div class="player-controls scrubber">
-                        <small class="start-time"></small>
-                        <small class="end-time"></small>
+                        <span class="start-time">0:00</span>
+                        <span class="end-time">4:00</span>
                     </div>
                     <div class="audio-wrapper">
                         <audio id="player2" preload="auto">
@@ -265,8 +243,6 @@
     </div>
     <script type="text/javascript" src="script.js"></script>
     <script src="js/home-api.js"></script>
-    <script src="js/tim-kiem.js"></script>
-
 
 </body>
 
