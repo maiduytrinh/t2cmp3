@@ -87,7 +87,7 @@ function callGetAPI(page, size, search){
                     <td>${artist.birthDay}</td>
                     <td>${artist.countryActive}</td>
                     <td class="text-end" data-index="${artist.id}">
-                                <a href="#" class="btn btn-active-light-primary">
+                                <a href="./admin-update-artist.html?id=${artist.id}" class="btn btn-active-light-primary">
                                     <i class="far fa-edit"></i>
                                 </a>
                                 <button class="btn btn-del" style="color: red;">
@@ -143,4 +143,8 @@ function handleSearch(){
         search = inputSearch.value
         callGetAPI(page, size, search)
     }
+}
+
+function handleClickEdit(){
+    
 }

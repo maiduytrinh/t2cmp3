@@ -75,17 +75,47 @@
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th><input class="form-check-input" type="checkbox" value=""
-                                                    id="flexCheckDefault"></th>
+                                            <!-- <th><input class="form-check-input" type="checkbox" value=""
+                                                    id="flexCheckDefault"></th> -->
                                             <th>#</th>
                                             <th>ID</th>
                                             <th>Tên Album</th>
-                                            <th>Lượt nghe</th>
+                                            <th>Ca sĩ</th>
+                                            <th>Bài hát</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                        <tr>
+                                            <td>Image</td>
+                                            <td>${album.id}</td>
+                                            <td>${album.albumName}</td>
+                                            <td>${artists}</td>
+                                            <td>${songs}</td>
+                                            <td class="text-end" data-index="${album.id}">
+                                                <a href="./admin-update-album.html?id=${album.id}" class="btn btn-active-light-primary">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+                                                <button class="btn btn-del" style="color: red;">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Image</td>
+                                            <td>${album.id}</td>
+                                            <td>${album.albumName}</td>
+                                            <td>${artists}</td>
+                                            <td>${songs}</td>
+                                            <td class="text-end" data-index="${album.id}">
+                                                <a href="./admin-update-album.html?id=${album.id}" class="btn btn-active-light-primary">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+                                                <button class="btn btn-del" style="color: red;">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

@@ -78,16 +78,28 @@ function callGetAPI(page, size, search){
     fetch("http://14.228.23.16:8080/api/albums/", requestOptions)
     .then(response => response.json())
     .then(function(result){
-        let html = result.albums.map(album =>
-            `<tr>
-                <td><input class="form-check-input" type="checkbox" value=""
-                        id="flexCheckDefault"></td>
+        let html = result.albums.map(function(album){
+            let artists, songs
+            if(album.artistAlbums){
+                let listArtists = album.artistAlbums.map(function(artist){
+                    return artist.artists.fullName
+                })
+                artists = listArtists.join(", ")
+            }
+            if(album.albumSongs){
+                let listSongs = album.albumSongs.map(function(song){
+                    return song.songs.title
+                })
+                songs = listSongs.join(`, `)
+            }
+            return `<tr>
                 <td>Image</td>
                 <td>${album.id}</td>
                 <td>${album.albumName}</td>
-                <td>${album.totalListen}</td>
-                <td class="text-end" data-index="${album.id}">
-                    <a href="#" class="btn btn-active-light-primary">
+                <td>${artists}</td>
+                <td>${songs}</td>
+                    <td class="text-end" data-index="${album.id}">
+                    <a href="./admin-update-album.html?id=${album.id}" class="btn btn-active-light-primary">
                         <i class="far fa-edit"></i>
                     </a>
                     <button class="btn btn-del" style="color: red;">
@@ -95,7 +107,7 @@ function callGetAPI(page, size, search){
                     </button>
                 </td>
             </tr>`
-        )
+        })
         tableAlbum.innerHTML = html.join('')
         numAlbum.innerHTML = `Tổng ${result.totalElements} album`
         let htmlPage = ''
@@ -143,3 +155,5 @@ function handleSearch(){
         callGetAPI(page, size, search)
     }
 }
+
+function handleClickEdit(){}
