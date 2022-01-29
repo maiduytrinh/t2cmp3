@@ -1,3 +1,5 @@
+import { urlAPI } from "./config.js"
+
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
 const album = $('.album')
@@ -329,7 +331,7 @@ function callAPIAlbum(){
     redirect: 'follow'
     };
 
-    fetch("http://14.228.23.16:8080/api/albums/", requestOptions)
+    fetch(urlAPI + "api/albums/", requestOptions)
     .then(response => response.json())
     .then(
         function(results){
@@ -357,7 +359,7 @@ function callAPIBXH(){
         redirect: 'follow'
       };
       
-      fetch("http://14.228.23.16:8080/api/songs/top10", requestOptions)
+      fetch(urlAPI + "api/songs/top10", requestOptions)
         .then(response => response.json())
         .then(function(results){
                 let htmls = results.map(function(song, index){
@@ -369,20 +371,32 @@ function callAPIBXH(){
                     // console.log(song.artistSongs[0].artists.fullName)
                     return `
                         <div class="d-flex bd-highlight mb-2 bxh-item" data-index="${index}">
-                        <p class="bd-highlight bxh-ranking p-2">${String("0" + (index + 1)).slice(-2)}</p>
-                        <div class="info-bxh p-2 bd-highlight ms-3">
-                            <span class="ava-player">
-                                <img src="${song.image}" style="height: 50px; width: 50px; border-radius: 5px;"
-                                    alt="">
-                            </span>
-                            <div class="name-song">
-                                <p class="name">${song.title}</p>
-                                <p class="art">${artists}</p>
-                            </div>
-                        </div>
-                        <button class="ms-auto p-2 bd-highlight btn-add-to-playlist">
-                            <i class="fas fa-plus-circle "></i>
-                        </button>
+                            <p class="bd-highlight bxh-ranking p-2">${String("0" + (index + 1)).slice(-2)}</p>
+                                <div class="info-bxh p-2 bd-highlight ms-3">
+                                    <span class="ava-player">
+                                        <img src="${song.image}" style="height: 50px; width: 50px; border-radius: 5px;"
+                                            alt="">
+                                    </span>
+                                    <div class="name-song">
+                                        <p class="name">${song.title}</p>
+                                        <p class="art">${artists}</p>
+                                    </div>
+                                </div>
+                            <button class="ms-auto bd-highlight btn-add-to-playlist" id="btnmore">
+                                ...
+                            </button>
+                            <ul class="more_option" id="moreoption">
+                                <li><a href="#"><i class="far fa-heart me-2"></i>Add To
+                                        Favourites</a></li>
+                                
+                                <li><a
+                                        href="http://localhost:8080/image/lac_troi.mp3"><span
+                                            class="opt_icon"><i class="fas fa-arrow-circle-down me-2"></i>Download
+                                            Now</a>
+                                </li>
+                                <li><a href="#"><i class="fas fa-folder-plus me-2"></i>Add To
+                                        Playlist</a></li>
+                            </ul>
                         </div>
                     `
                 })
@@ -436,7 +450,7 @@ function callAPIArtist(){
     redirect: 'follow'
     };
 
-    fetch("http://14.228.23.16:8080/api/artist/", requestOptions)
+    fetch(urlAPI + "api/artist/", requestOptions)
     .then(response => response.json())
     .then(
         function(results){
@@ -475,7 +489,7 @@ function callAPIGenres(){
     redirect: 'follow'
     };
 
-    fetch("http://14.228.23.16:8080/api/genres/", requestOptions)
+    fetch(urlAPI + "api/genres/", requestOptions)
     .then(response => response.json())
     .then(function(results){
         let htmls = results.genres.map(function(genre, index){

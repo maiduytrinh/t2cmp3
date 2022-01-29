@@ -352,7 +352,7 @@ ul.more_option {
     max-width: 172px;
     width: 100%;
     list-style: none;
-    padding: 25px 0px 13px 20px;
+    padding: 13px 0px 13px 20px;
     text-align: left;
     border-radius: 10px;
     z-index: 100;
@@ -361,6 +361,7 @@ ul.more_option {
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
     -ms-transition: all 0.4s ease-in-out;
+    display: none;
 }
 
 ul.more_option a {
