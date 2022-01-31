@@ -340,7 +340,7 @@ section.introduction {
     font-weight: bold;
 }
 
-.main .infor-album .name-album .btn-playall{
+.main .infor-album .name-album .btn-playall, .rcnt_slider .btn-playall{
    height: 40px;
    padding: 10px 20px;
    color: #fff;
@@ -348,6 +348,10 @@ section.introduction {
    border-radius: 20px;
    text-decoration: none;
    cursor: pointer;
+}
+
+.rcnt_slider .btn-playall {
+    margin-left: 20px;
 }
 
 ul.more_option {
@@ -391,4 +395,9 @@ ul.more_option a {
 
 .close-option {
     opacity: 0;
+}
+
+.view-song {
+    color: #fff;
+    font-size: 18px;
 }
