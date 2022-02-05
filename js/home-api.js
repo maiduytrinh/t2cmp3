@@ -51,7 +51,12 @@ export function callAPIAlbum(page, size){
     };
 
     fetch(urlAPI + "api/albums/", requestOptions)
-    .then(response => response.json())
+    .then(function(response){
+        // var headers =response.headers.get('Access-Control-Allow-Methods')
+        // console.log(headers)
+      return response.json() 
+    })
+
     .then(
         function(results){
             let htmls = results.albums.map(function(album){

@@ -1,3 +1,6 @@
+import { urlAPI } from "./config.js"
+// import { handlePagination, loadCurrentPage } from "./admin-album-api.js"
+
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
 const tableArtist = $('.table-striped tbody')
@@ -74,7 +77,7 @@ function callGetAPI(page, size, search){
     redirect: 'follow'
     };
 
-    fetch("http://14.228.23.16:8080/api/artist/", requestOptions)
+    fetch(urlAPI + "api/artist/", requestOptions)
     .then(response => response.json())
     .then(function(result){
         let html = result.artists.map(function(artist,index){
@@ -122,7 +125,7 @@ function callDelAPI(){
                 redirect: 'follow'
               };
               
-              fetch("http://14.228.23.16:8080/api/artist/" + id, requestOptions)
+              fetch(urlAPI + "api/artist/" + id, requestOptions)
                 .then(response => response.text())
                 .then(function(result){
                     if(result)

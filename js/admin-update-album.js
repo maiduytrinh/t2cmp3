@@ -1,3 +1,4 @@
+import { urlAPI } from "./config.js"
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
 const btnSave = $('.btn-save')
@@ -36,7 +37,7 @@ function getData(){
     redirect: 'follow'
     };
 
-    fetch("http://14.228.23.16:8080/api/artist/", requestOptions)
+    fetch(urlAPI + "api/artist/", requestOptions)
     .then(response => response.json())
     .then(
         function(result){
@@ -69,7 +70,7 @@ function callGetAPIGenres(){
     redirect: 'follow'
     };
 
-    fetch("http://14.228.23.16:8080/api/genres/", requestOptions)
+    fetch(urlAPI + "api/genres/", requestOptions)
     .then(response => response.json())
     .then(function(results){
         let html = results.genres.map(function(genre, index){
@@ -99,7 +100,7 @@ function callGetAPISong(){
     redirect: 'follow'
     };
 
-    fetch("http://14.228.23.16:8080/api/songs/", requestOptions)
+    fetch(urlAPI + "api/songs/", requestOptions)
     .then(response => response.json())
     .then(function(result){
         let html = result.songs.map(function(song, index){
@@ -117,7 +118,7 @@ function setData(){
         redirect: 'follow'
       };
       
-    fetch("http://14.228.23.16:8080/api/albums/" + id, requestOptions)
+    fetch(urlAPI + "api/albums/" + id, requestOptions)
     .then(response => response.json())
     .then(function(result){
         inputName.value = result.albumName
@@ -161,7 +162,7 @@ function handleUpdate(){
             redirect: 'follow'
           };
           
-          fetch("http://14.228.23.16:8080/api/albums/update/" + id, requestOptions)
+          fetch(urlAPI + "api/albums/update/" + id, requestOptions)
             .then(response => response.json())
             .then(function(result){
                 console.log(result)

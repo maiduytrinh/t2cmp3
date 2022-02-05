@@ -1,3 +1,4 @@
+import { urlAPI } from "./config.js"
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
 const tableSong = $('.table-striped tbody')
@@ -75,7 +76,7 @@ function callGetAPI(page, size, search){
     redirect: 'follow'
     };
 
-    fetch("http://14.228.23.16:8080/api/songs/", requestOptions)
+    fetch(urlAPI + "api/songs/", requestOptions)
     .then(response => response.json())
     .then(function(result){
         let html = result.songs.map(function(song){
@@ -127,7 +128,7 @@ function callDelAPI(){
                     redirect: 'follow'
                   };
                   
-                  fetch("http://14.228.23.16:8080/api/songs/" + id, requestOptions)
+                  fetch(urlAPI + "api/songs/" + id, requestOptions)
                     .then(response => response.text())
                     .then(function(result){
                         if(result)

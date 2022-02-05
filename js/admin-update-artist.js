@@ -1,3 +1,4 @@
+import { urlAPI } from "./config.js"
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
 const btnSave = $('.btn-save')
@@ -25,7 +26,7 @@ function setData(){
         redirect: 'follow'
       };
       
-      fetch("http://14.228.23.16:8080/api/artist/" + id, requestOptions)
+      fetch(urlAPI + "api/artist/" + id, requestOptions)
         .then(response => response.json())
         .then(function(result){
             inputName.value = result.fullName
@@ -68,7 +69,7 @@ function updateData(){
             redirect: 'follow'
         };
 
-        fetch("http://14.228.23.16:8080/api/artist/update-artist/" + id, requestOptions)
+        fetch(urlAPI + "api/artist/update-artist/" + id, requestOptions)
         .then(response => response.json())
         .then(function(result){
             console.log(result)
