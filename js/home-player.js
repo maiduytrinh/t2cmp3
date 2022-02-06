@@ -1,3 +1,5 @@
+import { urlAPI } from "./config.js"
+
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
 const playerWrapper = $('.main-player-wrapper')
@@ -28,7 +30,6 @@ let songsPlayed = []
 
 export function handlePlaySong(listSong){
     rendePlayList(listSong)
-    loadCurrentSong(listSong, currentIndex)
     handleEvent(listSong)
      
 }
@@ -249,6 +250,7 @@ export function loadCurrentSong(listSong){
     img.style.backgroundImage = `url(${listSong[currentIndex].image})`
     artist.textContent = listSong[currentIndex].singer
     audio.src = listSong[currentIndex].path
+    updateCountListen(listSong[currentIndex].id)
     //load playlist
     const isActive = $('li.jp-playlist-current.active')
     if (isActive) {
@@ -266,6 +268,7 @@ export function handleListSong(success){
         })
         let artists = listArtists.join(", ")
         return {
+            id: song.id,
             name: song.title,
             singer: artists,
             path: song.mediaUrl,
@@ -310,4 +313,16 @@ export function handleClickBtnPlayAll(listSong){
     audio.play()
     scrollActiveSong()
   }
+}
+
+function updateCountListen(songId){
+  var requestOptions = {
+    method: 'PUT',
+    redirect: 'follow'
+  };
+  
+  fetch(urlAPI + "api/songs/update-listen/" + songId, requestOptions)
+    .then(response => response.text())
+    .then()
+    .catch(error => console.log('error', error));
 }
