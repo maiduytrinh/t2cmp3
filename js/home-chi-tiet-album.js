@@ -63,21 +63,21 @@ function setData(){
                             <p class="art">${artists}</p>
                         </div>
                     </div>
-                    <button class="ms-auto bd-highlight btn-add-to-playlist" type="button" onclick="changeStyle()">
-                        ...
-                    </button>
-                    <ul class="more_option open-option ">
-                        <li><a href="#"><i class="far fa-heart me-2"></i>Add To
-                                Favourites</a></li>
-                        <li><a href="#"> <i class="fas fa-plus-circle me-2"></i>Add To Queue</a>
-                        </li>
-                        <li><a
-                                href="${song.mediaUrl}"><span
-                                    class="opt_icon"><i class="fas fa-arrow-circle-down me-2"></i>Download Now</a>
-                        </li>
-                        <li><a href="#"><i class="fas fa-folder-plus me-2"></i>Add To
-                                Playlist</a></li>
-                    </ul>
+                    <div class ="ms-auto add-to-playlist-wrap">
+                            <button class="bd-highlight btn-add-to-playlist" id="btnmore">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                            <ul class="more_option" id="moreoption">
+                                <li>
+                                    <a href="${song.mediaUrl}" class="opt_icon">
+                                        <i class="fas fa-arrow-circle-down me-2"></i>
+                                        Download Now
+                                    </a>
+                                </li>
+                                <li><a href="#"><i class="fas fa-folder-plus me-2"></i>Add To
+                                        Playlist</a></li>
+                            </ul>
+                    </div>
                 </div>`
             })
             songAlbum.innerHTML = htmls.join('')

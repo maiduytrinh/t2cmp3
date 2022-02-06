@@ -47,8 +47,9 @@ function APILogin(){
             if(result){
                 alert("Tài khoản mật khẩu không chính xác")
             }else{
-                if(role == "ROLE_USER")
-                    window.location.pathname = '../trang-chu.html'
+                if(role == "ROLE_USER"){
+                    loadUser(emailLogin.value)
+                }
                 else if(role == "ROLE_ADMIN")
                     window.location.pathname = '../admin-album.html'
             }
@@ -90,4 +91,20 @@ function APISignUp(){
             alert("Vui lòng nhập đủ thông tin")
         }
     }
+}
+
+function loadUser(email){
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+      
+      fetch(urlAPI + "api/users/" + email, requestOptions)
+        .then(response => response.json())
+        .then(function(result){
+            localStorage.setItem('id', result.id)
+            localStorage.setItem('fullname', result.fullName)
+            window.location.pathname = '../trang-chu.html'
+        })
+        .catch(error => console.log('error', error));
 }

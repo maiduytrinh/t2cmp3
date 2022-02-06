@@ -144,6 +144,7 @@ section.introduction {
 
 .rcnt_slider .bxh .bxh-item {
     border-bottom: 1.5px solid #1b2039;
+    position: relative;
 }
 
 .rcnt_slider .bxh .bxh-item .info-bxh {
@@ -165,12 +166,59 @@ section.introduction {
     text-decoration: underline
 }
 
-.rcnt_slider .bxh .bxh-item .btn-add-to-playlist {
+.add-to-playlist-wrap {
     border: 0;
     background-color: transparent;
     margin: auto 0;
     color: #fff;
-    font-size: 24px;
+    font-size: 18px;
+}
+
+.btn-add-to-playlist {
+    border: 0;
+    background-color: transparent;
+    margin: auto 0;
+    color: #fff;
+    font-size: 18px;
+}
+
+.add-to-playlist-wrap:hover .more_option{
+    display: block;
+}
+
+ul.more_option {
+    padding: 0px;
+    margin: 0px;
+    position: absolute;
+    top: 28px;
+    right: 24px;
+    display: none;
+    background-color: #fff;
+    max-width: 172px;
+    width: 100%;
+    list-style: none;
+    padding: 13px 0px 13px 20px;
+    text-align: left;
+    border-radius: 10px;
+    z-index: 100;
+    transform: translateX(-15px);
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+}
+
+
+ul.more_option a {
+    text-decoration: none;
+    color: #3bc8e7;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+
+.btn-more_option {
+    font-weight: bold; 
+    font-size: 20px;
 }
 
 .album-item .album-ranking {
@@ -182,6 +230,7 @@ section.introduction {
 
 .album-item {
     border-bottom: 1.5px solid #1b2039;
+    position: relative;
 }
 
 .album-item .info-album {
@@ -208,7 +257,7 @@ section.introduction {
     background-color: transparent;
     margin: auto 0;
     color: #fff;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .rcnt_slider .row {
@@ -352,41 +401,6 @@ section.introduction {
 
 .rcnt_slider .btn-playall {
     margin-left: 20px;
-}
-
-ul.more_option {
-    padding: 0px;
-    margin: 0px;
-    position: absolute;
-    top: 75px;
-    right: 30px;
-    display: block;
-    background-color: #fff;
-    max-width: 172px;
-    width: 100%;
-    list-style: none;
-    padding: 13px 0px 13px 20px;
-    text-align: left;
-    border-radius: 10px;
-    z-index: 100;
-    transform: translateX(-15px);
-    transition: all 0.4s ease-in-out;
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    -ms-transition: all 0.4s ease-in-out;
-    display: none;
-}
-
-ul.more_option a {
-    text-decoration: none;
-    color: #3bc8e7;
-    transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-}
-
-.btn-more_option {
-    font-weight: bold; 
-    font-size: 20px;
 }
 
 .open-option {

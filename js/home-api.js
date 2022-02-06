@@ -3,6 +3,7 @@ import { handlePlaySong } from "./home-player.js"
 import { handleListSong } from "./home-player.js"
 import { handleEventClickBXH } from "./home-player.js"
 import { handleClickBtnPlayAll } from "./home-player.js"
+import { handleHideElement } from "./home-user.js"
 
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
@@ -10,8 +11,10 @@ const album = $('.album')
 const bxh = $('.bxh')
 const artistElement = $('.artist')
 const genres = $('.container-the-loai')
+let isActive = false
 
 function start() {
+    handleHideElement();
     callAPIAlbum(1, 5);
     callAPIBXH(10);
     callAPIArtist(1, 5);
@@ -86,79 +89,54 @@ export function callAPIBXH(size){
       fetch(urlAPI + "api/songs/top"+size, requestOptions)
         .then(response => response.json())
         .then(function(results){
-                let htmls = results.map(function(song, index){
-                    //get name artist
-                    let listArtists = song.artistSongs.map(function(artist){
-                        return artist.artists.fullName
-                    })
-                    let artists = listArtists.join(", ")
-                    // console.log(song.artistSongs[0].artists.fullName)
-                    return `
-                        <div class="d-flex bd-highlight mb-2 bxh-item" data-index="${index}">
-                            <p class="bd-highlight bxh-ranking p-2">${String("0" + (index + 1)).slice(-2)}</p>
-                                <div class="info-bxh p-2 bd-highlight ms-3">
-                                    <span class="ava-player">
-                                        <img src="${song.image}" style="height: 50px; width: 50px; border-radius: 5px;"
-                                            alt="">
-                                    </span>
-                                    <div class="name-song">
-                                        <p class="name">${song.title}</p>
-                                        <p class="art">${artists}</p>
-                                    </div>
-                                </div>
-                            <button class="ms-auto bd-highlight btn-add-to-playlist" id="btnmore">
-                                ...
+            let html = results.map(function(song, index){
+                //get name artist
+                let listArtists = song.artistSongs.map(function(artist){
+                    return artist.artists.fullName
+                })
+                let artists = listArtists.join(", ")
+                // console.log(song.artistSongs[0].artists.fullName)
+                return `
+                    <div class="d-flex bd-highlight mb-2 bxh-item" data-index="${index}">
+                        <p class="bd-highlight bxh-ranking p-2">${String("0" + (index + 1)).slice(-2)}</p>
+                        <div class="info-bxh p-2 bd-highlight ms-3">
+                            <span class="ava-player">
+                                <img src="${song.image}" style="height: 50px; width: 50px; border-radius: 5px;"
+                                    alt="">
+                            </span>
+                            <div class="name-song">
+                                <p class="name">${song.title}</p>
+                                <p class="art">${artists}</p>
+                            </div>
+                        </div>
+                        <div class ="ms-auto add-to-playlist-wrap">
+                            <button class="bd-highlight btn-add-to-playlist" id="btnmore">
+                                <i class="fas fa-ellipsis-h"></i>
                             </button>
                             <ul class="more_option" id="moreoption">
-                                <li><a href="#"><i class="far fa-heart me-2"></i>Add To
-                                        Favourites</a></li>
-                                
-                                <li><a
-                                        href="">${song.mediaUrl}<span
-                                            class="opt_icon"><i class="fas fa-arrow-circle-down me-2"></i>Download
-                                            Now</a>
+                                <li>
+                                    <a href="${song.mediaUrl}" class="opt_icon">
+                                        <i class="fas fa-arrow-circle-down me-2"></i>
+                                        Download Now
+                                    </a>
                                 </li>
                                 <li><a href="#"><i class="fas fa-folder-plus me-2"></i>Add To
                                         Playlist</a></li>
                             </ul>
                         </div>
-                    `
-                })
-                //get bxh
-                let html = htmls.join("")
-                bxh.innerHTML = html
-                let listSong = handleListSong(results)
-                handlePlaySong(listSong)
-                handleEventClickBXH(listSong)
-                if(size == 30){
-                    handleClickBtnPlayAll(listSong)
-                }
+                    </div>`
+            })
+            //get bxh
+            bxh.innerHTML = html.join("")
+            let listSong = handleListSong(results)
+            handlePlaySong(listSong)
+            handleEventClickBXH(listSong)
+            if(size == 30){
+                handleClickBtnPlayAll(listSong)
+            }
         })
         .catch(error => console.log('error', error));
 }
-
-// function changeStyle(){
-//     var element = document.querySelector(".more_option");
-//     element.style.opacity = "1";
-//     var moreoptions = document.getElementById("moreoption");
-
-// window.onclick = function(event) {
-//     if (event.target == moreoptions) {
-//         moreoptions.style.opacity = "0";
-//     }
-// }
-// }
-
-// const btnmores = document.getElementById("btnmore");
-// const moreoptions = document.getElementById("moreoption");
-// btnmores.onclick = function() {
-//     moreoptions.style.display = "block";
-//   }
-//   window.onclick = function(event) {
-//     if (event.target == moreoptions) {
-//         moreoptions.style.display = "none";
-//     }
-//   }
 
 export function callAPIArtist(page, size){
     let myHeaders = new Headers();
