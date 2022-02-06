@@ -172,6 +172,7 @@ section.introduction {
     margin: auto 0;
     color: #fff;
     font-size: 18px;
+    display: none;
 }
 
 .btn-add-to-playlist {

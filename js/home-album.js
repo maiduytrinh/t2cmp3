@@ -1,4 +1,3 @@
-import { urlAPI } from "./config.js"
 import { callAPIAlbum } from "./home-api.js"
 
 const $$ = document.querySelectorAll.bind(document)

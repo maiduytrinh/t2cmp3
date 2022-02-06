@@ -3,7 +3,7 @@ import { handlePlaySong } from "./home-player.js"
 import { handleListSong } from "./home-player.js"
 import { handleEventClickBXH } from "./home-player.js"
 import { handleClickBtnPlayAll } from "./home-player.js"
-import { handleHideElement } from "./home-user.js"
+import { handleHideElement, isLogin} from "./home-user.js"
 
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
@@ -11,7 +11,6 @@ const album = $('.album')
 const bxh = $('.bxh')
 const artistElement = $('.artist')
 const genres = $('.container-the-loai')
-let isActive = false
 
 function start() {
     handleHideElement();
@@ -128,6 +127,13 @@ export function callAPIBXH(size){
             })
             //get bxh
             bxh.innerHTML = html.join("")
+            //hieen add playlist
+            const addPlaylist = $$('.add-to-playlist-wrap')
+            if(isLogin){
+                for(let i=0; i<addPlaylist.length; i++){
+                    addPlaylist[i].style.display = "block"
+                }
+            }
             let listSong = handleListSong(results)
             handlePlaySong(listSong)
             handleEventClickBXH(listSong)

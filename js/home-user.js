@@ -7,7 +7,7 @@ let fullName = localStorage.getItem('fullname')
 let authorization = localStorage.getItem('Authorization')
 let id = localStorage.getItem('id')
 let role = localStorage.getItem('role')
-let isLogin = checkUser()
+export let isLogin = checkUser()
 
 export function handleHideElement(){
     if(isLogin){
