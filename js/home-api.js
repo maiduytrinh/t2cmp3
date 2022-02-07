@@ -4,12 +4,12 @@ import { handleListSong } from "./home-player.js"
 import { handleEventClickBXH } from "./home-player.js"
 import { handleClickBtnPlayAll } from "./home-player.js"
 import { handleHideElement, isLogin} from "./home-user.js"
+import { searchEvent } from "./home-main.js"
+import { callAPIAlbum, callAPIArtist} from "./home-main.js"
 
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
-const album = $('.album')
 const bxh = $('.bxh')
-const artistElement = $('.artist')
 const genres = $('.container-the-loai')
 
 function start() {
@@ -18,6 +18,7 @@ function start() {
     callAPIBXH(10);
     callAPIArtist(1, 5);
     callAPIGenres();
+    searchEvent()
 }
 
 start()
@@ -35,49 +36,58 @@ function handleClickGenres(){
     }
 }
 
-export function callAPIAlbum(page, size){
-    let myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+// export function callAPIAlbum(page, size, search, paginationAlbum){
+//     let myHeaders = new Headers();
+//     myHeaders.append("Content-Type", "application/json");
 
-    let raw = JSON.stringify({
-    "page": page,
-    "size": size,
-    "order": ""
-    });
+//     let raw = JSON.stringify({
+//     "page": page,
+//     "size": size,
+//     "order": "",
+//     "search": search
 
-    let requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow'
-    };
+//     });
 
-    fetch(urlAPI + "api/albums/", requestOptions)
-    .then(function(response){
-        // var headers =response.headers.get('Access-Control-Allow-Methods')
-        // console.log(headers)
-      return response.json() 
-    })
+//     let requestOptions = {
+//     method: 'POST',
+//     headers: myHeaders,
+//     body: raw,
+//     redirect: 'follow'
+//     };
 
-    .then(
-        function(results){
-            let htmls = results.albums.map(function(album){
-                return `
-                <a href="./chi-tiet-album.html?id=${album.id}" class="album-item">
-                    <div>
-                        <img src="${album.image}" alt="">
-                        <h2>${album.albumName}</h2>
-                        <p>Lượt nghe: <span>${album.totalListen}</span></p>
-                    </div>
-                </a>
-                `
-            })
-            //get list album
-            let html = htmls.join("");
-            album.innerHTML = html;
-    })
-    .catch(error => console.log('error', error));
-}
+//     fetch(urlAPI + "api/albums/", requestOptions)
+//     .then(function(response){
+//         // var headers =response.headers.get('Access-Control-Allow-Methods')
+//         // console.log(headers)
+//       return response.json() 
+//     })
+
+//     .then(
+//         function(results){
+//             let htmls = results.albums.map(function(album){
+//                 return `
+//                 <a href="./chi-tiet-album.html?id=${album.id}" class="album-item">
+//                     <div>
+//                         <img src="${album.image}" alt="">
+//                         <h2>${album.albumName}</h2>
+//                         <p>Lượt nghe: <span>${album.totalListen}</span></p>
+//                     </div>
+//                 </a>
+//                 `
+//             })
+//             //get list album
+//             let html = htmls.join("");
+//             album.innerHTML = html;
+//             if(paginationAlbum){
+//                 let htmlPage = ''
+//                 for(let i = 1; i <= results.totalPages; i++){
+//                     htmlPage += `<li class="pagination__item" data-index="${i}"><a href="#" class="pagination__link">${i}</a></li>`
+//                 }
+//                 paginationAlbum.innerHTML = htmlPage
+//             }
+//     })
+//     .catch(error => console.log('error', error));
+// }
 
 export function callAPIBXH(size){
     let requestOptions = {
@@ -144,44 +154,52 @@ export function callAPIBXH(size){
         .catch(error => console.log('error', error));
 }
 
-export function callAPIArtist(page, size){
-    let myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+// export function callAPIArtist(page, size, search, paginationArtist){
+//     let myHeaders = new Headers();
+//     myHeaders.append("Content-Type", "application/json");
 
-    let raw = JSON.stringify({
-    "page": page,
-    "size": size,
-    "order": ""
-    });
+//     let raw = JSON.stringify({
+//     "page": page,
+//     "size": size,
+//     "order": "",
+//     "search": search
+//     });
 
-    let requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow'
-    };
+//     let requestOptions = {
+//     method: 'POST',
+//     headers: myHeaders,
+//     body: raw,
+//     redirect: 'follow'
+//     };
 
-    fetch(urlAPI + "api/artist/", requestOptions)
-    .then(response => response.json())
-    .then(
-        function(results){
-            let htmls = results.artists.map(function(artist){
-                return `
-                    <a href="#" class="artist-item" data-index="${artist.id}">
-                            <div>
-                                <img src="${artist.image}" alt="">
-                                <h2>${artist.fullName}</h2>
-                            </div>
-                    </a>
-                ` 
-            })
-            let html = htmls.join("");
-            artistElement.innerHTML = html
-        })
+//     fetch(urlAPI + "api/artist/", requestOptions)
+//     .then(response => response.json())
+//     .then(
+//         function(results){
+//             let htmls = results.artists.map(function(artist){
+//                 return `
+//                     <a href="#" class="artist-item" data-index="${artist.id}">
+//                             <div>
+//                                 <img src="${artist.image}" alt="">
+//                                 <h2>${artist.fullName}</h2>
+//                             </div>
+//                     </a>
+//                 ` 
+//             })
+//             let html = htmls.join("");
+//             artistElement.innerHTML = html
+//             if(paginationArtist){
+//                 let htmlPage = ''
+//                 for(let i = 1; i <= results.totalPages; i++){
+//                     htmlPage += `<li class="pagination__item" data-index="${i}"><a href="#" class="pagination__link">${i}</a></li>`
+//                 }
+//                 paginationArtist.innerHTML = htmlPage
+//             }
+//         })
         
-    .catch(error => console.log('error', error));
+//     .catch(error => console.log('error', error));
     
-}
+// }
 
 function callAPIGenres(){
     var myHeaders = new Headers();
