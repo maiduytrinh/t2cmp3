@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -85,42 +86,290 @@
             </div>
 
         </div>
+
         <div class="main">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                    <button class="nav-link" data-index="0" data-bs-toggle="pill"
                         data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
-                        aria-selected="true">Home</button>
+                        aria-selected="true">Bài Hát</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                    <button class="nav-link" data-index="1" data-bs-toggle="pill"
                         data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
-                        aria-selected="false">Profile</button>
+                        aria-selected="false">Album</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                    <button class="nav-link" data-index="2" data-bs-toggle="pill"
                         data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
-                        aria-selected="false">Contact</button>
+                        aria-selected="false">Ca sĩ</button>
                 </li>
             </ul>
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum sit ullam quia maiores libero et eaque
-                    sunt beatae. Sint soluta culpa similique quasi porro quam, accusantium rerum labore nobis ipsum.
+            <div class="tab-content" data-index="0">
+                <div class="album-playlist">
+                    <div class="d-flex bd-highlight mb-2 album-item" data-index="0">
+                        <p class="bd-highlight album-ranking p-2">01</p>
+                        <div class="info-album p-2 bd-highlight ms-3">
+                            <span class="ava-player">
+                                <img src="http://localhost:8080/image/co_chac_yeu_la_day.jpg" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                            </span>
+                            <div class="name-song">
+                                <p class="name">Có chắc yêu là đây</p>
+                                <p class="art">Sơn Tùng MTP</p>
+                            </div>
+                        </div>
+                        <div class="ms-auto add-to-playlist-wrap" style="display: block;">
+                                <button class="bd-highlight btn-add-to-playlist" id="btnmore">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                                <ul class="more_option" id="moreoption">
+                                    <li>
+                                        <a href="http://localhost:8080/source_mp3/co_chac_yeu_la_day.mp3" class="opt_icon">
+                                            <i class="fas fa-arrow-circle-down me-2"></i>
+                                            Download Now
+                                        </a>
+                                    </li>
+                                    <li><a href="#"><i class="fas fa-folder-plus me-2"></i>Add To
+                                            Playlist</a></li>
+                                </ul>
+                        </div>
+                    </div>
+                    <div class="d-flex bd-highlight mb-2 album-item" data-index="0">
+                        <p class="bd-highlight album-ranking p-2">01</p>
+                        <div class="info-album p-2 bd-highlight ms-3">
+                            <span class="ava-player">
+                                <img src="http://localhost:8080/image/co_chac_yeu_la_day.jpg" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                            </span>
+                            <div class="name-song">
+                                <p class="name">Có chắc yêu là đây</p>
+                                <p class="art">Sơn Tùng MTP</p>
+                            </div>
+                        </div>
+                        <div class="ms-auto add-to-playlist-wrap" style="display: block;">
+                                <button class="bd-highlight btn-add-to-playlist" id="btnmore">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                                <ul class="more_option" id="moreoption">
+                                    <li>
+                                        <a href="http://localhost:8080/source_mp3/co_chac_yeu_la_day.mp3" class="opt_icon">
+                                            <i class="fas fa-arrow-circle-down me-2"></i>
+                                            Download Now
+                                        </a>
+                                    </li>
+                                    <li><a href="#"><i class="fas fa-folder-plus me-2"></i>Add To
+                                            Playlist</a></li>
+                                </ul>
+                        </div>
+                    </div>
+                    <div class="d-flex bd-highlight mb-2 album-item" data-index="0">
+                        <p class="bd-highlight album-ranking p-2">01</p>
+                        <div class="info-album p-2 bd-highlight ms-3">
+                            <span class="ava-player">
+                                <img src="http://localhost:8080/image/co_chac_yeu_la_day.jpg" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                            </span>
+                            <div class="name-song">
+                                <p class="name">Có chắc yêu là đây</p>
+                                <p class="art">Sơn Tùng MTP</p>
+                            </div>
+                        </div>
+                        <div class="ms-auto add-to-playlist-wrap" style="display: block;">
+                                <button class="bd-highlight btn-add-to-playlist" id="btnmore">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                                <ul class="more_option" id="moreoption">
+                                    <li>
+                                        <a href="http://localhost:8080/source_mp3/co_chac_yeu_la_day.mp3" class="opt_icon">
+                                            <i class="fas fa-arrow-circle-down me-2"></i>
+                                            Download Now
+                                        </a>
+                                    </li>
+                                    <li><a href="#"><i class="fas fa-folder-plus me-2"></i>Add To
+                                            Playlist</a></li>
+                                </ul>
+                        </div>
+                    </div>
+                    <div class="d-flex bd-highlight mb-2 album-item" data-index="0">
+                        <p class="bd-highlight album-ranking p-2">01</p>
+                        <div class="info-album p-2 bd-highlight ms-3">
+                            <span class="ava-player">
+                                <img src="http://localhost:8080/image/co_chac_yeu_la_day.jpg" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                            </span>
+                            <div class="name-song">
+                                <p class="name">Có chắc yêu là đây</p>
+                                <p class="art">Sơn Tùng MTP</p>
+                            </div>
+                        </div>
+                        <div class="ms-auto add-to-playlist-wrap" style="display: block;">
+                                <button class="bd-highlight btn-add-to-playlist" id="btnmore">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                                <ul class="more_option" id="moreoption">
+                                    <li>
+                                        <a href="http://localhost:8080/source_mp3/co_chac_yeu_la_day.mp3" class="opt_icon">
+                                            <i class="fas fa-arrow-circle-down me-2"></i>
+                                            Download Now
+                                        </a>
+                                    </li>
+                                    <li><a href="#"><i class="fas fa-folder-plus me-2"></i>Add To
+                                            Playlist</a></li>
+                                </ul>
+                        </div>
+                    </div>
+                    <div class="d-flex bd-highlight mb-2 album-item" data-index="0">
+                        <p class="bd-highlight album-ranking p-2">01</p>
+                        <div class="info-album p-2 bd-highlight ms-3">
+                            <span class="ava-player">
+                                <img src="http://localhost:8080/image/co_chac_yeu_la_day.jpg" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                            </span>
+                            <div class="name-song">
+                                <p class="name">Có chắc yêu là đây</p>
+                                <p class="art">Sơn Tùng MTP</p>
+                            </div>
+                        </div>
+                        <div class="ms-auto add-to-playlist-wrap" style="display: block;">
+                                <button class="bd-highlight btn-add-to-playlist" id="btnmore">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                                <ul class="more_option" id="moreoption">
+                                    <li>
+                                        <a href="http://localhost:8080/source_mp3/co_chac_yeu_la_day.mp3" class="opt_icon">
+                                            <i class="fas fa-arrow-circle-down me-2"></i>
+                                            Download Now
+                                        </a>
+                                    </li>
+                                    <li><a href="#"><i class="fas fa-folder-plus me-2"></i>Add To
+                                            Playlist</a></li>
+                                </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    dfadasdasdasdasd
+                <ul class="pagination">
+                    <li class="page-item prev-page"><a class="page-link" href="#">Previous</a></li>
+                    <div class="pagination number-page"><li class="page-item active" data-index="1"><a class="page-link" href="#">1</a></li></div>
+                    <li class="page-item next-page"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </div>
+            <div class="tab-content" data-index="1">
+                <div class="album d-flex flex-wrap">
+                    <a href="./chi-tiet-album.html?id=1" class="album-item">
+                        <div>
+                            <img src="http://localhost:8080/image/son_tung_mtp_album.jpg" alt="">
+                            <h2>Sơn Tùng MTP - Những bài hát hay nhất</h2>
+                            <p>Lượt nghe: <span>10</span></p>
+                        </div>
+                    </a>
+                    
+                    <a href="./chi-tiet-album.html?id=2" class="album-item">
+                        <div>
+                            <img src="http://localhost:8080/image/den_vau_album.jpg" alt="">
+                            <h2>Đen Vâu - Những bài Rap hay nhất</h2>
+                            <p>Lượt nghe: <span>30</span></p>
+                        </div>
+                    </a>
+                    
+                    <a href="./chi-tiet-album.html?id=3" class="album-item">
+                        <div>
+                            <img src="http://localhost:8080/image/binz_album.jpg" alt="">
+                            <h2>BinZ - Những bài Rap hay nhất</h2>
+                            <p>Lượt nghe: <span>100</span></p>
+                        </div>
+                    </a>
+                    
+                    <a href="./chi-tiet-album.html?id=4" class="album-item">
+                        <div>
+                            <img src="http://localhost:8080/image/rap_hay_album.jpg" alt="">
+                            <h2>Nhạc Rap Hot 2022</h2>
+                            <p>Lượt nghe: <span>150</span></p>
+                        </div>
+                    </a>
+                    
+                    <a href="./chi-tiet-album.html?id=5" class="album-item">
+                        <div>
+                            <img src="http://localhost:8080/image/hoang_dung_album.jpg" alt="">
+                            <h2>Hoàng Dũng - Những bản nhạc hay nhất</h2>
+                            <p>Lượt nghe: <span>45</span></p>
+                        </div>
+                    </a>
+                    
+                    <a href="./chi-tiet-album.html?id=6" class="album-item">
+                        <div>
+                            <img src="http://localhost:8080/image/quang_le_album.jpg" alt="">
+                            <h2>Quang Lê - Những bản nhạc hay nhất</h2>
+                            <p>Lượt nghe: <span>7</span></p>
+                        </div>
+                    </a>
+                    
+                    <a href="./chi-tiet-album.html?id=7" class="album-item">
+                        <div>
+                            <img src="http://localhost:8080/image/noo_phuong_thinh_album.jpg" alt="">
+                            <h2>Noo Phước Thịnh - Những bản nhạc hay nhất</h2>
+                            <p>Lượt nghe: <span>54</span></p>
+                        </div>
+                    </a>
+                    </div>
+                <ul class="pagination">
+                    <li class="page-item prev-page"><a class="page-link" href="#">Previous</a></li>
+                    <div class="pagination number-page"><li class="page-item active" data-index="1"><a class="page-link" href="#">1</a></li></div>
+                    <li class="page-item next-page"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </div>
+            <div class="tab-content" data-index="2">
+                <div class="artist d-flex flex-wrap">
+                    <a href="#" class="artist-item" data-index="1">
+                            <div>
+                                <img src="http://localhost:8080/image/son_tung_mtp.jpg" alt="">
+                                <h2>Sơn Tùng MTP</h2>
+                            </div>
+                    </a>
+                
+                    <a href="#" class="artist-item" data-index="2">
+                            <div>
+                                <img src="http://localhost:8080/image/hoang_dung.jpg" alt="">
+                                <h2>Hoàng Dũng</h2>
+                            </div>
+                    </a>
+                
+                    <a href="#" class="artist-item" data-index="3">
+                            <div>
+                                <img src="http://localhost:8080/image/noo_phuoc_thinh.jpg" alt="">
+                                <h2>Noo Phước Thịnh</h2>
+                            </div>
+                    </a>
+                
+                    <a href="#" class="artist-item" data-index="4">
+                            <div>
+                                <img src="http://localhost:8080/image/duc_phuc.jpg" alt="">
+                                <h2>Đức Phúc</h2>
+                            </div>
+                    </a>
+                
+                    <a href="#" class="artist-item" data-index="5">
+                            <div>
+                                <img src="http://localhost:8080/image/soobin_hoang_son.jpg" alt="">
+                                <h2>Soobin Hoàng Sơn</h2>
+                            </div>
+                    </a>
+                
+                    <a href="#" class="artist-item" data-index="6">
+                            <div>
+                                <img src="http://localhost:8080/image/erik.jpg" alt="">
+                                <h2>Erik</h2>
+                            </div>
+                    </a>
                 </div>
-                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...
-                </div>
+                <ul class="pagination">
+                    <li class="page-item prev-page"><a class="page-link" href="#">Previous</a></li>
+                    <div class="pagination number-page"><li class="page-item active" data-index="1"><a class="page-link" href="#">1</a></li></div>
+                    <li class="page-item next-page"><a class="page-link" href="#">Next</a></li>
+                </ul>
             </div>
         </div>
 
-        <div class="main-player-wrapper d-flex justify-content-between">
+        <div class="main-player-wrapper">
             <div class="audio-play">
                 <div class="d-flex align-items-center info-player">
                     <div class="flex-shrink-0"
-                        style="background-image: url(http://14.228.23.16:8080/image/hay_trao_cho_anh.jpg);">
+                        style="background-image: url(http://127.0.0.1:8080/image/hay_trao_cho_anh.jpg);">
                     </div>
                     <div class="flex-grow-1 ms-3 name-song">
                         <marquee class="name name-song-player">Âm thâm bên em </marquee>
@@ -264,8 +513,7 @@
         </div>
     </div>
     <script type="text/javascript" src="script.js"></script>
-    <script src="js/home-api.js"></script>
-    <script src="js/tim-kiem.js"></script>
+    <script type="module" src="js/tim-kiem.js"></script>
 
 
 </body>

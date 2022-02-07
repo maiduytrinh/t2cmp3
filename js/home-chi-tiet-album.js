@@ -3,6 +3,7 @@ import { handlePlaySong } from "./home-player.js"
 import { handleListSong } from "./home-player.js"
 import { handleEventClickSongAlbum } from "./home-player.js"
 import { handleClickBtnPlayAll } from "./home-player.js"
+import { handleHideElement, isLogin} from "./home-user.js"
 
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
@@ -15,6 +16,7 @@ let id
 
 
 function start(){
+    handleHideElement()
     let params = (new URL(document.location)).searchParams
     id = params.get("id");
     setData()
@@ -82,6 +84,13 @@ function setData(){
             })
             songAlbum.innerHTML = htmls.join('')
             let listSongNew = handleListSong(listSong)
+            //
+            const addPlaylist = $$('.add-to-playlist-wrap')
+            if(isLogin){
+                for(let i=0; i<addPlaylist.length; i++){
+                    addPlaylist[i].style.display = "block"
+                }
+            }
             handlePlaySong(listSongNew)
             handleEventClickSongAlbum(listSongNew)
             handleClickBtnPlayAll(listSongNew)

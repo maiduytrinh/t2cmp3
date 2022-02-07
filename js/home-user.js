@@ -22,7 +22,7 @@ export function handleHideElement(){
 }
 
 export function checkUser(){
-    if(fullName && authorization && id && role)
+    if(fullName && authorization && id && role == "ROLE_USER")
         return true
     else
         return false
