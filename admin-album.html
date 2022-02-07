@@ -21,7 +21,6 @@
                 <div class="d-flex flex-column aside">
                     <div class="st-logo">
                         <img src="logo.png" class="h-30px" alt="">
-                        <button class="btn-right"><i class="fas fa-angle-double-right"></i></button>
                     </div>
                     <div class="st-menu">
 
@@ -77,7 +76,7 @@
                                         <tr>
                                             <!-- <th><input class="form-check-input" type="checkbox" value=""
                                                     id="flexCheckDefault"></th> -->
-                                            <th>#</th>
+                                            <th>Avatar</th>
                                             <th>ID</th>
                                             <th>Tên Album</th>
                                             <th>Ca sĩ</th>
@@ -87,13 +86,15 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Image</td>
+                                            <td><img src="./ava.png" style="width: 50px; border-radius: 5px;" alt="">
+                                            </td>
                                             <td>${album.id}</td>
                                             <td>${album.albumName}</td>
                                             <td>${artists}</td>
                                             <td>${songs}</td>
                                             <td class="text-end" data-index="${album.id}">
-                                                <a href="./admin-update-album.html?id=${album.id}" class="btn btn-active-light-primary">
+                                                <a href="./admin-update-album.html?id=${album.id}"
+                                                    class="btn btn-active-light-primary">
                                                     <i class="far fa-edit"></i>
                                                 </a>
                                                 <button class="btn btn-del" style="color: red;">
@@ -102,13 +103,14 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Image</td>
+                                            <td><img src="./ava.png" style="width: 50px; border-radius: 5px;"" alt=""></td>
                                             <td>${album.id}</td>
                                             <td>${album.albumName}</td>
                                             <td>${artists}</td>
                                             <td>${songs}</td>
-                                            <td class="text-end" data-index="${album.id}">
-                                                <a href="./admin-update-album.html?id=${album.id}" class="btn btn-active-light-primary">
+                                            <td class=" text-end" data-index="${album.id}">
+                                                <a href="./admin-update-album.html?id=${album.id}"
+                                                    class="btn btn-active-light-primary">
                                                     <i class="far fa-edit"></i>
                                                 </a>
                                                 <button class="btn btn-del" style="color: red;">
