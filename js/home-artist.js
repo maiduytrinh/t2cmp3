@@ -1,16 +1,9 @@
-import { callAPIArtist } from "./home-api.js"
+import { callAPIArtist } from "./home-main.js"
 
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
-const artist = $('.artist')
-
+const pagination = $('.pagination')
 function start() {
-    callAPIArtist(1, 10)
+    callAPIArtist(1, 10, pagination)
 }
 start()
-
-var link = $('.pagination__link');
-link.on('click', function(){
-  link.removeClass('is_active');
-  $(this).addClass('is_active');
-});

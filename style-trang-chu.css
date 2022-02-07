@@ -135,19 +135,19 @@ section.introduction {
     font-size: 14px;
 }
 
-.rcnt_slider .bxh .bxh-item .bxh-ranking {
+.bxh .bxh-item .bxh-ranking {
     color: #fff;
     font-size: 50px;
     font-weight: bold;
     margin: auto 0;
 }
 
-.rcnt_slider .bxh .bxh-item {
+.bxh .bxh-item {
     border-bottom: 1.5px solid #1b2039;
     position: relative;
 }
 
-.rcnt_slider .bxh .bxh-item .info-bxh {
+.bxh .bxh-item .info-bxh {
     width: 20%;
     text-align: left;
     margin: auto 0;
@@ -161,7 +161,7 @@ section.introduction {
     display: flex;
 }
 
-.rcnt_slider .bxh .bxh-item .info-bxh:hover{
+.bxh .bxh-item .info-bxh:hover{
     cursor: pointer;
     text-decoration: underline
 }
