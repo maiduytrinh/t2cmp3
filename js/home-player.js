@@ -1,4 +1,6 @@
 import { urlAPI } from "./config.js"
+import { isLogin} from "./home-user.js"
+
 
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
@@ -250,7 +252,9 @@ export function loadCurrentSong(listSong){
     img.style.backgroundImage = `url(${listSong[currentIndex].image})`
     artist.textContent = listSong[currentIndex].singer
     audio.src = listSong[currentIndex].path
-    updateCountListen(listSong[currentIndex].id)
+    if(isLogin){
+      updateCountListen(listSong[currentIndex].id)
+    }
     //load playlist
     const isActive = $('li.jp-playlist-current.active')
     if (isActive) {
@@ -316,8 +320,12 @@ export function handleClickBtnPlayAll(listSong){
 }
 
 function updateCountListen(songId){
-  var requestOptions = {
+  let myHeaders = new Headers();
+  myHeaders.append("Authorization", localStorage.getItem('Authorization'));
+
+  let requestOptions = {
     method: 'PUT',
+    headers: myHeaders,
     redirect: 'follow'
   };
   

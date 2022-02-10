@@ -20,7 +20,6 @@ function start(){
   loadEventTab()
   
   callAPIAlbum(1, size, paginationAlbum, search)
-  callAPIArtist(1, size, paginationArtist, search)
   callAPISong(1, size, paginationSong, search)
 }
 start()

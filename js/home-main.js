@@ -1,4 +1,7 @@
 import { urlAPI } from "./config.js"
+import { handlePlaySong,handleListSong, handleEventClickSongAlbum, handleEventClickBXH} from "./home-player.js"
+import { handleHideElement, isLogin} from "./home-user.js"
+
 
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
@@ -6,7 +9,14 @@ const inputSearch = $('.main-top-left .form-control')
 const album = $('.album')
 const artistElement = $('.artist')
 const song = $('.bxh')
-export function searchEvent(){
+
+function start(){
+    handleHideElement()
+    searchEvent()
+}
+start()
+
+function searchEvent(){
     inputSearch.onkeyup = function(e){
         if(e.keyCode == 13){
             window.location.href = '../tim-kiem.html?p='+this.value
@@ -139,7 +149,8 @@ export function callAPISong(page, size, paginationSong, search){
     fetch(urlAPI + "api/songs/", requestOptions)
     .then(response => response.json())
     .then(function(result){
-        let html = result.songs.map(function(song, index){
+        let listSong = result.songs
+        let html = listSong.map(function(song, index){
             let listArtists = song.artistSongs.map(function(artist){
                 return artist.artists.fullName
             })
@@ -175,14 +186,23 @@ export function callAPISong(page, size, paginationSong, search){
               </div>`
         })
         song.innerHTML = html.join("")
+        const addPlaylist = $$('.add-to-playlist-wrap')
+        if(isLogin){
+            for(let i=0; i<addPlaylist.length; i++){
+                addPlaylist[i].style.display = "block"
+            }
+        }
         if(paginationSong){
-          let htmlPage = ''
-          for(let i = 1; i <= result.totalPages; i++){
-              htmlPage += `<li class="pagination__item"><a href="#" class="pagination__link"  data-index="${i}">${i}</a></li>`
-          }
-          paginationSong.innerHTML = htmlPage
-          loadCurrentPage(paginationSong, page)
-          handleClickPage(page, size, paginationSong, search, callAPISong)
+            let htmlPage = ''
+            for(let i = 1; i <= result.totalPages; i++){
+                htmlPage += `<li class="pagination__item"><a href="#" class="pagination__link"  data-index="${i}">${i}</a></li>`
+            }
+            paginationSong.innerHTML = htmlPage
+            loadCurrentPage(paginationSong, page)
+            handleClickPage(page, size, paginationSong, search, callAPISong)
+            let listSongNew = handleListSong(listSong)
+            handlePlaySong(listSongNew)
+            handleEventClickBXH(listSongNew)
         }
       })
       .catch(error => console.log('error', error));
