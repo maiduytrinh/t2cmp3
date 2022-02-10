@@ -1,5 +1,4 @@
-import { urlAPI } from "./config.js"
-import { handlePlaySong,handleListSong, handleEventClickSongAlbum, handleEventClickBXH} from "./home-player.js"
+import { handlePlaySong, handleListSong, handleEventClickBXH} from "./home-player.js"
 import { handleHideElement, isLogin} from "./home-user.js"
 
 
@@ -24,7 +23,7 @@ function searchEvent(){
     }
 }
 
-export function callAPIAlbum(page, size, paginationAlbum, search){
+export function callAPIAlbum(page, size, url, paginationAlbum, search){
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -43,7 +42,7 @@ export function callAPIAlbum(page, size, paginationAlbum, search){
     redirect: 'follow'
     };
 
-    fetch(urlAPI + "api/albums/", requestOptions)
+    fetch(url, requestOptions)
     .then(function(response){
         // var headers =response.headers.get('Access-Control-Allow-Methods')
         // console.log(headers)
@@ -73,13 +72,13 @@ export function callAPIAlbum(page, size, paginationAlbum, search){
                 }
                 paginationAlbum.innerHTML = htmlPage
                 loadCurrentPage(paginationAlbum, page)
-                handleClickPage(page, size, paginationAlbum, search, callAPIAlbum)
+                handleClickPage(page, size, url, paginationAlbum, search, callAPIAlbum)
             }
     })
     .catch(error => console.log('error', error));
 }
 
-export function callAPIArtist(page, size, paginationArtist, search){
+export function callAPIArtist(page, size, url, paginationArtist, search){
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -97,7 +96,7 @@ export function callAPIArtist(page, size, paginationArtist, search){
     redirect: 'follow'
     };
 
-    fetch(urlAPI + "api/artist/", requestOptions)
+    fetch(url, requestOptions)
     .then(response => response.json())
     .then(
         function(results){
@@ -120,7 +119,7 @@ export function callAPIArtist(page, size, paginationArtist, search){
                 }
                 paginationArtist.innerHTML = htmlPage
                 loadCurrentPage(paginationArtist, page)
-                handleClickPage(page, size, paginationArtist, search, callAPIArtist)
+                handleClickPage(page, size, url, paginationArtist, search, callAPIArtist)
             }
         })
         
@@ -128,7 +127,7 @@ export function callAPIArtist(page, size, paginationArtist, search){
     
 }
 
-export function callAPISong(page, size, paginationSong, search){
+export function callAPISong(page, size, url, songListElement, paginationSong, search){
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -146,7 +145,7 @@ export function callAPISong(page, size, paginationSong, search){
     redirect: 'follow'
     };
 
-    fetch(urlAPI + "api/songs/", requestOptions)
+    fetch(url, requestOptions)
     .then(response => response.json())
     .then(function(result){
         let listSong = result.songs
@@ -185,7 +184,7 @@ export function callAPISong(page, size, paginationSong, search){
                   </div>
               </div>`
         })
-        song.innerHTML = html.join("")
+        songListElement.innerHTML = html.join("")
         const addPlaylist = $$('.add-to-playlist-wrap')
         if(isLogin){
             for(let i=0; i<addPlaylist.length; i++){
@@ -199,22 +198,27 @@ export function callAPISong(page, size, paginationSong, search){
             }
             paginationSong.innerHTML = htmlPage
             loadCurrentPage(paginationSong, page)
-            handleClickPage(page, size, paginationSong, search, callAPISong)
-            let listSongNew = handleListSong(listSong)
-            handlePlaySong(listSongNew)
-            handleEventClickBXH(listSongNew)
+            paginationSong.onclick = function(e){
+                let pageNode = e.target.closest('.pagination__link:not(.is_active)')
+                if(pageNode) {
+                    page = pageNode.dataset.index
+                    callAPISong(page, size, url, songListElement, paginationSong, search)
+                }
+            }
         }
+        let listSongNew = handleListSong(listSong)
+        handlePlaySong(listSongNew)
+        handleEventClickBXH(listSongNew)
       })
       .catch(error => console.log('error', error));
 }
 
-function handleClickPage(page, size, pagination, search, callAPI){
+function handleClickPage(page, size, url, pagination, search, callAPI){
     pagination.onclick = function(e){
         let pageNode = e.target.closest('.pagination__link:not(.is_active)')
         if(pageNode) {
             page = pageNode.dataset.index
-            console.log(page)
-            callAPI(page, size, pagination, search)
+            callAPI(page, size, url, pagination, search)
         }
     }
 }

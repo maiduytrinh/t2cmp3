@@ -8,13 +8,14 @@ import { isLogin} from "./home-user.js"
 
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
-const bxh = $('.bxh')
+const songListElement = $('.bxh')
 const genres = $('.container-the-loai')
-
+const urlAlbum = urlAPI + "api/albums/"
+const urlArtist = urlAPI + "api/artist/"
 function start() {
-    callAPIAlbum(1, 5);
+    callAPIAlbum(1, 5, urlAlbum);
     callAPIBXH(10);
-    callAPIArtist(1, 5);
+    callAPIArtist(1, 5, urlArtist);
     callAPIGenres();
 }
 
@@ -80,7 +81,7 @@ export function callAPIBXH(size){
                     </div>`
             })
             //get bxh
-            bxh.innerHTML = html.join("")
+            songListElement.innerHTML = html.join("")
             //hieen add playlist
             const addPlaylist = $$('.add-to-playlist-wrap')
             if(isLogin){
@@ -98,7 +99,7 @@ export function callAPIBXH(size){
         .catch(error => console.log('error', error));
 }
 
-function callAPIGenres(){
+export function callAPIGenres(){
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
