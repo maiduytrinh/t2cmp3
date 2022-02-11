@@ -2,9 +2,8 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="./style-main.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./style-trang-chu.css">
+
+    <link rel="stylesheet" href="./chi-tiet-bai-hat.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,234 +15,87 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Chi tiet bai hat</title>
+    <title>Danh sách phát</title>
 </head>
 
-<body style="background-color: #14182a;">
-    <div class="main-aside">
-        <div class="main-logo-inner">
-            <div class="main-logo">
-                <a href="trang-chu.html"><img src="logo.png" alt=""></a>
-            </div>
+<body style="background-color: #c394f8;">
+    <ul class="nav nav-pills mb-3 mt-4" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" data-index="0" data-bs-toggle="pill" data-bs-target="#pills-dsphat" type="button"
+                role="tab" aria-controls="pills-dsphat" aria-selected="false">Danh sách phát</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" data-index="1" data-bs-toggle="pill" data-bs-target="#pills-lyrics" type="button"
+                role="tab" aria-controls="pills-lyrics" aria-selected="true">Lời bài hát</button>
+        </li>
 
-        </div>
-
-        <div class="main-nav-wrapper">
-            <ul>
-                <li>
-                    <a href="#"><i class="fas fa-home"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fas fa-compact-disc menu-icon"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fas fa-user"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fas fa-music"></i></a>
-                </li>
-
-                <li>
-                    <a href="#"><i class="far fa-gem"></i></a>
-                </li>
-            </ul>
-        </div>
+    </ul>
+    <div class="lyrics" id="pills-lyrics" role="tabpanel" aria-labelledby="lyrics-tab">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis ea a in placeat praesentium minus quibusdam
+        voluptatibus iusto ab ex! Eos assumenda nobis id obcaecati commodi? Ex maiores earum similique.
     </div>
-    <div class="main-content">
-        <div class="main-header">
-            <div class="main-top-left">
-                <input type="text" class="form-control" placeholder="Tìm kiếm bài hát">
-            </div>
-            <div class="main-top-right">
-                <div class="ms_top_btn">
-                    <a class="ms_btn reg_btn" data-toggle="modal" href="./login.html"
-                        style="color: white; font-size: small; font-weight: bold;"><span>Đăng ký</span></a>
-                    <a class="ms_btn login_btn" data-toggle="modal" href="./login.html"
-                        style="color: white; font-size: small; font-weight: bold;"><span>Đăng nhập</span></a>
-
-                </div>
-            </div>
-            <div class="btn-group dropstart">
-
-                <!-- <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Dropstart
-                </button>
-                <ul class="dropdown-menu">
-                 Dropdown menu links 
-                </ul> -->
-                <button type="button" class="btn-profile" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-circle-user"></i>
-                </button>
-                <ul class="dropdown-menu">
-                    <li>asdads</li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
-
+    <div class="container-2" id="pills-dsphat" role="tabpanel" aria-labelledby="dsphat-tab">
+        <input type="radio" name="slider" id="item-1" checked>
+        <input type="radio" name="slider" id="item-2">
+        <input type="radio" name="slider" id="item-3">
+        <div class="cards">
+            <label class="card-2" for="item-1" id="song-1">
+                <img src="https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80"
+                    alt="song">
+            </label>
+            <label class="card-2" for="item-2" id="song-2">
+                <img src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"
+                    alt="song">
+            </label>
+            <label class="card-2" for="item-3" id="song-3">
+                <img src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
+                    alt="song">
+            </label>
         </div>
-        <div class="main container">
-            <div class="template-song mt-4" style="width: 60%;">
-                <div class="d-flex justify-content-between">
-                    <h2 class="name-song">Bước qua nhau - Vũ</h2>
-                    <span class="view-song"><i class="fas fa-headphones me-2"></i>2.000.000</span>
-                    .
-                </div>
-
+        <div class="type-playlist">
+            <div class="info-song">
+                <p class="name-song">Bước qua nhau - <span class="ca-si">Chi Dân</span></p>
             </div>
-        </div>
-        <div class="main-player-wrapper">
-            <div class="audio-play">
-                <div class="d-flex align-items-center info-player">
-                    <div class="flex-shrink-0"
-                        style="background-image: url(http://14.228.23.16:8080/image/hay_trao_cho_anh.jpg);">
-                    </div>
-                    <div class="flex-grow-1 ms-3 name-song">
-                        <p class="name name-song-player">Âm thâm bên em </p>
-                        <p class="art">Sơn Tùng MTP</p>
-                    </div>
-                </div>
-
-            </div>
-            <div class="type-playlist">
-                <div class="playlist-interface">
-                    <div class="playlist-control">
-                        <button><i class="fas fa-step-backward"></i></button>
-                        <button class="btn-toggle-play">
-                            <i class="fas fa-play icon-play"></i>
-                            <i class="fas fa-pause icon-pause"></i>
-                        </button>
-                        <button><i class="fas fa-step-forward"></i></button>
-                    </div>
-                </div>
-                <div class="progress-container">
-                    <!-- <div id="timeline1" class="progresss">
+            <div class="progress-container">
+                <!-- <div id="timeline1" class="progresss">
                             <div id="seekObj1" class="seek-bar" style="margin-left: 0px;"></div>
                         </div> -->
-                    <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100" />
-                    <div class="player-controls scrubber">
-                        <span class="start-time">0:00</span>
-                        <span class="end-time">4:00</span>
-                    </div>
-                    <div class="audio-wrapper">
-                        <audio id="player2" preload="auto">
-                            <source src="http://d2cstorage-a.akamaihd.net/wbr/gotnext/8578.mp3" type="audio/mp3">
-                        </audio>
-                    </div>
-
+                <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100" />
+                <div class="player-controls scrubber">
+                    <span class="start-time">0:00</span>
+                    <span class="end-time">4:00</span>
                 </div>
-                <div class="playlist-toggles">
-                    <div class="toggles">
-                        <button><i class="fas fa-random"></i></button>
-                        <button><i class="fas fa-redo"></i></button>
-                    </div>
+                <div class="audio-wrapper">
+                    <audio id="player2" preload="auto">
+                        <source src="http://d2cstorage-a.akamaihd.net/wbr/gotnext/8578.mp3" type="audio/mp3">
+                    </audio>
                 </div>
+
             </div>
-
-            <div class="queue-wrapper" role="button">
-                <span class="que-text">
-                    <i class="fa fa-angle-up me-2"></i>
-                    Danh sách phát
-                </span>
-            </div>
-            <div class="queue-expand" role="button">
-                <i class="fas fa-times btn-closee"></i>
-                <h3>Danh sách phát</h3>
-                <div class="list-player overflow-auto">
-                    <div class="mCustomScrollBox">
-                        <ul class="list-ul">
-                            <li class="jp-playlist-current active" data-index="0">
-                                <div class="d-flex align-items-center ">
-                                    <div class="flex-shrink-0">
-                                        <img class="img-fluid rounded" src="./ava.png" alt="...">
-                                    </div>
-                                    <div class="flex-grow-1 ms-3 name-song">
-                                        <p class="name">Mang tiền về cho mẹ</p>
-                                        <p class="art">Đen Vâu</p>
-                                    </div>
-                                </div>
-
-                            </li>
-                            <li class="jp-playlist-current" data-index="1">
-                                <div class="d-flex align-items-center ">
-                                    <div class="flex-shrink-0">
-                                        <img class="img-fluid rounded" src="./ava.png" alt="...">
-                                    </div>
-                                    <div class="flex-grow-1 ms-3 name-song">
-                                        <p class="name">Big City Boi</p>
-                                        <p class="art">Binz</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="jp-playlist-current" data-index="2">
-                                <div class="d-flex align-items-center ">
-                                    <div class="flex-shrink-0">
-                                        <img class="img-fluid rounded" src="./ava.png" alt="...">
-                                    </div>
-                                    <div class="flex-grow-1 ms-3 name-song">
-                                        <p class="name">Chạm khẽ tim anh một chút thôi mai xa rồi</p>
-                                        <p class="art">Noo Phước Thịnh</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="jp-playlist-current" data-index="2">
-                                <div class="d-flex align-items-center ">
-                                    <div class="flex-shrink-0">
-                                        <img class="img-fluid rounded" src="./ava.png" alt="...">
-                                    </div>
-                                    <div class="flex-grow-1 ms-3 name-song">
-                                        <p class="name">Chạm khẽ tim anh một chút thôi mai xa rồi</p>
-                                        <p class="art">Noo Phước Thịnh</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="jp-playlist-current" data-index="2">
-                                <div class="d-flex align-items-center ">
-                                    <div class="flex-shrink-0">
-                                        <img class="img-fluid rounded" src="./ava.png" alt="...">
-                                    </div>
-                                    <div class="flex-grow-1 ms-3 name-song">
-                                        <p class="name">Chạm khẽ tim anh một chút thôi mai xa rồi</p>
-                                        <p class="art">Noo Phước Thịnh</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="jp-playlist-current" data-index="2">
-                                <div class="d-flex align-items-center ">
-                                    <div class="flex-shrink-0">
-                                        <img class="img-fluid rounded" src="./ava.png" alt="...">
-                                    </div>
-                                    <div class="flex-grow-1 ms-3 name-song">
-                                        <p class="name">Chạm khẽ tim anh một chút thôi mai xa rồi</p>
-                                        <p class="art">Noo Phước Thịnh</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="jp-playlist-current" data-index="2">
-                                <div class="d-flex align-items-center ">
-                                    <div class="flex-shrink-0">
-                                        <img class="img-fluid rounded" src="./ava.png" alt="...">
-                                    </div>
-                                    <div class="flex-grow-1 ms-3 name-song">
-                                        <p class="name">Chạm khẽ tim anh một chút thôi mai xa rồi</p>
-                                        <p class="art">Noo Phước Thịnh</p>
-                                    </div>
-                                </div>
-                            </li>
-
-
-                        </ul>
-                    </div>
-
+            <div class="playlist-interface">
+                <div class="playlist-control">
+                    <button><i class="fas fa-random"></i></button>
+                    <button><i class="fas fa-step-backward"></i></button>
+                    <button class="btn-toggle-play">
+                        <i class="fas fa-play icon-play"></i>
+                        <i class="fas fa-pause icon-pause"></i>
+                    </button>
+                    <button><i class="fas fa-step-forward"></i></button>
+                    <button><i class="fas fa-redo"></i></button>
                 </div>
             </div>
+            <!-- <div class="playlist-toggles">
+                <div class="toggles">
+
+
+                </div>
+            </div> -->
         </div>
+
     </div>
+
     <script type="text/javascript" src="script.js"></script>
-    <script src="js/home-api.js"></script>
+    <script src="js/chi-tiet-bai-hat.js"></script>
 
 </body>
 
