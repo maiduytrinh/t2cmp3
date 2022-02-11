@@ -10,8 +10,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -19,83 +19,83 @@
 </head>
 
 <body style="background-color: #c394f8;">
-    <ul class="nav nav-pills mb-3 mt-4" id="pills-tab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" data-index="0" data-bs-toggle="pill" data-bs-target="#pills-dsphat" type="button"
-                role="tab" aria-controls="pills-dsphat" aria-selected="false">Danh sách phát</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" data-index="1" data-bs-toggle="pill" data-bs-target="#pills-lyrics" type="button"
-                role="tab" aria-controls="pills-lyrics" aria-selected="true">Lời bài hát</button>
-        </li>
 
-    </ul>
-    <div class="lyrics" id="pills-lyrics" role="tabpanel" aria-labelledby="lyrics-tab">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis ea a in placeat praesentium minus quibusdam
-        voluptatibus iusto ab ex! Eos assumenda nobis id obcaecati commodi? Ex maiores earum similique.
-    </div>
-    <div class="container-2" id="pills-dsphat" role="tabpanel" aria-labelledby="dsphat-tab">
-        <input type="radio" name="slider" id="item-1" checked>
-        <input type="radio" name="slider" id="item-2">
-        <input type="radio" name="slider" id="item-3">
-        <div class="cards">
-            <label class="card-2" for="item-1" id="song-1">
-                <img src="https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80"
-                    alt="song">
-            </label>
-            <label class="card-2" for="item-2" id="song-2">
-                <img src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"
-                    alt="song">
-            </label>
-            <label class="card-2" for="item-3" id="song-3">
-                <img src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                    alt="song">
-            </label>
+    <div class="tabs">
+        <div class="tab-2">
+            <label for="tab2-2">Danh sách phát</label>
+            <input id="tab2-2" name="tabs-two" type="radio">
+            <div class="container-2">
+                <input type="radio" name="slider" id="item-1" checked>
+                <input type="radio" name="slider" id="item-2">
+                <input type="radio" name="slider" id="item-3">
+                <div class="cards">
+                    <label class="card-2" for="item-1" id="song-1">
+                        <img src="https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80"
+                            alt="song">
+                    </label>
+                    <label class="card-2" for="item-2" id="song-2">
+                        <img src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"
+                            alt="song">
+                    </label>
+                    <label class="card-2" for="item-3" id="song-3">
+                        <img src="https://images.unsplash.com/photo-1533461502717-83546f485d24?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
+                            alt="song">
+                    </label>
+                </div>
+                <div class="type-playlist">
+                    <div class="info-song">
+                        <p class="name-song">Bước qua nhau - <span class="ca-si">Chi Dân</span></p>
+                    </div>
+                    <div class="progress-container">
+
+                        <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100" />
+                        <div class="player-controls scrubber">
+                            <span class="start-time">0:00</span>
+                            <span class="end-time">4:00</span>
+                        </div>
+                        <div class="audio-wrapper">
+                            <audio id="player2" preload="auto">
+                                <source src="http://d2cstorage-a.akamaihd.net/wbr/gotnext/8578.mp3" type="audio/mp3">
+                            </audio>
+                        </div>
+
+                    </div>
+                    <div class="playlist-interface">
+                        <div class="playlist-control">
+                            <button><i class="fas fa-random"></i></button>
+                            <button><i class="fas fa-step-backward"></i></button>
+                            <button class="btn-toggle-play">
+                                <i class="fas fa-play icon-play"></i>
+                                <i class="fas fa-pause icon-pause"></i>
+                            </button>
+                            <button><i class="fas fa-step-forward"></i></button>
+                            <button><i class="fas fa-redo"></i></button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
-        <div class="type-playlist">
-            <div class="info-song">
-                <p class="name-song">Bước qua nhau - <span class="ca-si">Chi Dân</span></p>
+        <div class="tab-2">
+            <label for="tab2-1">Lời bài hát</label>
+            <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
+            <div class="lyrics">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis ea a in placeat praesentium minus
+                quibusdam
+                voluptatibus iusto ab ex! Eos assumenda nobis id obcaecati commodi? Ex maiores earum similique.
             </div>
-            <div class="progress-container">
-                <!-- <div id="timeline1" class="progresss">
-                            <div id="seekObj1" class="seek-bar" style="margin-left: 0px;"></div>
-                        </div> -->
-                <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100" />
-                <div class="player-controls scrubber">
-                    <span class="start-time">0:00</span>
-                    <span class="end-time">4:00</span>
-                </div>
-                <div class="audio-wrapper">
-                    <audio id="player2" preload="auto">
-                        <source src="http://d2cstorage-a.akamaihd.net/wbr/gotnext/8578.mp3" type="audio/mp3">
-                    </audio>
-                </div>
-
-            </div>
-            <div class="playlist-interface">
-                <div class="playlist-control">
-                    <button><i class="fas fa-random"></i></button>
-                    <button><i class="fas fa-step-backward"></i></button>
-                    <button class="btn-toggle-play">
-                        <i class="fas fa-play icon-play"></i>
-                        <i class="fas fa-pause icon-pause"></i>
-                    </button>
-                    <button><i class="fas fa-step-forward"></i></button>
-                    <button><i class="fas fa-redo"></i></button>
-                </div>
-            </div>
-            <!-- <div class="playlist-toggles">
-                <div class="toggles">
-
-
-                </div>
-            </div> -->
         </div>
-
     </div>
+    </div>
+    <div class="container-1">
 
-    <script type="text/javascript" src="script.js"></script>
-    <script src="js/chi-tiet-bai-hat.js"></script>
+
+
+
+        <script type="text/javascript" src="script.js"></script>
+        <script src="js/chi-tiet-bai-hat.js"></script>
 
 </body>
 

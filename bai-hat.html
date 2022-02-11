@@ -31,20 +31,29 @@
         <div class="main-nav-wrapper">
             <ul>
                 <li>
-                    <a href="#"><i class="fas fa-home"></i></a>
+                    <a href="./trang-chu.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Trang chủ"><i
+                            class="fas fa-home"></i></a>
                 </li>
                 <li>
-                    <a href="./album.html"><i class="fas fa-compact-disc menu-icon"></i></a>
+                    <a href="./album.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Album"><i
+                            class="fas fa-compact-disc menu-icon"></i></a>
                 </li>
                 <li>
-                    <a href="./ca-si.html"><i class="fas fa-user"></i></a>
+                    <a href="./ca-si.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Ca sĩ"><i
+                            class="fas fa-user"></i></a>
                 </li>
                 <li>
-                    <a href="./bai-hat.html"><i class="fas fa-music"></i></a>
+                    <a href="./bai-hat.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Bài hát"><i
+                            class="fas fa-music"></i></a>
                 </li>
 
                 <li>
-                    <a href="./bang-xep-hang.html"><i class="far fa-gem"></i></a>
+                    <a href="./bang-xep-hang.html" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Bảng xếp hạng"><i class="far fa-gem"></i></a>
+                </li>
+                <li>
+                    <a href="./playlist.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Playlist"><i
+                            class="fa-solid fa-headphones-simple"></i></a>
                 </li>
             </ul>
         </div>
@@ -55,33 +64,44 @@
                 <input type="text" class="form-control" placeholder="Tìm kiếm bài hát">
             </div>
             <div class="main-top-right">
-                <div class="ms_top_btn">
+                <div class="ms_top_btn" style="display: none;">
                     <a class="ms_btn reg_btn" data-toggle="modal" href="./login.html"
-                        style="color: white; font-size: small; font-weight: bold;"><span>Đăng ký</span></a>
+                        style="color: white; font-size: small; font-weight: bold;"><span>Đăng
+                            ký</span></a>
                     <a class="ms_btn login_btn" data-toggle="modal" href="./login.html"
-                        style="color: white; font-size: small; font-weight: bold;"><span>Đăng nhập</span></a>
+                        style="color: white; font-size: small; font-weight: bold;"><span>Đăng
+                            nhập</span></a>
 
                 </div>
-            </div>
-            <div class="btn-group dropstart">
+                <!-- Profile -->
+                <div class="dropdown">
+                    <input type="checkbox" id="dropdown">
 
-                <!-- <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Dropstart
-                </button>
-                <ul class="dropdown-menu">
-                 Dropdown menu links 
-                </ul> -->
-                <button type="button" class="btn-profile" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-circle-user"></i>
-                </button>
-                <ul class="dropdown-menu">
-                    <li>asdads</li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
+                    <label class="dropdown__face" for="dropdown">
+                        <div class="dropdown__text">Username</div>
+
+                        <div class="dropdown__arrow"></div>
+                    </label>
+
+                    <ul class="dropdown__items">
+                        <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Đổi mật khẩu"><i
+                                    class="fa-solid fa-key"></i></a></li>
+                        <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Upload bài hát"><i
+                                    class="fa-solid fa-cloud-arrow-up"></i></a></li>
+                        <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Đăng xuất"><i
+                                    class="fa-solid fa-right-from-bracket"></i></a></li>
+
+                    </ul>
+                </div>
+
+                <svg>
+                    <filter id="goo">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                        <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                            result="goo" />
+                        <feBlend in="SourceGraphic" in2="goo" />
+                    </filter>
+                </svg>
             </div>
 
         </div>
@@ -96,7 +116,8 @@
                         <p class="bd-highlight bxh-ranking p-2">01</p>
                         <div class="info-bxh p-2 bd-highlight ms-3">
                             <span class="ava-player">
-                                <img src="http://localhost:8080/image/big_city_boi.jpg" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                                <img src="http://localhost:8080/image/big_city_boi.jpg"
+                                    style="height: 50px; width: 50px; border-radius: 5px;" alt="">
                             </span>
                             <div class="name-song">
                                 <p class="name">Big City Boi</p>
@@ -123,7 +144,8 @@
                         <p class="bd-highlight bxh-ranking p-2">02</p>
                         <div class="info-bxh p-2 bd-highlight ms-3">
                             <span class="ava-player">
-                                <img src="http://localhost:8080/image/mang_tien_ve_cho_me.jpg" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                                <img src="http://localhost:8080/image/mang_tien_ve_cho_me.jpg"
+                                    style="height: 50px; width: 50px; border-radius: 5px;" alt="">
                             </span>
                             <div class="name-song">
                                 <p class="name">Mang tiền về cho mẹ</p>
@@ -150,7 +172,8 @@
                         <p class="bd-highlight bxh-ranking p-2">03</p>
                         <div class="info-bxh p-2 bd-highlight ms-3">
                             <span class="ava-player">
-                                <img src="http://localhost:8080/image/cham_khe_tim_anh_mot_chut_thoi.jpg" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                                <img src="http://localhost:8080/image/cham_khe_tim_anh_mot_chut_thoi.jpg"
+                                    style="height: 50px; width: 50px; border-radius: 5px;" alt="">
                             </span>
                             <div class="name-song">
                                 <p class="name">Chạm khẽ tim anh một chút thôi </p>
@@ -163,7 +186,8 @@
                             </button>
                             <ul class="more_option" id="moreoption">
                                 <li>
-                                    <a href="http://localhost:8080/source_mp3/cham_khe_tim_anh_mot_chut_thoi.mp3" class="opt_icon">
+                                    <a href="http://localhost:8080/source_mp3/cham_khe_tim_anh_mot_chut_thoi.mp3"
+                                        class="opt_icon">
                                         <i class="fas fa-arrow-circle-down me-2"></i>
                                         Download Now
                                     </a>
@@ -177,7 +201,8 @@
                         <p class="bd-highlight bxh-ranking p-2">04</p>
                         <div class="info-bxh p-2 bd-highlight ms-3">
                             <span class="ava-player">
-                                <img src="http://localhost:8080/image/chang_noi_nen_loi.jpg" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                                <img src="http://localhost:8080/image/chang_noi_nen_loi.jpg"
+                                    style="height: 50px; width: 50px; border-radius: 5px;" alt="">
                             </span>
                             <div class="name-song">
                                 <p class="name">Chẳng nói nên lời</p>
@@ -204,7 +229,8 @@
                         <p class="bd-highlight bxh-ranking p-2">05</p>
                         <div class="info-bxh p-2 bd-highlight ms-3">
                             <span class="ava-player">
-                                <img src="http://localhost:8080/image/co_hang_xom.jpg" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                                <img src="http://localhost:8080/image/co_hang_xom.jpg"
+                                    style="height: 50px; width: 50px; border-radius: 5px;" alt="">
                             </span>
                             <div class="name-song">
                                 <p class="name">Cô hàng xóm</p>
@@ -231,7 +257,8 @@
                         <p class="bd-highlight bxh-ranking p-2">06</p>
                         <div class="info-bxh p-2 bd-highlight ms-3">
                             <span class="ava-player">
-                                <img src="http://localhost:8080/image/thuong_em_la_dieu_anh_khong_the_ngo.jpg" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                                <img src="http://localhost:8080/image/thuong_em_la_dieu_anh_khong_the_ngo.jpg"
+                                    style="height: 50px; width: 50px; border-radius: 5px;" alt="">
                             </span>
                             <div class="name-song">
                                 <p class="name">Thương em là điều anh không thể ngờ</p>
@@ -244,7 +271,8 @@
                             </button>
                             <ul class="more_option" id="moreoption">
                                 <li>
-                                    <a href="http://localhost:8080/source_mp3/thuong_em_la_dieu_anh_khong_the_ngo.mp3" class="opt_icon">
+                                    <a href="http://localhost:8080/source_mp3/thuong_em_la_dieu_anh_khong_the_ngo.mp3"
+                                        class="opt_icon">
                                         <i class="fas fa-arrow-circle-down me-2"></i>
                                         Download Now
                                     </a>
@@ -258,7 +286,8 @@
                         <p class="bd-highlight bxh-ranking p-2">07</p>
                         <div class="info-bxh p-2 bd-highlight ms-3">
                             <span class="ava-player">
-                                <img src="http://localhost:8080/image/ve_dau_mai_toc.jpg" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                                <img src="http://localhost:8080/image/ve_dau_mai_toc.jpg"
+                                    style="height: 50px; width: 50px; border-radius: 5px;" alt="">
                             </span>
                             <div class="name-song">
                                 <p class="name">Về đâu mái tóc ngươi thương</p>
@@ -285,7 +314,8 @@
                         <p class="bd-highlight bxh-ranking p-2">08</p>
                         <div class="info-bxh p-2 bd-highlight ms-3">
                             <span class="ava-player">
-                                <img src="http://localhost:8080/image/ok.jpg" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                                <img src="http://localhost:8080/image/ok.jpg"
+                                    style="height: 50px; width: 50px; border-radius: 5px;" alt="">
                             </span>
                             <div class="name-song">
                                 <p class="name">OK</p>
@@ -312,7 +342,8 @@
                         <p class="bd-highlight bxh-ranking p-2">09</p>
                         <div class="info-bxh p-2 bd-highlight ms-3">
                             <span class="ava-player">
-                                <img src="http://localhost:8080/image/loi_nho.jpg" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                                <img src="http://localhost:8080/image/loi_nho.jpg"
+                                    style="height: 50px; width: 50px; border-radius: 5px;" alt="">
                             </span>
                             <div class="name-song">
                                 <p class="name">Lối nhỏ</p>
@@ -339,7 +370,8 @@
                         <p class="bd-highlight bxh-ranking p-2">10</p>
                         <div class="info-bxh p-2 bd-highlight ms-3">
                             <span class="ava-player">
-                                <img src="http://localhost:8080/image/cho_anh_nhe.jpg" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                                <img src="http://localhost:8080/image/cho_anh_nhe.jpg"
+                                    style="height: 50px; width: 50px; border-radius: 5px;" alt="">
                             </span>
                             <div class="name-song">
                                 <p class="name">Chờ anh nhé</p>
@@ -361,7 +393,8 @@
                                         Playlist</a></li>
                             </ul>
                         </div>
-                    </div></div>
+                    </div>
+                </div>
             </div>
             <div class="wrapper mt-5">
                 <ul class="pagination">
