@@ -1,11 +1,12 @@
-import { callAPIArtist } from "./home-main.js"
+import { callAPISong } from "./home-main.js"
 import { urlAPI } from "./config.js"
 
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
-const urlArtist = urlAPI + "api/artist/"
+const urlSong = urlAPI + "api/songs/"
 const pagination = $('.pagination')
+const songListElement = $('.bxh')
 function start() {
-    callAPIArtist(1, 10, urlArtist, pagination)
+    callAPISong(1, 10, urlSong, songListElement, pagination)
 }
 start()

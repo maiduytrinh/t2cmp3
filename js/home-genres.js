@@ -8,22 +8,21 @@ const tabContent = $$('.tab-content')
 const tabLink = $$('.nav-link')
 const paginationSong = $('#tab-song .pagination')
 const paginationAlbum = $('#tab-album .pagination')
-const paginationArtist = $('#tab-artist .pagination')
 let numTab = 0;
 let params = (new URL(document.location)).searchParams
-let search = params.get("p");
+let id = params.get("id");
 let size = 5
-const urlAlbum = urlAPI + "api/albums/"
-const urlSong = urlAPI + "api/songs/"
-const urlArtist = urlAPI + "api/artist/"
+const urlAlbum = urlAPI + "api/genres/album/" + id
+const urlSong = urlAPI + "api/genres/song/" + id
 const songListElement = $('.bxh')
 
 function start(){
+  handleHideElement()
   loadCurrentTab(numTab)
   loadEventTab()
-  callAPIAlbum(1, size, urlAlbum, paginationAlbum, search)
-  callAPIArtist(1, size, urlArtist, paginationArtist, search)
-  callAPISong(1, size, urlSong, songListElement, paginationSong, search)
+  
+  callAPIAlbum(1, size, urlAlbum, paginationAlbum)
+  callAPISong(1, size, urlSong, songListElement, paginationSong)
 }
 start()
 

@@ -1,8 +1,5 @@
 import { urlAPI } from "./config.js"
-import { handlePlaySong } from "./home-player.js"
-import { handleListSong } from "./home-player.js"
-import { handleEventClickSongAlbum } from "./home-player.js"
-import { handleClickBtnPlayAll } from "./home-player.js"
+import { handlePlaySong,handleListSong, handleEventClickSongAlbum, handleClickBtnPlayAll } from "./home-player.js"
 import { handleHideElement, isLogin} from "./home-user.js"
 
 const $$ = document.querySelectorAll.bind(document)
