@@ -85,14 +85,50 @@
                     </label>
 
                     <ul class="dropdown__items">
-                        <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Đổi mật khẩu"><i
-                                    class="fa-solid fa-key"></i></a></li>
+                        <li><a id="myBtn" type="button" href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Đổi mật khẩu">
+
+                                <i class="fa-solid fa-key"></i>
+                                <!-- <div id="myModal" class="modall">
+                                    <div class="modall-content">
+                                        <form action="" method="post" name="signupForm" id="signupForm">
+                                            <h2 class="formTitle">
+                                                Thay đổi mật khẩu
+                                            </h2>
+
+                                            <div class="inputDiv">
+                                                <label class="inputLabel" for="password">New Password</label>
+                                                <input type="password" id="password" name="password" required>
+                                            </div>
+
+                                            <div class="inputDiv">
+                                                <label class="inputLabel" for="confirmPassword">Confirm
+                                                    Password</label>
+                                                <input type="password" id="confirmPassword" name="confirmPassword">
+                                            </div>
+
+                                            <div class="buttonWrapper">
+                                                <button type="submit" id="submitButton" onclick="validateSignupForm()"
+                                                    class="submitButton pure-button pure-button-primary">
+                                                    <span>Continue</span>
+                                                    <span id="loader"></span>
+                                                </button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div> -->
+                            </a>
+
+                        </li>
+
                         <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Upload bài hát"><i
                                     class="fa-solid fa-cloud-arrow-up"></i></a></li>
                         <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Đăng xuất"><i
                                     class="fa-solid fa-right-from-bracket"></i></a></li>
 
                     </ul>
+
                 </div>
 
                 <svg>
@@ -128,6 +164,18 @@
             </div>
         </section>
 
+        <button id="myBtn">Open Modal</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modall">
+
+            <!-- Modal content -->
+            <div class="modall-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+            </div>
+
+        </div>
         <div class="rcnt_slider">
             <div class="heading">
                 <h1> Album Nổi Bật </h1>
@@ -149,24 +197,25 @@
                 </span>
             </div>
             <div class="bxh">
-                <div class="d-flex bd-highlight mb-2 bxh-item" data-index="${index}">
+                <div class="d-flex bd-highlight mb-2 bxh-item" data-index="0">
                     <p class="bd-highlight bxh-ranking p-2">01</p>
                     <div class="info-bxh p-2 bd-highlight ms-3">
                         <span class="ava-player">
-                            <img src="" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                            <img src="http://localhost:8080/image/mang_tien_ve_cho_me.jpg"
+                                style="height: 50px; width: 50px; border-radius: 5px;" alt="">
                         </span>
                         <div class="name-song">
-                            <p class="name">KJJSNDJS</p>
-                            <p class="art">afdsfdsfsdf</p>
+                            <p class="name">Mang tiền về cho mẹ</p>
+                            <p class="art">Đen Vâu</p>
                         </div>
                     </div>
-                    <div class="ms-auto add-to-playlist-wrap">
+                    <div class="ms-auto add-to-playlist-wrap" style="display: block;">
                         <button class="bd-highlight btn-add-to-playlist" id="btnmore">
                             <i class="fas fa-ellipsis-h"></i>
                         </button>
                         <ul class="more_option" id="moreoption">
                             <li>
-                                <a href="${song.mediaUrl}" class="opt_icon">
+                                <a href="http://localhost:8080/source_mp3/mang_tien_ve_cho_me.mp3" class="opt_icon">
                                     <i class="fas fa-arrow-circle-down me-2"></i>
                                     Download Now
                                 </a>
@@ -176,52 +225,56 @@
                         </ul>
                     </div>
                 </div>
-                <div class="d-flex bd-highlight mb-2 bxh-item" data-index="${index}">
+                <div class="d-flex bd-highlight mb-2 bxh-item" data-index="0">
                     <p class="bd-highlight bxh-ranking p-2">01</p>
                     <div class="info-bxh p-2 bd-highlight ms-3">
                         <span class="ava-player">
-                            <img src="" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                            <img src="http://localhost:8080/image/mang_tien_ve_cho_me.jpg"
+                                style="height: 50px; width: 50px; border-radius: 5px;" alt="">
                         </span>
                         <div class="name-song">
-                            <p class="name">KJJSNDJS</p>
-                            <p class="art">afdsfdsfsdf</p>
+                            <p class="name">Mang tiền về cho mẹ</p>
+                            <p class="art">Đen Vâu</p>
                         </div>
                     </div>
-                    <div class="ms-auto add-to-playlist-wrap">
-                        <button class="ms-auto bd-highlight btn-add-to-playlist" id="btnmore">
+                    <div class="ms-auto add-to-playlist-wrap" style="display: block;">
+                        <button class="bd-highlight btn-add-to-playlist" id="btnmore">
                             <i class="fas fa-ellipsis-h"></i>
                         </button>
                         <ul class="more_option" id="moreoption">
-                            <li><a
-                                    href="https://res.cloudinary.com/daotq1/video/upload/v1639644398/f5a3jwhikogykkm9qiwg.mp3"><span
-                                        class="opt_icon"><i class="fas fa-arrow-circle-down me-2"></i>Download
-                                        Now</a>
+                            <li>
+                                <a href="http://localhost:8080/source_mp3/mang_tien_ve_cho_me.mp3" class="opt_icon">
+                                    <i class="fas fa-arrow-circle-down me-2"></i>
+                                    Download Now
+                                </a>
                             </li>
                             <li><a href="#"><i class="fas fa-folder-plus me-2"></i>Add To
                                     Playlist</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="d-flex bd-highlight mb-2 bxh-item" data-index="${index}">
+                <div class="d-flex bd-highlight mb-2 bxh-item" data-index="0">
                     <p class="bd-highlight bxh-ranking p-2">01</p>
                     <div class="info-bxh p-2 bd-highlight ms-3">
                         <span class="ava-player">
-                            <img src="" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
+                            <img src="http://localhost:8080/image/mang_tien_ve_cho_me.jpg"
+                                style="height: 50px; width: 50px; border-radius: 5px;" alt="">
                         </span>
                         <div class="name-song">
-                            <p class="name">KJJSNDJS</p>
-                            <p class="art">afdsfdsfsdf</p>
+                            <p class="name">Mang tiền về cho mẹ</p>
+                            <p class="art">Đen Vâu</p>
                         </div>
                     </div>
-                    <div class="ms-auto add-to-playlist-wrap">
-                        <button class="ms-auto bd-highlight btn-add-to-playlist" id="btnmore">
+                    <div class="ms-auto add-to-playlist-wrap" style="display: block;">
+                        <button class="bd-highlight btn-add-to-playlist" id="btnmore">
                             <i class="fas fa-ellipsis-h"></i>
                         </button>
                         <ul class="more_option" id="moreoption">
-                            <li><a
-                                    href="https://res.cloudinary.com/daotq1/video/upload/v1639644398/f5a3jwhikogykkm9qiwg.mp3"><span
-                                        class="opt_icon"><i class="fas fa-arrow-circle-down me-2"></i>Download
-                                        Now</a>
+                            <li>
+                                <a href="http://localhost:8080/source_mp3/mang_tien_ve_cho_me.mp3" class="opt_icon">
+                                    <i class="fas fa-arrow-circle-down me-2"></i>
+                                    Download Now
+                                </a>
                             </li>
                             <li><a href="#"><i class="fas fa-folder-plus me-2"></i>Add To
                                     Playlist</a></li>
