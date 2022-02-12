@@ -67,7 +67,7 @@ body {
     display: flex;
     justify-content: space-between;
     visibility: hidden;
-    z-index: -1;
+    z-index: 100;
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.93, 0.88, 0.1, 0.9);
 }
@@ -230,7 +230,7 @@ svg {
     transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
     justify-content: space-between;
-    display: flex;
+    display: none;
 }
 
 .main-player-wrapper .icon-pause {

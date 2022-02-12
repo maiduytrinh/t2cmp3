@@ -1,5 +1,5 @@
 import { urlAPI } from "./config.js"
-import { handlePlaySong, handleListSong, handleEventClickBXH} from "./home-player.js"
+import { handlePlaySong, handleListSong, handleEventClickBXH, handleClickBtnPlayAll} from "./home-player.js"
 import { handleHideElement, isLogin} from "./home-user.js"
 
 
@@ -103,7 +103,7 @@ export function callAPIArtist(page, size, url, paginationArtist, search){
         function(results){
             let htmls = results.artists.map(function(artist){
                 return `
-                    <a href="#" class="artist-item" data-index="${artist.id}">
+                    <a href="./chi-tiet-ca-si.html?id=${artist.id}" class="artist-item" data-index="${artist.id}">
                             <div>
                                 <img src="${artist.image}" alt="">
                                 <h2>${artist.fullName}</h2>
@@ -150,79 +150,112 @@ export function callAPISong(page, size, url, songListElement, paginationSong, se
     .then(response => response.json())
     .then(function(result){
         let listSong = result.songs
-        let html = listSong.map(function(song, index){
-            let listArtists = song.artistSongs.map(function(artist){
-                return artist.artists.fullName
-            })
-            let artists = listArtists.join(", ")
-            return `
-                  <div class="d-flex bd-highlight mb-2 bxh-item" data-index="${index}">
-                  <p class="bd-highlight bxh-ranking p-2">${String("0" + (index + 1)).slice(-2)}</p>
-                  <div class="info-bxh p-2 bd-highlight ms-3">
-                      <span class="ava-player">
-                          <img src="${song.image}" style="height: 50px; width: 50px; border-radius: 5px;"
-                              alt="">
-                      </span>
-                      <div class="name-song">
-                          <p class="name">${song.title}</p>
-                          <p class="art">${artists}</p>
-                      </div>
-                  </div>
-                  <div class ="ms-auto add-to-playlist-wrap">
-                      <button class="bd-highlight btn-add-to-playlist" id="btnmore">
-                          <i class="fas fa-ellipsis-h"></i>
-                      </button>
-                      <ul class="more_option" id="moreoption">
-                          <li>
-                              <a href="${song.mediaUrl}" class="opt_icon">
-                                  <i class="fas fa-arrow-circle-down me-2"></i>
-                                  Download Now
-                              </a>
-                          </li>
-                          <li>
-                                <div class="wrap-add-plalist">
-                                    <a href="#"><i class="fas fa-folder-plus me-2"></i>Add To Playlist</a>
-                                    <ul class="all-playlist" data-index="${song.id}">
-                                        
-                                    </ul>
-                                </div>
-                            </li>
-                      </ul>
-                  </div>
-              </div>`
-        })
-        songListElement.innerHTML = html.join("")
-        const addPlaylist = $$('.add-to-playlist-wrap')
-        const allPlaylist = $$('.all-playlist')
-        let idUser
-        if(isLogin){
-            for(let i=0; i<addPlaylist.length; i++){
-                addPlaylist[i].style.display = "block"
-            }
-            idUser = localStorage.getItem('id')
-            const urlPlaylist = urlAPI + "api/playlist/all/" + idUser
-            apiGetPlaylist(1, 10, urlPlaylist, renderNamePlaylist, allPlaylist)
-        }
-        if(paginationSong){
-            let htmlPage = ''
-            for(let i = 1; i <= result.totalPages; i++){
-                htmlPage += `<li class="pagination__item"><a href="#" class="pagination__link"  data-index="${i}">${i}</a></li>`
-            }
-            paginationSong.innerHTML = htmlPage
-            loadCurrentPage(paginationSong, page)
-            paginationSong.onclick = function(e){
-                let pageNode = e.target.closest('.pagination__link:not(.is_active)')
-                if(pageNode) {
-                    page = pageNode.dataset.index
-                    callAPISong(page, size, url, songListElement, paginationSong, search)
-                }
-            }
-        }
+        renderListSong(listSong, songListElement)
+        handleEventListSong(page, size, url, songListElement, result, paginationSong, search)
         let listSongNew = handleListSong(listSong)
         handlePlaySong(listSongNew)
         handleEventClickBXH(listSongNew)
       })
       .catch(error => console.log('error', error));
+}
+
+export function callAPIBXH(size, songListElement){
+    let requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+    
+    let url = urlAPI + "api/songs/top" + size
+    fetch(url, requestOptions)
+    .then(response => response.json())
+    .then(function(result){
+            let listSong = result
+            renderListSong(listSong, songListElement)
+            handleEventListSong(1, size, url, songListElement)
+            let listSongNew = handleListSong(listSong)
+            handlePlaySong(listSongNew)
+            handleEventClickBXH(listSongNew)
+            if(size == 30){
+                handleClickBtnPlayAll(listSongNew)
+            }
+        })
+        .catch(error => console.log('error', error));
+}
+
+export function renderListSong(listSong, songListElement){
+    let html = listSong.map(function(song, index){
+        let listArtists = song.artistSongs.map(function(artist){
+            return artist.artists.fullName
+        })
+        let artists = listArtists.join(", ")
+        return `
+              <div class="d-flex bd-highlight mb-2 bxh-item" data-index="${index}">
+              <p class="bd-highlight bxh-ranking p-2">${String("0" + (index + 1)).slice(-2)}</p>
+              <div class="info-bxh p-2 bd-highlight ms-3">
+                  <span class="ava-player">
+                      <img src="${song.image}" style="height: 50px; width: 50px; border-radius: 5px;"
+                          alt="">
+                  </span>
+                  <div class="name-song">
+                      <p class="name">${song.title}</p>
+                      <p class="art">${artists}</p>
+                  </div>
+              </div>
+              <div class ="ms-auto add-to-playlist-wrap">
+                  <button class="bd-highlight btn-add-to-playlist" id="btnmore">
+                      <i class="fas fa-ellipsis-h"></i>
+                  </button>
+                  <ul class="more_option" id="moreoption">
+                      <li>
+                          <a href="${song.mediaUrl}" class="opt_icon">
+                              <i class="fas fa-arrow-circle-down me-2"></i>
+                              Download Now
+                          </a>
+                      </li>
+                      <li>
+                            <div class="wrap-add-plalist">
+                                <a href="#"><i class="fas fa-folder-plus me-2"></i>Add To Playlist</a>
+                                <ul class="all-playlist" data-index="${song.id}">
+                                    
+                                </ul>
+                            </div>
+                        </li>
+                  </ul>
+              </div>
+          </div>`
+    })
+    songListElement.innerHTML = html.join("")
+}
+
+export function handleEventListSong(page, size, url, songListElement, result, paginationSong, search){
+    const addPlaylist = $$('.add-to-playlist-wrap')
+    const allPlaylist = $$('.all-playlist')
+    let idUser
+    if(isLogin){
+        for(let i=0; i<addPlaylist.length; i++){
+            addPlaylist[i].style.display = "block"
+        }
+        idUser = localStorage.getItem('id')
+        const urlPlaylist = urlAPI + "api/playlist/all/" + idUser
+        apiGetPlaylist(1, 10, urlPlaylist, renderNamePlaylist, allPlaylist)
+    }
+    if(paginationSong){
+        let htmlPage = ''
+        for(let i = 1; i <= result.totalPages; i++){
+            htmlPage += `<li class="pagination__item"><a href="#" class="pagination__link"  data-index="${i}">${i}</a></li>`
+        }
+        paginationSong.innerHTML = htmlPage
+        loadCurrentPage(paginationSong, page)
+        paginationSong.onclick = function(e){
+            let pageNode = e.target.closest('.pagination__link:not(.is_active)')
+            if(pageNode) {
+                page = pageNode.dataset.index
+                callAPISong(page, size, url, songListElement, paginationSong, search)
+            }
+        }
+    }
+    
+    
 }
 
 export function apiGetPlaylist(page, size, url, renderFunction, listElement, pagination) {

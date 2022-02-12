@@ -1,7 +1,6 @@
 import { urlAPI } from "./config.js"
-import { handlePlaySong,handleListSong, handleEventClickSongAlbum, handleClickBtnPlayAll } from "./home-player.js"
-import { handleHideElement, isLogin} from "./home-user.js"
-import { apiGetPlaylist, renderNamePlaylist} from "./home-main.js"
+import { handlePlaySong, handleListSong, handleClickBtnPlayAll, handleEventClickSongAlbum } from "./home-player.js"
+import { renderListSong, handleEventListSong} from "./home-main.js"
 
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
@@ -14,7 +13,6 @@ let id
 
 
 function start(){
-    handleHideElement()
     let params = (new URL(document.location)).searchParams
     id = params.get("id");
     setData()
@@ -27,8 +25,8 @@ function setData(){
         method: 'GET',
         redirect: 'follow'
       };
-      
-      fetch(urlAPI + "api/albums/" + id, requestOptions)
+      let url = urlAPI + "api/albums/" + id
+      fetch(url, requestOptions)
         .then(response => response.json())
         .then(function(result){
             //get thông tin album
@@ -44,67 +42,15 @@ function setData(){
 
             //get thong tin bai hat album 
             let listSong = result.albumSongs.map(albumSong => albumSong.songs)
-            let htmls = listSong.map(function(song, index){
-                //get name artist
-                let listArtists = song.artistSongs.map(function(artist){
-                    return artist.artists.fullName
-                })
-                let artists = listArtists.join(", ")
-                // console.log(song.artistSongs[0].artists.fullName)
-                return `
-                <div class="d-flex bd-highlight mb-2 album-item" data-index="${index}">
-                    <p class="bd-highlight album-ranking p-2">${String("0" + (index + 1)).slice(-2)}</p>
-                    <div class="info-album p-2 bd-highlight ms-3">
-                        <span class="ava-player">
-                            <img src="${song.image}" style="height: 50px; width: 50px; border-radius: 5px;" alt="">
-                        </span>
-                        <div class="name-song">
-                            <p class="name">${song.title}</p>
-                            <p class="art">${artists}</p>
-                        </div>
-                    </div>
-                    <div class ="ms-auto add-to-playlist-wrap">
-                            <button class="bd-highlight btn-add-to-playlist" id="btnmore">
-                                <i class="fas fa-ellipsis-h"></i>
-                            </button>
-                            <ul class="more_option" id="moreoption">
-                                <li>
-                                    <a href="${song.mediaUrl}" class="opt_icon">
-                                        <i class="fas fa-arrow-circle-down me-2"></i>
-                                        Download Now
-                                    </a>
-                                </li>
-                                <li>
-                                <div class="wrap-add-plalist">
-                                    <a href="#"><i class="fas fa-folder-plus me-2"></i>Add To Playlist</a>
-                                    <ul class="all-playlist" data-index="${song.id}">
-                                        
-                                    </ul>
-                                </div>
-                                </li>
-                            </ul>
-                    </div>
-                </div>`
-            })
-            songAlbum.innerHTML = htmls.join('')
+            renderListSong(listSong, songAlbum)
+            handleEventListSong(listSong,  1, 100, url, songAlbum)
             let listSongNew = handleListSong(listSong)
-            const allPlaylist = $$('.all-playlist')
-            //
-            const addPlaylist = $$('.add-to-playlist-wrap')
-            let idUser
-            if(isLogin){
-                for(let i=0; i<addPlaylist.length; i++){
-                    addPlaylist[i].style.display = "block"
-                }
-                //render all playlist
-                idUser = localStorage.getItem('id')
-                const urlPlaylist = urlAPI + "api/playlist/all/" + idUser
-                apiGetPlaylist(1, 10, urlPlaylist, renderNamePlaylist, allPlaylist)
-            }
             handlePlaySong(listSongNew)
             handleEventClickSongAlbum(listSongNew)
             handleClickBtnPlayAll(listSongNew)
         })
         .catch(error => console.log('error', error));
 }
+
+
 

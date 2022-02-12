@@ -216,7 +216,7 @@ ul.more_option {
 ul.all-playlist {
     margin: 0px;
     position: absolute;
-    top: 0px;
+    top: 28px;
     right: 160px;
     display: none;
     background-color: #fff;

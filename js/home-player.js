@@ -19,9 +19,8 @@ const btnRandom = $('.fa-random')
 const btnRepeat = $('.fa-redo')
 const btnPlayList = $('.que-text')
 const btnClosePlayList = $('.btn-closee')
-
-const bxh = $('.bxh')
 const songAlbum = $('.album-playlist')
+const bxh = $('.bxh')
 const btnPlayAll = $('.btn-playall')
 
 let isPlaying = false
@@ -297,16 +296,16 @@ export function handleEventClickBXH(listSong){
 }
 
 export function handleEventClickSongAlbum(listSong){
-    songAlbum.onclick = function(e){
-      const songNode = e.target.closest('.info-album')
-      if(songNode){
-          playerWrapper.style.display = 'flex'
-          currentIndex = songNode.parentElement.dataset.index
-          loadCurrentSong(listSong, currentIndex)
-          audio.play()
-          scrollActiveSong()
-      }
-  }
+  songAlbum.onclick = function(e){
+    const songNode = e.target.closest('.info-bxh')
+    if(songNode){
+        playerWrapper.style.display = 'flex'
+        currentIndex = songNode.parentElement.dataset.index
+        loadCurrentSong(listSong, currentIndex)
+        audio.play()
+        scrollActiveSong()
+    }
+}
 }
 
 export function handleClickBtnPlayAll(listSong){

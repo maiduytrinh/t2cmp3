@@ -1,10 +1,5 @@
 import { urlAPI } from "./config.js"
-import { handlePlaySong } from "./home-player.js"
-import { handleListSong } from "./home-player.js"
-import { handleEventClickBXH } from "./home-player.js"
-import { handleClickBtnPlayAll } from "./home-player.js"
-import { callAPIAlbum, callAPIArtist, apiGetPlaylist, renderNamePlaylist} from "./home-main.js"
-import { isLogin} from "./home-user.js"
+import { callAPIAlbum, callAPIArtist, callAPIBXH} from "./home-main.js"
 
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
@@ -15,7 +10,7 @@ const urlArtist = urlAPI + "api/artist/"
 
 function start() {
     callAPIAlbum(1, 5, urlAlbum);
-    callAPIBXH(10);
+    callAPIBXH(10, songListElement);
     callAPIArtist(1, 5, urlArtist);
     callAPIGenres();
 }
@@ -35,86 +30,7 @@ function handleClickGenres(){
     }
 }
 
-export function callAPIBXH(size){
-    let requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-      };
-      
-      fetch(urlAPI + "api/songs/top"+size, requestOptions)
-        .then(response => response.json())
-        .then(function(results){
-            let html = results.map(function(song, index){
-                //get name artist
-                let listArtists = song.artistSongs.map(function(artist){
-                    return artist.artists.fullName
-                })
-                let artists = listArtists.join(", ")
-                // console.log(song.artistSongs[0].artists.fullName)
-                return `
-                    <div class="d-flex bd-highlight mb-2 bxh-item" data-index="${index}">
-                        <p class="bd-highlight bxh-ranking p-2">${String("0" + (index + 1)).slice(-2)}</p>
-                        <div class="info-bxh p-2 bd-highlight ms-3">
-                            <span class="ava-player">
-                                <img src="${song.image}" style="height: 50px; width: 50px; border-radius: 5px;"
-                                    alt="">
-                            </span>
-                            <div class="name-song">
-                                <p class="name">${song.title}</p>
-                                <p class="art">${artists}</p>
-                            </div>
-                        </div>
-                        <div class ="ms-auto add-to-playlist-wrap">
-                            <button class="bd-highlight btn-add-to-playlist" id="btnmore">
-                                <i class="fas fa-ellipsis-h"></i>
-                            </button>
-                            <ul class="more_option" id="moreoption">
-                                <li>
-                                    <a href="${song.mediaUrl}" class="opt_icon">
-                                        <i class="fas fa-arrow-circle-down me-2"></i>
-                                        Download Now
-                                    </a>
-                                </li>
-                                <li>
-                                <div class="wrap-add-plalist">
-                                    <a href="#"><i class="fas fa-folder-plus me-2"></i>Add To Playlist</a>
-                                    <ul class="all-playlist" data-index="${song.id}">
-                                        
-                                    </ul>
-                                </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>`
-            })
-            //get bxh
-            songListElement.innerHTML = html.join("")
-            //hieen add playlist
-            const addPlaylist = $$('.add-to-playlist-wrap')
-            const allPlaylist = $$('.all-playlist')
-            let idUser
-            if(isLogin){
-                for(let i=0; i<addPlaylist.length; i++){
-                    addPlaylist[i].style.display = "block"
-                }
-                //render all playlist
-                idUser = localStorage.getItem('id')
-                const urlPlaylist = urlAPI + "api/playlist/all/" + idUser
-                apiGetPlaylist(1, 10, urlPlaylist, renderNamePlaylist, allPlaylist)
-
-            }
-            let listSong = handleListSong(results)
-            handlePlaySong(listSong)
-            handleEventClickBXH(listSong)
-            if(size == 30){
-                handleClickBtnPlayAll(listSong)
-            }
-
-        })
-        .catch(error => console.log('error', error));
-}
-
-export function callAPIGenres(){
+function callAPIGenres(){
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -145,33 +61,33 @@ export function callAPIGenres(){
     .catch(error => console.log('error', error));
 }
 
-// Popup Thay đổi mật khẩu
+// // Popup Thay đổi mật khẩu
 
-// Get the modal
-var modal = document.getElementById("myModal");
+// // Get the modal
+// var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+// // Get the button that opens the modal
+// var btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+// // Get the <span> element that closes the modal
+// var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+// // When the user clicks on the button, open the modal
+// btn.onclick = function() {
+//   modal.style.display = "block";
+// }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+// // When the user clicks on <span> (x), close the modal
+// span.onclick = function() {
+//   modal.style.display = "none";
+// }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// }
 
 
 

@@ -2,7 +2,11 @@ const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
 const btnReg = $(".reg_btn")
 const btnLog = $(".login_btn")
-const btnProfile = $(".btn-profile")
+const btnProfile = $(".dropdown")
+const useName = $('.dropdown__text')
+const logout = $('.fa-right-from-bracket')
+const rePass = $('.fa-key')
+const upLoad = $('.fa-cloud-arrow-up')
 let fullName = localStorage.getItem('fullname')
 let authorization = localStorage.getItem('Authorization')
 let id = localStorage.getItem('id')
@@ -10,11 +14,13 @@ let role = localStorage.getItem('role')
 export let isLogin = checkUser()
 
 export function handleHideElement(){
-    if(isLogin){
-        btnReg.style.display = 'none'
-        btnLog.style.display = 'none'
-        btnProfile.style.display = 'inline-block'
-    }else{
+        if(isLogin){
+            btnReg.style.display = 'none'
+            btnLog.style.display = 'none'
+            btnProfile.style.display = 'inline-block'
+            useName.innerHTML = fullName
+            logoutEvent()
+        }else{
         btnReg.style.display = 'inline-block'
         btnLog.style.display = 'inline-block'
         btnProfile.style.display = 'none'
@@ -27,3 +33,12 @@ export function checkUser(){
     else
         return false
 }
+
+function logoutEvent(){
+    logout.onclick = function(){
+        location.reload()
+        window.localStorage.clear()
+    }
+}
+
+
