@@ -135,19 +135,19 @@ section.introduction {
     font-size: 14px;
 }
 
-.bxh .bxh-item .bxh-ranking {
+.bxh-item .bxh-ranking {
     color: #fff;
     font-size: 50px;
     font-weight: bold;
     margin: auto 0;
 }
 
-.bxh .bxh-item {
+.bxh-item {
     border-bottom: 1.5px solid #1b2039;
     position: relative;
 }
 
-.bxh .bxh-item .info-bxh {
+.bxh-item .info-bxh {
     width: 20%;
     text-align: left;
     margin: auto 0;
@@ -161,7 +161,7 @@ section.introduction {
     display: flex;
 }
 
-.bxh .bxh-item .info-bxh:hover{
+.bxh-item .info-bxh:hover{
     cursor: pointer;
     text-decoration: underline
 }
@@ -452,12 +452,41 @@ ul.more_option a {
     margin: auto 0;
 }
 
-.wrap-add-plalist {
-    position: relative;
+/* Popup thay đổi mật khẩu */
+/* The Modal (background) */
+.modall {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-.all-playlist {
-    position: absolute;
-    top: 0px,
-    
+/* Modal Content/Box */
+.modall-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }

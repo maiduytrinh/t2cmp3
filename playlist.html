@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href=".\style-main.css">
-    <link rel="stylesheet" href=".\assets\css\style.css">
-    <link rel="stylesheet" href=".\style-trang-chu.css">
+    <link rel="stylesheet" href="style-main.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="style-trang-chu.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Bảng xếp hạng</title>
+    <title>Danh sách Playlist</title>
 </head>
 
 <body style="background-color: #14182a;">
@@ -105,23 +105,106 @@
             </div>
 
         </div>
-        <div class="main">
 
-            <div class="rcnt_slider mt-5">
-                <div class="heading">
-                    <h1> Bảng Xếp Hạng Top 30 </h1>
-                    <a href="#" class="btn-playall"><span><i class="fas fa-play me-2"></i></span>Phát toàn bộ</a>
+        <div class="main ">
+
+            <div class="rcnt_slider">
+                <div class="heading mb-3 mt-4">
+                    <h1> Danh sách Playlist </h1>
                 </div>
-                <div class="bxh">
+                <div class="album d-flex flex-wrap">
+                    <a href="./chi-tiet-playlist.html" class="album-item" data-index="${album.id}">
+                        <div>
+                            <img src="./ava.png" alt="">
+                            <h2>Tên Playlist</h2>
+                            <p><span>4</span> bài hát</p>
+                        </div>
+                    </a>
+                    <a href="#" class="album-item" data-index="${album.id}">
+                        <div>
+                            <img src="./ava.png" alt="">
+                            <h2>Tên Playlist</h2>
+                            <p><span>4</span> bài hát</p>
+                        </div>
+                    </a>
+                    <a href="#" class="album-item" data-index="${album.id}">
+                        <div>
+                            <img src="./ava.png" alt="">
+                            <h2>Tên Playlist</h2>
+                            <p><span>4</span> bài hát</p>
+                        </div>
+                    </a>
+                    <a href="#" class="album-item" data-index="${album.id}">
+                        <div>
+                            <img src="./ava.png" alt="">
+                            <h2>Tên Playlist</h2>
+                            <p><span>4</span> bài hát</p>
+                        </div>
+                    </a>
+                    <a href="#" class="album-item" data-index="${album.id}">
+                        <div>
+                            <img src="./ava.png" alt="">
+                            <h2>Tên Playlist</h2>
+                            <p><span>4</span> bài hát</p>
+                        </div>
+                    </a>
+                    <a href="#" class="album-item" data-index="${album.id}">
+                        <div>
+                            <img src="./ava.png" alt="">
+                            <h2>Tên Playlist</h2>
+                            <p><span>4</span> bài hát</p>
+                        </div>
+                    </a>
+                    <a href="#" class="album-item" data-index="${album.id}">
+                        <div>
+                            <img src="./ava.png" alt="">
+                            <h2>Tên Playlist</h2>
+                            <p><span>4</span> bài hát</p>
+                        </div>
+                    </a>
+                    <a href="#" class="album-item" data-index="${album.id}">
+                        <div>
+                            <img src="./ava.png" alt="">
+                            <h2>Tên Playlist</h2>
+                            <p><span>4</span> bài hát</p>
+                        </div>
+                    </a>
+                    <a href="#" class="album-item" data-index="${album.id}">
+                        <div>
+                            <img src="./ava.png" alt="">
+                            <h2>Tên Playlist</h2>
+                            <p><span>4</span> bài hát</p>
+                        </div>
+                    </a>
+
+                    <a href="#" class="album-item" data-index="${album.id}">
+                        <div>
+                            <img src="./ava.png" alt="">
+                            <h2>Tên Playlist</h2>
+                            <p><span>4</span> bài hát</p>
+                        </div>
+                    </a>
 
                 </div>
+
+            </div>
+            <div class="wrapper mt-5">
+                <ul class="pagination">
+                    <li class="pagination__item"><a href="#" class="pagination__link is_active">1</a></li>
+                    <li class="pagination__item"><a href="#" class="pagination__link">2</a></li>
+                    <li class="pagination__item"><a href="#" class="pagination__link">3</a></li>
+                    <li class="pagination__item"><a href="#" class="pagination__link">4</a></li>
+                    <li class="pagination__item"><a href="#" class="pagination__link">5</a></li>
+                    <li class="pagination__item"><a href="#" class="pagination__link">6</a></li>
+                </ul>
             </div>
         </div>
+
         <div class="main-player-wrapper">
             <div class="audio-play">
                 <div class="d-flex align-items-center info-player">
                     <div class="flex-shrink-0"
-                        style="background-image: url(http://14.228.23.16:8080/image/hay_trao_cho_anh.jpg);">
+                        style="background-image: url(http://127.0.0.1:8080/image/hay_trao_cho_anh.jpg);">
                     </div>
                     <div class="flex-grow-1 ms-3 name-song">
                         <p class="name name-song-player">Âm thâm bên em </p>
@@ -143,8 +226,8 @@
                 </div>
                 <div class="progress-container">
                     <!-- <div id="timeline1" class="progresss">
-                            <div id="seekObj1" class="seek-bar" style="margin-left: 0px;"></div>
-                        </div> -->
+                        <div id="seekObj1" class="seek-bar" style="margin-left: 0px;"></div>
+                    </div> -->
                     <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100" />
                     <div class="player-controls scrubber">
                         <span class="start-time">0:00</span>
@@ -265,7 +348,8 @@
         </div>
     </div>
     <script type="text/javascript" src="script.js"></script>
-    <script type="module" src="./js/home-bxh.js"></script>
+    <script type="module" src="./js/home-album.js"></script>
+
 </body>
 
 </html>
