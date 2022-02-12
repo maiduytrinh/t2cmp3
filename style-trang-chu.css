@@ -422,6 +422,7 @@ ul.more_option a {
     font-size: 24px;
     color: #2ec8e6;
     font-weight: bold;
+    text-transform: capitalize;
 }
 
 .main .infor-album .name-album .btn-playall, .rcnt_slider .btn-playall{

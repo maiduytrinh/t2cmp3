@@ -28,7 +28,6 @@ function setData(){
       fetch(url, requestOptions)
         .then(response => response.json())
         .then(function(result){
-            console.log(result)
             imgSong.src = result.image
             nameSong.innerHTML = result.fullName
             birthday.innerHTML = 'Ngày sinh: ' + result.birthDay

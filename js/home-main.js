@@ -297,6 +297,34 @@ export function renderNamePlaylist(result, listElement){
     }
 }
 
+export function renderListPlaylist(result, listElement){
+    let html = result.map((playlist,index) => 
+            `<div class="d-flex bd-highlight mb-2 bxh-item" data-index="${playlist.id}">
+                <p class="bd-highlight bxh-ranking p-2">${String("0" + (index + 1)).slice(-2)}</p>
+                <div class="info-bxh p-2 bd-highlight ms-3">
+                    <div class="name-song">
+                        <a href="./chi-tiet-playlist.html?id=${playlist.id}" class="name-playlist">${playlist.playlistName}</a>
+                    </div>
+                </div>
+                <div class="ms-auto add-to-playlist-wrap" style="display: block;">
+                    <button class="bd-highlight btn-add-to-playlist" id="btnmore">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                    <ul class="more_option" style="width: 100px;" id="moreoption">
+                        <li>
+                            <a href="#" class="opt_icon">
+                                <i class="far fa-edit me-1"></i>
+                                Edit
+                            </a>
+                        </li>
+                        <li><a href="#"><i class="far fa-trash-alt me-2"></i>Delete</a></li>
+                    </ul>
+                </div>
+            </div>`
+        )
+        listElement.innerHTML = html.join('')
+}
+
 export function handleAddSongPlaylist(allPlaylist){
     allPlaylist.onclick = function(e){
         const playlistNode = e.target.closest('.playlist_item')
