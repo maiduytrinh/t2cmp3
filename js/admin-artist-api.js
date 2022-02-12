@@ -82,9 +82,7 @@ function callGetAPI(page, size, search){
     .then(function(result){
         let html = result.artists.map(function(artist,index){
                 return`<tr>
-                    <td><input class="form-check-input" type="checkbox" value=""
-                        id="flexCheckDefault"></td>
-                    <td>image</td>
+                    <td><img src="${artist.image}" style="width: 50px; border-radius: 5px;" alt="">
                     <td>${artist.id}</td>
                     <td>${artist.fullName}</td>
                     <td>${artist.birthDay}</td>

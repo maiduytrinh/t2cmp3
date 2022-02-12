@@ -95,7 +95,7 @@ function callGetAPI(page, size, search){
                 songs = listSongs.join(`, `)
             }
             return `<tr>
-                <td>Image</td>
+                <td><img src="${album.image}" style="width: 50px; border-radius: 5px;" alt=""></td>
                 <td>${album.id}</td>
                 <td>${album.albumName}</td>
                 <td>${artists}</td>

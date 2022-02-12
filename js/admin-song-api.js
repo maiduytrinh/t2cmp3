@@ -85,12 +85,9 @@ function callGetAPI(page, size, search){
             })
             let artists = listArtists.join(", ")
             return `<tr>
-                        <td><input class="form-check-input" type="checkbox" value=""
-                        id="flexCheckDefault"></td>
-                        <td>image</td>
+                        <td><img src="${song.image}" style="width: 50px; border-radius: 5px;" alt="">
                         <td>${song.id}</td>
                         <td>${song.title}</td>
-                        <td>${song.timePlay}</td>
                         <td>${song.countListen}</td>
                         <td>${artists}</td>
                         <td class="text-end" data-index="${song.id}">
