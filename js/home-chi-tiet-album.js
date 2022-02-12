@@ -1,6 +1,7 @@
 import { urlAPI } from "./config.js"
 import { handlePlaySong,handleListSong, handleEventClickSongAlbum, handleClickBtnPlayAll } from "./home-player.js"
 import { handleHideElement, isLogin} from "./home-user.js"
+import { apiGetPlaylist, renderNamePlaylist} from "./home-main.js"
 
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
@@ -73,20 +74,32 @@ function setData(){
                                         Download Now
                                     </a>
                                 </li>
-                                <li><a href="#"><i class="fas fa-folder-plus me-2"></i>Add To
-                                        Playlist</a></li>
+                                <li>
+                                <div class="wrap-add-plalist">
+                                    <a href="#"><i class="fas fa-folder-plus me-2"></i>Add To Playlist</a>
+                                    <ul class="all-playlist" data-index="${song.id}">
+                                        
+                                    </ul>
+                                </div>
+                                </li>
                             </ul>
                     </div>
                 </div>`
             })
             songAlbum.innerHTML = htmls.join('')
             let listSongNew = handleListSong(listSong)
+            const allPlaylist = $$('.all-playlist')
             //
             const addPlaylist = $$('.add-to-playlist-wrap')
+            let idUser
             if(isLogin){
                 for(let i=0; i<addPlaylist.length; i++){
                     addPlaylist[i].style.display = "block"
                 }
+                //render all playlist
+                idUser = localStorage.getItem('id')
+                const urlPlaylist = urlAPI + "api/playlist/all/" + idUser
+                apiGetPlaylist(1, 10, urlPlaylist, renderNamePlaylist, allPlaylist)
             }
             handlePlaySong(listSongNew)
             handleEventClickSongAlbum(listSongNew)

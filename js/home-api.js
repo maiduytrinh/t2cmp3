@@ -3,7 +3,7 @@ import { handlePlaySong } from "./home-player.js"
 import { handleListSong } from "./home-player.js"
 import { handleEventClickBXH } from "./home-player.js"
 import { handleClickBtnPlayAll } from "./home-player.js"
-import { callAPIAlbum, callAPIArtist} from "./home-main.js"
+import { callAPIAlbum, callAPIArtist, apiGetPlaylist, renderNamePlaylist} from "./home-main.js"
 import { isLogin} from "./home-user.js"
 
 const $$ = document.querySelectorAll.bind(document)
@@ -12,6 +12,7 @@ const songListElement = $('.bxh')
 const genres = $('.container-the-loai')
 const urlAlbum = urlAPI + "api/albums/"
 const urlArtist = urlAPI + "api/artist/"
+
 function start() {
     callAPIAlbum(1, 5, urlAlbum);
     callAPIBXH(10);
@@ -74,8 +75,14 @@ export function callAPIBXH(size){
                                         Download Now
                                     </a>
                                 </li>
-                                <li><a href="#"><i class="fas fa-folder-plus me-2"></i>Add To
-                                        Playlist</a></li>
+                                <li>
+                                <div class="wrap-add-plalist">
+                                    <a href="#"><i class="fas fa-folder-plus me-2"></i>Add To Playlist</a>
+                                    <ul class="all-playlist" data-index="${song.id}">
+                                        
+                                    </ul>
+                                </div>
+                                </li>
                             </ul>
                         </div>
                     </div>`
@@ -84,10 +91,17 @@ export function callAPIBXH(size){
             songListElement.innerHTML = html.join("")
             //hieen add playlist
             const addPlaylist = $$('.add-to-playlist-wrap')
+            const allPlaylist = $$('.all-playlist')
+            let idUser
             if(isLogin){
                 for(let i=0; i<addPlaylist.length; i++){
                     addPlaylist[i].style.display = "block"
                 }
+                //render all playlist
+                idUser = localStorage.getItem('id')
+                const urlPlaylist = urlAPI + "api/playlist/all/" + idUser
+                apiGetPlaylist(1, 10, urlPlaylist, renderNamePlaylist, allPlaylist)
+
             }
             let listSong = handleListSong(results)
             handlePlaySong(listSong)
@@ -95,6 +109,7 @@ export function callAPIBXH(size){
             if(size == 30){
                 handleClickBtnPlayAll(listSong)
             }
+
         })
         .catch(error => console.log('error', error));
 }
@@ -129,5 +144,7 @@ export function callAPIGenres(){
     })
     .catch(error => console.log('error', error));
 }
+
+
 
 

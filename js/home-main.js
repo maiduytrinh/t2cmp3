@@ -1,3 +1,4 @@
+import { urlAPI } from "./config.js"
 import { handlePlaySong, handleListSong, handleEventClickBXH} from "./home-player.js"
 import { handleHideElement, isLogin} from "./home-user.js"
 
@@ -178,18 +179,29 @@ export function callAPISong(page, size, url, songListElement, paginationSong, se
                                   Download Now
                               </a>
                           </li>
-                          <li><a href="#"><i class="fas fa-folder-plus me-2"></i>Add To
-                                  Playlist</a></li>
+                          <li>
+                                <div class="wrap-add-plalist">
+                                    <a href="#"><i class="fas fa-folder-plus me-2"></i>Add To Playlist</a>
+                                    <ul class="all-playlist" data-index="${song.id}">
+                                        
+                                    </ul>
+                                </div>
+                            </li>
                       </ul>
                   </div>
               </div>`
         })
         songListElement.innerHTML = html.join("")
         const addPlaylist = $$('.add-to-playlist-wrap')
+        const allPlaylist = $$('.all-playlist')
+        let idUser
         if(isLogin){
             for(let i=0; i<addPlaylist.length; i++){
                 addPlaylist[i].style.display = "block"
             }
+            idUser = localStorage.getItem('id')
+            const urlPlaylist = urlAPI + "api/playlist/all/" + idUser
+            apiGetPlaylist(1, 10, urlPlaylist, renderNamePlaylist, allPlaylist)
         }
         if(paginationSong){
             let htmlPage = ''
@@ -211,6 +223,72 @@ export function callAPISong(page, size, url, songListElement, paginationSong, se
         handleEventClickBXH(listSongNew)
       })
       .catch(error => console.log('error', error));
+}
+
+export function apiGetPlaylist(page, size, url, renderFunction, listElement, pagination) {
+    let myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    let raw = JSON.stringify({
+    "page": page,
+    "size": size,
+    "order": ""
+    });
+
+    let requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+    };
+
+    fetch(url, requestOptions)
+    .then(response => response.json())
+    .then(function(result){
+        renderFunction(result, listElement)
+    })
+    .catch(error => console.log('error', error));
+}
+
+export function renderNamePlaylist(result, listElement){
+    let html = result.map(playlist => 
+            `<li>
+                <a class="playlist_item" data-index="${playlist.id}">
+                    ${playlist.playlistName}
+                </a>
+            </li>`
+        )
+    for(let i=0; i< listElement.length; i++){
+        listElement[i].innerHTML = html.join('')
+        handleAddSongPlaylist(listElement[i])
+    }
+}
+
+export function handleAddSongPlaylist(allPlaylist){
+    allPlaylist.onclick = function(e){
+        const playlistNode = e.target.closest('.playlist_item')
+        if(playlistNode){
+            let idPlaylist =  playlistNode.dataset.index
+            let li = playlistNode.parentElement
+            let idSong = li.parentElement.dataset.index
+            
+            var requestOptions = {
+                method: 'PUT',
+                redirect: 'follow'
+              };
+              
+              fetch(urlAPI + "api/playlist/" + idPlaylist + '/' + idSong, requestOptions)
+                .then(response => response.text())
+                .then(function(result){
+                    if(result){
+                        alert('Bài hát đã tồn tại trong Danh sách phát')
+                    }else{
+                        alert('Bài hát đã thêm vào danh sách phát')
+                    }
+                })
+                .catch(error => console.log('error', error));
+        }
+    }
 }
 
 function handleClickPage(page, size, url, pagination, search, callAPI){
