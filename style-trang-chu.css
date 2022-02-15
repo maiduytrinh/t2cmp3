@@ -456,7 +456,7 @@ ul.more_option a {
 /* Popup thay đổi mật khẩu */
 /* The Modal (background) */
 .modall {
-  display: none; /* Hidden by default */
+    display: none;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -474,7 +474,7 @@ ul.more_option a {
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 40%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */

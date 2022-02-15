@@ -108,7 +108,6 @@ function handleSave(){
           fetch(urlAPI + "api/songs/save", requestOptions)
             .then(response => response.json())
             .then(function(result){
-                console.log(result)
                 if(result.id){
                     alert('Đã lưu thành công')
                     location.reload()

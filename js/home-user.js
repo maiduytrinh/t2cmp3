@@ -7,6 +7,7 @@ const useName = $('.dropdown__text')
 const logout = $('.fa-right-from-bracket')
 const rePass = $('.fa-key')
 const upLoad = $('.fa-cloud-arrow-up')
+const btnPlaylist = $$(".main-nav-wrapper ul li")[5]
 let fullName = localStorage.getItem('fullname')
 let authorization = localStorage.getItem('Authorization')
 let id = localStorage.getItem('id')
@@ -18,17 +19,19 @@ export function handleHideElement(){
             btnReg.style.display = 'none'
             btnLog.style.display = 'none'
             btnProfile.style.display = 'inline-block'
+            btnPlaylist.style.display = 'block'
             useName.innerHTML = fullName
             logoutEvent()
         }else{
         btnReg.style.display = 'inline-block'
         btnLog.style.display = 'inline-block'
         btnProfile.style.display = 'none'
+        btnPlaylist.style.display = 'none'
     }
 }
 
 export function checkUser(){
-    if(fullName && authorization && id && role == "ROLE_USER")
+    if(fullName && authorization && id && role == "ROLE_USER" ||role == "ROLE_ARTIST" )
         return true
     else
         return false

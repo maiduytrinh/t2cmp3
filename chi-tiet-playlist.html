@@ -114,95 +114,12 @@
                 </div>
             </div>
             <div class="album-playlist">
-                <div class="d-flex bd-highlight mb-2 bxh-item" data-index="0">
-                    <p class="bd-highlight bxh-ranking p-2">01</p>
-                    <div class="info-bxh p-2 bd-highlight ms-3">
-                        <span class="ava-player">
-                            <img src="http://localhost:8080/image/mang_tien_ve_cho_me.jpg"
-                                style="height: 50px; width: 50px; border-radius: 5px;" alt="">
-                        </span>
-                        <div class="name-song">
-                            <p class="name">Mang tiền về cho mẹ</p>
-                            <p class="art">Đen Vâu</p>
-                        </div>
-                    </div>
-                    <div class="ms-auto add-to-playlist-wrap" style="display: block;">
-                        <button class="bd-highlight btn-add-to-playlist" id="btnmore">
-                            <i class="fas fa-ellipsis-h"></i>
-                        </button>
-                        <ul class="more_option" id="moreoption">
-                            <li>
-                                <a href="http://localhost:8080/source_mp3/mang_tien_ve_cho_me.mp3" class="opt_icon">
-                                    <i class="fas fa-arrow-circle-down me-1"></i>
-                                    Download Now
-                                </a>
-                            </li>
-                            <li><a href="#"><i class="far fa-trash-alt me-2"></i>Delete</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="d-flex bd-highlight mb-2 bxh-item" data-index="0">
-                    <p class="bd-highlight bxh-ranking p-2">01</p>
-                    <div class="info-bxh p-2 bd-highlight ms-3">
-                        <span class="ava-player">
-                            <img src="http://localhost:8080/image/mang_tien_ve_cho_me.jpg"
-                                style="height: 50px; width: 50px; border-radius: 5px;" alt="">
-                        </span>
-                        <div class="name-song">
-                            <p class="name">Mang tiền về cho mẹ</p>
-                            <p class="art">Đen Vâu</p>
-                        </div>
-                    </div>
-                    <div class="ms-auto add-to-playlist-wrap" style="display: block;">
-                        <button class="bd-highlight btn-add-to-playlist" id="btnmore">
-                            <i class="fas fa-ellipsis-h"></i>
-                        </button>
-                        <ul class="more_option" id="moreoption">
-                            <li>
-                                <a href="http://localhost:8080/source_mp3/mang_tien_ve_cho_me.mp3" class="opt_icon">
-                                    <i class="fas fa-arrow-circle-down me-1"></i>
-                                    Download Now
-                                </a>
-                            </li>
-                            <li><a href="#"><i class="far fa-trash-alt me-2"></i>Delete</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="d-flex bd-highlight mb-2 bxh-item" data-index="0">
-                    <p class="bd-highlight bxh-ranking p-2">01</p>
-                    <div class="info-bxh p-2 bd-highlight ms-3">
-                        <span class="ava-player">
-                            <img src="http://localhost:8080/image/mang_tien_ve_cho_me.jpg"
-                                style="height: 50px; width: 50px; border-radius: 5px;" alt="">
-                        </span>
-                        <div class="name-song">
-                            <p class="name">Mang tiền về cho mẹ</p>
-                            <p class="art">Đen Vâu</p>
-                        </div>
-                    </div>
-                    <div class="ms-auto add-to-playlist-wrap" style="display: block;">
-                        <button class="bd-highlight btn-add-to-playlist" id="btnmore">
-                            <i class="fas fa-ellipsis-h"></i>
-                        </button>
-                        <ul class="more_option" id="moreoption">
-                            <li>
-                                <a href="http://localhost:8080/source_mp3/mang_tien_ve_cho_me.mp3" class="opt_icon">
-                                    <i class="fas fa-arrow-circle-down me-1"></i>
-                                    Download Now
-                                </a>
-                            </li>
-                            <li><a href="#"><i class="far fa-trash-alt me-2"></i>Delete</a></li>
-                        </ul>
-                    </div>
-                </div>
+                
 
             </div>
         </div>
         </div>
     </div>
-
     <div class="main-player-wrapper">
         <div class="audio-play">
             <div class="d-flex align-items-center info-player">
@@ -214,8 +131,8 @@
                     <p class="art">Sơn Tùng MTP</p>
                 </div>
             </div>
-
         </div>
+
         <div class="type-playlist">
             <div class="playlist-interface">
                 <div class="playlist-control">
@@ -229,8 +146,8 @@
             </div>
             <div class="progress-container">
                 <!-- <div id="timeline1" class="progresss">
-                        <div id="seekObj1" class="seek-bar" style="margin-left: 0px;"></div>
-                    </div> -->
+                                <div id="seekObj1" class="seek-bar" style="margin-left: 0px;"></div>
+                            </div> -->
                 <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100" />
                 <div class="player-controls scrubber">
                     <span class="start-time">0:00</span>
@@ -257,10 +174,11 @@
                 Danh sách phát
             </span>
         </div>
+
         <div class="queue-expand" role="button">
             <i class="fas fa-times btn-closee"></i>
             <h3>Danh sách phát</h3>
-            <div class="list-player">
+            <div class="list-player overflow-auto">
                 <div class="mCustomScrollBox">
                     <ul class="list-ul">
                         <li class="jp-playlist-current active" data-index="0">
@@ -345,16 +263,7 @@
 
                     </ul>
                 </div>
-                <div class="wrapper mt-5">
-                    <ul class="pagination">
-                        <li class="pagination__item"><a href="#" class="pagination__link is_active">1</a></li>
-                        <li class="pagination__item"><a href="#" class="pagination__link">2</a></li>
-                        <li class="pagination__item"><a href="#" class="pagination__link">3</a></li>
-                        <li class="pagination__item"><a href="#" class="pagination__link">4</a></li>
-                        <li class="pagination__item"><a href="#" class="pagination__link">5</a></li>
-                        <li class="pagination__item"><a href="#" class="pagination__link">6</a></li>
-                    </ul>
-                </div>
+
             </div>
         </div>
     </div>

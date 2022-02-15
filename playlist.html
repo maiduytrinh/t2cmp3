@@ -115,9 +115,9 @@
                         <a href="#" class="btn btn-sm btn-primary ms-3">
                             Thêm mới
                         </a>
-                        <!-- <div id="myModal" class="modall">
+                        <div id="myModal" class="modall">
                             <div class="modall-content">
-                                <form action="" method="post" name="signupForm" id="signupForm">
+                                <div id="signupForm">
                                     <h2 class="formTitle">
                                         Thêm mới Playlist
                                     </h2>
@@ -135,10 +135,34 @@
                                         </button>
                                     </div>
 
-                                </form>
+                                </div>
                             </div>
-                        </div> -->
+                        </div>
                     </span>
+
+                    <div id="modal-edit-playlist" class="modall">
+                        <div class="modall-content">
+                            <div id="signupForm">
+                                <h2 class="formTitle">
+                                    Đổi tên Playlist
+                                </h2>
+
+                                <div class="inputDiv">
+                                    <label class="inputLabel" for="text">Tên Playlist</label>
+                                    <input type="text" id="name-playlist" name="name-playlist" required>
+                                </div>
+
+                                <div class="buttonWrapper">
+                                    <button type="submit" id="submitButton"
+                                        class="submitButton pure-button pure-button-primary">
+                                        <span>Lưu thay đổi</span>
+                                        <span id="loader"></span>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="bxh">
                     <div class="d-flex bd-highlight mb-2 bxh-item" data-index="0">

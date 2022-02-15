@@ -104,6 +104,7 @@ function loadUser(email){
         .then(function(result){
             localStorage.setItem('id', result.id)
             localStorage.setItem('fullname', result.fullName)
+            localStorage.setItem('email', email)
             window.location.pathname = '../trang-chu.html'
         })
         .catch(error => console.log('error', error));
