@@ -11,33 +11,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Admin Album</title>
+    <title>Admin bài hát</title>
 </head>
 
 <body class="bg-light">
     <div class="d-flex flex-column flex-root">
         <div class="d-flex flex-column flex-root">
-            <div class="d-flex flex-row flex-column-fluid" style="height: 100vh;">
-                <div class="d-flex flex-column aside">
-                    <div class="st-logo">
-                        <img src="logo.png" class="h-30px" alt="">
-                    </div>
-                    <div class="st-menu">
-
-                        <div class="menu-item">
-                            <i class="fas fa-compact-disc menu-icon"></i>
-                            <a href="./admin-album.html">Album</a>
-                        </div>
-                        <div class="menu-item">
-                            <i class="fas fa-music"></i>
-                            <a href="./admin-bai-hat.html">Bài hát</a>
-                        </div>
-                        <div class="menu-item">
-                            <i class="fas fa-user"></i>
-                            <a href="./admin-nghe-si.html">Nghệ sĩ</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="d-flex flex-row flex-column-fluid">
 
 
                 <div class="d-flex flex-column" style="width: 100%;">
@@ -47,11 +27,11 @@
                             <div class="py-1">
                                 <div class="d-flex align-items-center position-relative"><i
                                         class="las la-search fs-2 position-absolute ms-6"></i> <input type="text"
-                                        placeholder="Nhập tên Album"
+                                        placeholder="Nhập tên bài hát"
                                         class="input-search form-control form-control-sm form-control-solid w-100 w-md-250px ps-15">
                                 </div>
                             </div>
-                            <a href="./admin-tao-album.html" class="btn btn-sm btn-primary ms-3">
+                            <a href="./admin-tao-bai-hat-moi.html" class="btn btn-sm btn-primary ms-3">
                                 Thêm mới
                             </a>
                         </div>
@@ -62,24 +42,20 @@
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <!-- <th><input class="form-check-input" type="checkbox" value=""
-                                                    id="flexCheckDefault"></th> -->
                                             <th>Avatar</th>
                                             <th>ID</th>
-                                            <th>Tên Album</th>
-                                            <th>Ca sĩ</th>
-                                            <th>Bài hát</th>
+                                            <th>Tên bài hát</th>
+                                            <th>Lượt nghe</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td><img src="./ava.png" style="width: 50px; border-radius: 5px;" alt="">
-                                            </td>
-                                            <td>${album.id}</td>
-                                            <td>${album.albumName}</td>
-                                            <td>${artists}</td>
-                                            <td>${songs}</td>
+
+                                            <td>Doe</td>
+                                            <td>john@example.com</td>
+                                            <td>john@example.com</td>
                                             <td class="text-end" data-index="${album.id}">
                                                 <a href="./admin-update-album.html?id=${album.id}"
                                                     class="btn btn-active-light-primary">
@@ -90,22 +66,8 @@
                                                 </button>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td><img src="./ava.png" style="width: 50px; border-radius: 5px;"" alt=""></td>
-                                            <td>${album.id}</td>
-                                            <td>${album.albumName}</td>
-                                            <td>${artists}</td>
-                                            <td>${songs}</td>
-                                            <td class=" text-end" data-index="${album.id}">
-                                                <a href="./admin-update-album.html?id=${album.id}"
-                                                    class="btn btn-active-light-primary">
-                                                    <i class="far fa-edit"></i>
-                                                </a>
-                                                <button class="btn btn-del" style="color: red;">
-                                                    <i class="far fa-trash-alt"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
+
+
                                     </tbody>
                                 </table>
                             </div>
@@ -118,12 +80,15 @@
                                                 <option value="50">50</option>
                                                 <option value="100">100</option>
                                             </select></label></div>
-                                    <div class="ms-2 number-album">Tổng 3 album</div>
+                                    <div class="ms-2 number-song">Tổng 3 bài hát</div>
 
                                 </div>
                                 <ul class="pagination">
                                     <li class="page-item prev-page"><a class="page-link" href="#">Previous</a></li>
                                     <div class="pagination number-page">
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
                                     </div>
                                     <li class="page-item next-page"><a class="page-link" href="#">Next</a></li>
                                 </ul>
@@ -135,7 +100,7 @@
         </div>
     </div>
     <script src="script.js"></script>
-    <script type="module" src="js/admin-album-api.js"></script>
+    <script type="module" src="./js/admin-song-api.js"></script>
 </body>
 
 </html>
