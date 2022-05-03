@@ -230,7 +230,7 @@ svg {
     transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
     justify-content: space-between;
-    display: none;
+    display: flex;
 }
 
 .main-player-wrapper .icon-pause {
@@ -475,6 +475,35 @@ div#seekObj1 {
     font-weight: bold;
     float: right;
     margin-right: 15px;
+}
+
+.lyrics {
+    width: 40%;
+    height: 500px;
+    position: fixed;
+    right: 0;
+    bottom: 70px;
+    z-index: 10;
+    background-color: #1b2039;
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+    color: #e0e0e0;
+    display: inline-block;
+}
+
+.lyrics i.btn-closee {
+    color: #fff;
+    font-weight: bold;
+    margin-right: 15px;
+    position: fixed;
+    right: 0;
+}
+
+.lyrics p.lyrics-details {
+    font-size: 18px;
+    margin-top: 15px;
+    height: 440px;
+    position: relative;
 }
 
 .queue-expand h3 {
