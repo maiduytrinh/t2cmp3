@@ -251,19 +251,49 @@
                 </ul>
             </div>
         </div>
+        <div class="lyrics overflow-auto">
+            <i class="fas fa-times btn-closee" role="button"></i>
+            <div class="mCustomScrollBox">
+                <p class="lyrics-details ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum quibusdam
+                    perferendis sunt cupiditate
+                    corporis deserunt, sit laborum dicta, soluta, illo mollitia culpa eligendi explicabo labore amet
+                    vitae
+                    aliquid! Ipsum, fugiat.
+                    Quos fugiat voluptate doloribus officiis necessitatibus quidem, ad distinctio ipsa possimus quam
+                    quis
+                    laboriosam soluta sunt atque ducimus rem facere deleniti! Architecto eaque accusantium tempore et id
+                    maiores
+                    nemo eos!
+                    Reprehenderit hic illum, alias ex perspiciatis corrupti possimus ea. Iste exercitationem repellendus
+                    quos
+                    adipisci voluptatibus dolorem esse eos? Fugit excepturi assumenda debitis quos officiis deleniti,
+                    quam
+                    suscipit tempore natus ea!
+                    Reprehenderit hic illum, alias ex perspiciatis corrupti possimus ea. Iste exercitationem repellendus
+                    quos
+                    adipisci voluptatibus dolorem esse eos? Fugit excepturi assumenda debitis quos officiis deleniti,
+                    quam
+                    suscipit tempore natus ea!Reprehenderit hic illum, alias ex perspiciatis corrupti possimus ea. Iste
+                    exercitationem repellendus quos
+                    adipisci voluptatibus dolorem esse eos? Fugit excepturi assumenda debitis quos officiis deleniti,
+                    quam
+                    suscipit tempore natus ea!</p>
+            </div>
+
+        </div>
         <div class="main-player-wrapper">
             <div class="audio-play">
                 <div class="d-flex align-items-center info-player">
                     <div class="flex-shrink-0"
-                        style="background-image: url(http://14.228.23.16:8080/image/hay_trao_cho_anh.jpg);">
+                        style="background-image: url(http://127.0.0.1:8080/image/hay_trao_cho_anh.jpg);">
                     </div>
                     <div class="flex-grow-1 ms-3 name-song">
                         <p class="name name-song-player">Âm thâm bên em </p>
                         <p class="art">Sơn Tùng MTP</p>
                     </div>
                 </div>
-
             </div>
+
             <div class="type-playlist">
                 <div class="playlist-interface">
                     <div class="playlist-control">
@@ -277,8 +307,8 @@
                 </div>
                 <div class="progress-container">
                     <!-- <div id="timeline1" class="progresss">
-                            <div id="seekObj1" class="seek-bar" style="margin-left: 0px;"></div>
-                        </div> -->
+                                    <div id="seekObj1" class="seek-bar" style="margin-left: 0px;"></div>
+                                </div> -->
                     <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100" />
                     <div class="player-controls scrubber">
                         <span class="start-time">0:00</span>
@@ -293,8 +323,12 @@
                 </div>
                 <div class="playlist-toggles">
                     <div class="toggles">
-                        <button><i class="fas fa-random"></i></button>
-                        <button><i class="fas fa-redo"></i></button>
+                        <button data-toggle="tooltip" data-placement="top" title="Lời bài hát"><i
+                                class="fa-solid fa-closed-captioning"></i></button>
+                        <button data-toggle="tooltip" data-placement="top" title="Ngẫu nhiên"><i
+                                class="fas fa-random"></i></button>
+                        <button data-toggle="tooltip" data-placement="top" title="Lặp lại"><i
+                                class="fas fa-redo"></i></button>
                     </div>
                 </div>
             </div>
@@ -305,6 +339,7 @@
                     Danh sách phát
                 </span>
             </div>
+
             <div class="queue-expand" role="button">
                 <i class="fas fa-times btn-closee"></i>
                 <h3>Danh sách phát</h3>
@@ -396,6 +431,7 @@
 
                 </div>
             </div>
+
         </div>
     </div>
     <script type="text/javascript" src="script.js"></script>
