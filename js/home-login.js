@@ -41,14 +41,15 @@ function APILogin(){
             role = response.headers.get('roll')
             localStorage.setItem('Authorization', token)
             localStorage.setItem('role', role)
+            localStorage.setItem('email', "admin")
             return response.text()
         })
         .then(function(result){
             if(result){
                 alert("Tài khoản mật khẩu không chính xác")
             }else{
-                if(role == "ROLE_USER"){
-                    loadUser(emailLogin.value)
+                if(role == "ROLE_USER" || role == "ROLE_ARTIST"){
+                    loadUser(emailLogin.value, role)
                 }
                 else if(role == "ROLE_ADMIN")
                     window.location.pathname = '../admin-album.html'
@@ -93,7 +94,7 @@ function APISignUp(){
     }
 }
 
-function loadUser(email){
+function loadUser(email, role){
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
@@ -105,7 +106,39 @@ function loadUser(email){
             localStorage.setItem('id', result.id)
             localStorage.setItem('fullname', result.fullName)
             localStorage.setItem('email', email)
-            window.location.pathname = '../trang-chu.html'
+            if(role == "ROLE_ARTIST"){
+                loadIdArtist(result.fullName)   
+            }else{
+                window.location.pathname = '../trang-chu.html'
+            }
         })
         .catch(error => console.log('error', error));
+}
+
+function loadIdArtist(name){
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+    "page": 1,
+    "size": 1,
+    "order": "",
+    "search": name
+    });
+
+    var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+    };
+
+    fetch(urlAPI + "api/artist/", requestOptions)
+    .then(response => response.json())
+    .then(function(result){
+        console.log(result)
+        localStorage.setItem('idArtist', result.artists[0].id)
+        window.location.pathname = '../trang-chu.html'
+    })
+    .catch(error => console.log('error', error));
 }

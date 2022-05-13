@@ -58,6 +58,8 @@
             </ul>
         </div>
     </div>
+    
+
     <div class="main-content">
         <div class="main-header">
             <div class="main-top-left">
@@ -84,8 +86,11 @@
                     </label>
 
                     <ul class="dropdown__items">
-                        <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Đổi mật khẩu"><i
-                                    class="fa-solid fa-key"></i></a></li>
+                        <li><a id="myBtn" type="button" href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="Đổi mật khẩu">
+                            <i class="fa-solid fa-key"></i>
+                        </a>
+                        </li>
                         <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Upload bài hát"><i
                                     class="fa-solid fa-cloud-arrow-up"></i></a></li>
                         <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Đăng xuất"><i
@@ -102,15 +107,49 @@
                         <feBlend in="SourceGraphic" in2="goo" />
                     </filter>
                 </svg>
+
             </div>
 
         </div>
         <div class="main">
             <div class="rcnt_slider mt-5">
+                <!-- The Modal -->
+                <div id="myModal" class="modall">
+
+                    <!-- Modal content -->
+                    <div class="modall-content">
+                        <span class="close-modal">&times;</span>
+                        <div id="signupForm">
+                            <h2 class="formTitle">
+                                Thay đổi mật khẩu
+                            </h2>
+
+                            <div class="inputDiv">
+                                <label class="inputLabel" for="password">New Password</label>
+                                <input type="password" id="password" name="password" required>
+                            </div>
+
+                            <div class="inputDiv">
+                                <label class="inputLabel" for="confirmPassword">Confirm
+                                    Password</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword">
+                            </div>
+
+                            <div class="buttonWrapper">
+                                <button id="submitButton" class="submitButton pure-button pure-button-primary">
+                                    <span>Continue</span>
+                                    <span id="loader"></span>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
                 <div class="heading">
                     <h1> BÀI HÁT </h1>
 
                 </div>
+
                 <div class="bxh">
                     <div class="d-flex bd-highlight mb-2 bxh-item" data-index="0">
                         <p class="bd-highlight bxh-ranking p-2">01</p>
@@ -556,7 +595,6 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="script.js"></script>
     <script type="module" src="js/home-song.js"></script>
 
 

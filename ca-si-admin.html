@@ -84,8 +84,11 @@
                     </label>
 
                     <ul class="dropdown__items">
-                        <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Đổi mật khẩu"><i
-                                    class="fa-solid fa-key"></i></a></li>
+                        <li><a id="myBtn" type="button" href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="Đổi mật khẩu">
+                            <i class="fa-solid fa-key"></i>
+                        </a>
+                        </li>
                         <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Upload bài hát"><i
                                     class="fa-solid fa-cloud-arrow-up"></i></a></li>
                         <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Đăng xuất"><i
@@ -107,6 +110,38 @@
         </div>
 
         <div class="main ">
+            <!-- The Modal -->
+            <div id="myModal" class="modall">
+
+                <!-- Modal content -->
+                <div class="modall-content">
+                    <span class="close-modal">&times;</span>
+                    <div id="signupForm">
+                        <h2 class="formTitle">
+                            Thay đổi mật khẩu
+                        </h2>
+
+                        <div class="inputDiv">
+                            <label class="inputLabel" for="password">New Password</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+
+                        <div class="inputDiv">
+                            <label class="inputLabel" for="confirmPassword">Confirm
+                                Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword">
+                        </div>
+
+                        <div class="buttonWrapper">
+                            <button id="submitButton" class="submitButton pure-button pure-button-primary">
+                                <span>Continue</span>
+                                <span id="loader"></span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 
             <div class="rcnt_slider mt-5">
                 <div class="heading mb-3 mt-2">
@@ -119,7 +154,7 @@
 
                             <div class="details-modal-overlay"></div>
                         </summary>
-                        <div class="details-modal">
+                        <div class="details-modal add-song">
                             <div class="details-modal-close">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"
                                     fill="none">
@@ -142,17 +177,9 @@
                                         <textarea type="text" class="form-control input-lyric"></textarea>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="inputState" class="form-label">Nghệ sĩ</label>
-                                        <select id="inputState" class="form-select input-artist" multiple size=3>
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
                                         <label for="inputState" class="form-label">Thể loại</label>
                                         <select id="inputState" class="form-select input-genres">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
+                                            
                                         </select>
                                     </div>
                                     <div class="col-12 text-center">
@@ -161,8 +188,6 @@
                                     </div>
                                     <div class="col-12 text-center">
                                         <button class="btn btn-primary btn-save" style="line-height: 1;">Lưu</button>
-                                        <button class="btn btn-primary" style="line-height: 1;"
-                                            onclick="location.reload()">Reset</button>
                                     </div>
 
                                 </div>
@@ -177,7 +202,7 @@
                     <table class="table table-dark table-striped">
                         <thead>
                             <tr>
-                                <th>Avatar</th>
+                                <th>Image</th>
                                 <th>ID</th>
                                 <th>Tên bài hát</th>
                                 <th>Lượt nghe</th>
@@ -202,6 +227,7 @@
 
                                             <div class="details-modal-overlay"></div>
                                         </summary>
+
                                         <div class="details-modal" style="color: #14182a;">
                                             <div class="details-modal-close">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
@@ -257,32 +283,180 @@
                                         </div>
                                     </details>
 
-                                    <div class="buttonn-edit" style="color: red;">
+                                    <div class="buttonn-del" style="color: red;">
                                         <i class="far fa-trash-alt"></i>
                                     </div>
                                 </td>
                             </tr>
 
+                            <tr>
+                                <td><img src="./ava.png" style="width: 50px; border-radius: 5px;" alt="">
+
+                                <td>Doe</td>
+                                <td>john@example.com</td>
+                                <td>john@example.com</td>
+                                <td class="text-end" data-index="${album.id}">
+                                    <details>
+                                        <summary>
+
+                                            <div class="buttonn-edit">
+
+                                                <i class="far fa-edit"></i>
+                                            </div>
+
+                                            <div class="details-modal-overlay"></div>
+                                        </summary>
+                                        
+                                        <div class="details-modal" style="color: #14182a;">
+                                            <div class="details-modal-close">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                                    viewBox="0 0 14 14" fill="none">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M13.7071 1.70711C14.0976 1.31658 14.0976 0.683417 13.7071 0.292893C13.3166 -0.0976311 12.6834 -0.0976311 12.2929 0.292893L7 5.58579L1.70711 0.292893C1.31658 -0.0976311 0.683417 -0.0976311 0.292893 0.292893C-0.0976311 0.683417 -0.0976311 1.31658 0.292893 1.70711L5.58579 7L0.292893 12.2929C-0.0976311 12.6834 -0.0976311 13.3166 0.292893 13.7071C0.683417 14.0976 1.31658 14.0976 1.70711 13.7071L7 8.41421L12.2929 13.7071C12.6834 14.0976 13.3166 14.0976 13.7071 13.7071C14.0976 13.3166 14.0976 12.6834 13.7071 12.2929L8.41421 7L13.7071 1.70711Z"
+                                                        fill="black" />
+                                                </svg>
+                                            </div>
+                                            <div class="details-modal-title">
+                                                <h1>Sửa bài hát</h1>
+                                            </div>
+                                            <div class="details-modal-content">
+                                                <div class="row g-3">
+                                                    <div class="col-12">
+                                                        <label for="inputEmail4" class="form-label">Tên bài hát</label>
+                                                        <input type="text" class="form-control input-name">
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <label for="inputEmail4" class="form-label">Lyrics</label>
+                                                        <textarea type="text"
+                                                            class="form-control input-lyric"></textarea>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="inputState" class="form-label">Nghệ sĩ</label>
+                                                        <select id="inputState" class="form-select input-artist"
+                                                            multiple size=3>
+                                                            <option selected>Choose...</option>
+                                                            <option>...</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="inputState" class="form-label">Thể loại</label>
+                                                        <select id="inputState" class="form-select input-genres">
+                                                            <option selected>Choose...</option>
+                                                            <option>...</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-12 text-center">
+                                                        <input type="file" class="btn btn-primary"
+                                                            style="line-height: 1;" id="files" name="files"
+                                                            accept="image/png, image/jpeg, audio/mp3" multiple>
+                                                    </div>
+                                                    <div class="col-12 text-center">
+                                                        <button class="btn btn-primary btn-save"
+                                                            style="line-height: 1;">Lưu</button>
+                                                        <button class="btn btn-primary" style="line-height: 1;"
+                                                            onclick="location.reload()">Reset</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </details>
+
+                                    <div class="buttonn-del" style="color: red;">
+                                        <i class="far fa-trash-alt"></i>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><img src="./ava.png" style="width: 50px; border-radius: 5px;" alt="">
+
+                                <td>Doe</td>
+                                <td>john@example.com</td>
+                                <td>john@example.com</td>
+                                <td class="text-end" data-index="${album.id}">
+                                    <details>
+                                        <summary>
+
+                                            <div class="buttonn-edit">
+
+                                                <i class="far fa-edit"></i>
+                                            </div>
+
+                                            <div class="details-modal-overlay"></div>
+                                        </summary>
+                                        
+                                        <div class="details-modal" style="color: #14182a;">
+                                            <div class="details-modal-close">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                                    viewBox="0 0 14 14" fill="none">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M13.7071 1.70711C14.0976 1.31658 14.0976 0.683417 13.7071 0.292893C13.3166 -0.0976311 12.6834 -0.0976311 12.2929 0.292893L7 5.58579L1.70711 0.292893C1.31658 -0.0976311 0.683417 -0.0976311 0.292893 0.292893C-0.0976311 0.683417 -0.0976311 1.31658 0.292893 1.70711L5.58579 7L0.292893 12.2929C-0.0976311 12.6834 -0.0976311 13.3166 0.292893 13.7071C0.683417 14.0976 1.31658 14.0976 1.70711 13.7071L7 8.41421L12.2929 13.7071C12.6834 14.0976 13.3166 14.0976 13.7071 13.7071C14.0976 13.3166 14.0976 12.6834 13.7071 12.2929L8.41421 7L13.7071 1.70711Z"
+                                                        fill="black" />
+                                                </svg>
+                                            </div>
+                                            <div class="details-modal-title">
+                                                <h1>Sửa bài hát</h1>
+                                            </div>
+                                            <div class="details-modal-content">
+                                                <div class="row g-3">
+                                                    <div class="col-12">
+                                                        <label for="inputEmail4" class="form-label">Tên bài hát</label>
+                                                        <input type="text" class="form-control input-name">
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <label for="inputEmail4" class="form-label">Lyrics</label>
+                                                        <textarea type="text"
+                                                            class="form-control input-lyric"></textarea>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="inputState" class="form-label">Nghệ sĩ</label>
+                                                        <select id="inputState" class="form-select input-artist"
+                                                            multiple size=3>
+                                                            <option selected>Choose...</option>
+                                                            <option>...</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="inputState" class="form-label">Thể loại</label>
+                                                        <select id="inputState" class="form-select input-genres">
+                                                            <option selected>Choose...</option>
+                                                            <option>...</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-12 text-center">
+                                                        <input type="file" class="btn btn-primary"
+                                                            style="line-height: 1;" id="files" name="files"
+                                                            accept="image/png, image/jpeg, audio/mp3" multiple>
+                                                    </div>
+                                                    <div class="col-12 text-center">
+                                                        <button class="btn btn-primary btn-save"
+                                                            style="line-height: 1;">Lưu</button>
+                                                        <button class="btn btn-primary" style="line-height: 1;"
+                                                            onclick="location.reload()">Reset</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </details>
+
+                                    <div class="buttonn-del" style="color: red;">
+                                        <i class="far fa-trash-alt"></i>
+                                    </div>
+                                </td>
+                            </tr>
 
                         </tbody>
                     </table>
                 </div>
-                <div class="wrapper mt-5">
-                    <ul class="pagination">
-                        <li class="pagination__item"><a href="#" class="pagination__link is_active">1</a></li>
-                        <li class="pagination__item"><a href="#" class="pagination__link">2</a></li>
-                        <li class="pagination__item"><a href="#" class="pagination__link">3</a></li>
-                        <li class="pagination__item"><a href="#" class="pagination__link">4</a></li>
-                        <li class="pagination__item"><a href="#" class="pagination__link">5</a></li>
-                        <li class="pagination__item"><a href="#" class="pagination__link">6</a></li>
-                    </ul>
-                </div>
+
             </div>
 
         </div>
     </div>
     <!-- <script type="text/javascript" src="script.js"></script> -->
-    <script type="module" src="./js/home-playlist.js"></script>
+    <script type="module" src="./js/home-upload.js"></script>
 
 </body>
 

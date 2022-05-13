@@ -1,4 +1,7 @@
 import { urlAPI } from "./config.js"
+import {logoutAdmin, handleModal} from "./home-user.js"
+
+
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
 const btnSave = $('.btn-save')
@@ -17,6 +20,8 @@ function start(){
     id = params.get("id");
     getData()
     updateData()
+    logoutAdmin()
+    handleModal()
 }
 start()
 
@@ -106,7 +111,6 @@ function updateData(){
                                 .map(function(option){
                                     return listArtists[Number(option.value)]
                                 })
-        // console.log(artistSelected)
         data.title = inputName.value
         data.lyrics = inputLyric.value
         data.genres = listGenres[Number(inputGenres.value)]
@@ -116,7 +120,6 @@ function updateData(){
             artistArray.artists = artistSelected[i]
             data.artistSongs[i] = artistArray
         }
-        console.log(data)
 
         let formdata = new FormData();
         formdata.append("song", JSON.stringify(data))

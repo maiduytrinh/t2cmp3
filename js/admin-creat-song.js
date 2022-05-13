@@ -1,4 +1,7 @@
 import { urlAPI } from "./config.js"
+import {logoutAdmin, handleModal} from "./home-user.js"
+
+
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
 const btnSave = $('.btn-save')
@@ -13,6 +16,8 @@ let data = {}
 
 function start(){
     getData()
+    logoutAdmin()
+    handleModal()
 }
 start()
 

@@ -129,17 +129,17 @@ export function callAPIArtist(page, size, url, paginationArtist, search){
 }
 
 export function callAPISong(page, size, url, songListElement, paginationSong, search){
-    var myHeaders = new Headers();
+    let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({
+    let raw = JSON.stringify({
     "page": page,
     "size": size,
     "order": "",
     "search": search
     });
 
-    var requestOptions = {
+    let requestOptions = {
     method: 'POST',
     headers: myHeaders,
     body: raw,

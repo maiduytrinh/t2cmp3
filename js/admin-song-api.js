@@ -1,13 +1,13 @@
 import { urlAPI } from "./config.js"
+import {logoutAdmin, handleModal} from "./home-user.js"
+
+
 const $$ = document.querySelectorAll.bind(document)
 const $ = document.querySelector.bind(document)
 const tableSong = $('.table-striped tbody')
-const numPage = $('.number-page')
-const numSong = $('.number-song')
-const formSelect = $('.form-select')
-const btnNext = $('.next-page')
-const btnPrev = $('.prev-page')
 const inputSearch = $('.input-search')
+const pagination = $('.pagination')
+
 let page = 1
 let size = 10
 let search =''
@@ -15,47 +15,18 @@ let search =''
 function start() {
     callGetAPI(page, size)
     handleSearch()
+    logoutAdmin()
+    handleModal()
 }
 start()
 
-function handlePagination(totalPages){
-    formSelect.onchange = function(){
-        page = 1
-        callGetAPI(page, formSelect.value, search)
-
-    }
-
-    numPage.onclick = function(e){
-        let pageNode = e.target.closest('.page-item:not(.active)')
-        if(pageNode) {
-            page = pageNode.dataset.index
-            callGetAPI(page, size)
-        }
-    }
-
-    btnNext.onclick = function(){
-        if(page < totalPages){
-            page++
-            callGetAPI(page, size)
-        }
-    }
-
-    btnPrev.onclick = function(){
-        if(page > 1){
-            page--
-            callGetAPI(page, size)
-        }
-    }
-
-}
-
-function loadCurrentPage(){
-    const isActive = $('.number-page .page-item.active')
+function loadCurrentPage(pagination, page){
+    const isActive = pagination.querySelector(".pagination__link.is_active")
     if (isActive) {
-      isActive.classList.remove('active')
+      isActive.classList.remove('is_active')
     }
-    const listElement = $$('.number-page .page-item')
-    listElement[page - 1].classList.add('active')
+    const listElement = pagination.querySelectorAll(".pagination__link")
+    listElement[page - 1].classList.add('is_active')
 }
 
 function callGetAPI(page, size, search){
@@ -101,14 +72,19 @@ function callGetAPI(page, size, search){
                     </tr>`
         })
         tableSong.innerHTML = html.join('')
-        numSong.innerHTML = `Tổng ${result.totalElements} bài hát`
         let htmlPage = ''
         for(let i = 1; i <= result.totalPages; i++){
-            htmlPage += `<li class="page-item" data-index="${i}"><a class="page-link" href="#">${i}</a></li>`
+            htmlPage += `<li class="pagination__item"><a href="#" class="pagination__link"  data-index="${i}">${i}</a></li>`
         }
-        numPage.innerHTML = htmlPage
-        handlePagination(result.totalPages)
-        loadCurrentPage()
+        pagination.innerHTML = htmlPage
+        loadCurrentPage(pagination, page)
+        pagination.onclick = function(e){
+            let pageNode = e.target.closest('.pagination__link:not(.is_active)')
+            if(pageNode) {
+                page = pageNode.dataset.index
+                callGetAPI(page, size, search)
+            }
+        }
         callDelAPI()
     })
     .catch(error => console.log('error', error));

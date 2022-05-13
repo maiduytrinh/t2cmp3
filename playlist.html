@@ -84,8 +84,11 @@
                     </label>
 
                     <ul class="dropdown__items">
-                        <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Đổi mật khẩu"><i
-                                    class="fa-solid fa-key"></i></a></li>
+                        <li><a id="myBtn" type="button" href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="Đổi mật khẩu">
+                            <i class="fa-solid fa-key"></i>
+                        </a>
+                        </li>
                         <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Upload bài hát"><i
                                     class="fa-solid fa-cloud-arrow-up"></i></a></li>
                         <li><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Đăng xuất"><i
@@ -107,7 +110,38 @@
         </div>
 
         <div class="main ">
+            <!-- The Modal -->
+            <div id="myModal" class="modall">
 
+                <!-- Modal content -->
+                <div class="modall-content">
+                    <span class="close-modal">&times;</span>
+                    <div id="signupForm">
+                        <h2 class="formTitle">
+                            Thay đổi mật khẩu
+                        </h2>
+
+                        <div class="inputDiv">
+                            <label class="inputLabel" for="password">New Password</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+
+                        <div class="inputDiv">
+                            <label class="inputLabel" for="confirmPassword">Confirm
+                                Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword">
+                        </div>
+
+                        <div class="buttonWrapper">
+                            <button id="submitButton" class="submitButton pure-button pure-button-primary">
+                                <span>Continue</span>
+                                <span id="loader"></span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
             <div class="rcnt_slider mt-5">
                 <div class="heading mb-3 mt-4">
                     <h1> Danh sách Playlist </h1>
@@ -115,7 +149,7 @@
                         <a href="#" class="btn btn-sm btn-primary ms-3">
                             Thêm mới
                         </a>
-                        <div id="myModal" class="modall">
+                        <div id="myModal1" class="modall">
                             <div class="modall-content">
                                 <div id="signupForm">
                                     <h2 class="formTitle">
@@ -128,7 +162,7 @@
                                     </div>
 
                                     <div class="buttonWrapper">
-                                        <button type="submit" id="submitButton"
+                                        <button type="submit" id="submitButton1"
                                             class="submitButton pure-button pure-button-primary">
                                             <span>Thêm mới</span>
                                             <span id="loader"></span>
